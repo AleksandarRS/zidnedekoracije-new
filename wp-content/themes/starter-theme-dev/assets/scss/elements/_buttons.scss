@@ -1,0 +1,53 @@
+.button {
+	border: 1px solid;
+	color: $white;
+	display: inline-block;
+	padding: 10px 28px;
+	transition: all 0.5s;
+	vertical-align: middle;
+	&.button-primary {
+		background-color: $primary-color;
+		border-color: $primary-color;
+		&:hover {
+			background-color: $white;
+			color: $primary-color;
+		}
+	}
+
+	&.button-secondary {
+		background-color: $secondary-color;
+		border-color: $secondary-color;
+		&:hover {
+			background-color: $white;
+			color: $secondary-color;
+		}
+	}
+
+	&.button-tertiary {
+		background-color: $tertiary-color;
+		border-color: $tertiary-color;
+		&:hover {
+			background-color: $white;
+			color: $tertiary-color;
+		}
+	}
+	&.button-transparent {
+		background-color: transparent;
+		border-color: $white;
+		color: $white;
+		&:hover {
+			background-color: $white;
+			color: $secondary-color;
+		}
+	}
+	&.button-arrow {
+		i {
+			display: inline-block;
+			font-size: $font-size-xsmall - 1;
+			margin-left: 5px;
+			position: relative;
+			top: -1px;
+			vertical-align: middle;
+		}
+	}
+}

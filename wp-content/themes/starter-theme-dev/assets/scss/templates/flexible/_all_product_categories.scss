@@ -1,0 +1,28 @@
+.term-featured-image {
+    height: 480px;
+}
+.all-products-section-wrapper {
+    padding-bottom: 72px;
+    padding-top: 72px;
+}
+.product-cards-wrapper {
+    color: $primary-color;
+    padding-top: 3px;
+    a {
+        color: $primary-color;
+    }
+    .product-card-title {
+        font-size: $font-size-large;
+        margin-bottom: 0.2em;
+        margin-top: 0.6em;
+    }
+    .link {
+        display: block;
+        padding-top: 18px;
+    }
+}
+.main-title-section-heading {
+    .title-label {
+        color: $tertiary-color;
+    }
+}

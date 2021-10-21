@@ -1,0 +1,113 @@
+.site-header {
+    position: relative;
+    &:after {
+        background-color: $gray-200;
+        content: '';
+        height: 40px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 65%;
+        z-index: 0;
+    }
+    > div {
+        position: relative;
+        z-index: 1;
+    }
+}
+.site-branding {
+    max-width: 90px;
+    padding-bottom: 6px;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.header-contact-info-nav-wrap {
+    .header-details-wrapper {
+        color: $secondary-color-500;
+        display: flex;
+        font-size: $font-size-small;
+        justify-content: flex-end;
+        letter-spacing: -0.5px;
+        padding: 10px;
+        .header-contact-phone {
+            margin-right: 26px;
+        }
+        a {
+            color: $secondary-color-500;
+            &:hover {
+                color: $tertiary-color;
+            }
+        }
+    }
+}
+.header-search {
+    .header-search-position {
+        top: -100%;
+        transition: all .5s;
+        .search-opened & {
+            top: 0;
+        }
+    }
+    > i {
+        font-size: $font-size-xlarge;
+        color: $tertiary-color;
+    }
+    > .icon-search-plus {
+        display: flex;
+        .search-opened & {
+            display: none;
+        }
+    }
+    .icon-times {
+        display: none;
+        .search-opened & {
+            display: flex;
+        }
+    }
+    .toggle-icon {
+        position: relative;
+        z-index: 999999;
+    }
+}
+
+#masthead {
+    .main-header-nav-search-wrap {
+        align-items: center;
+        display: flex;
+        padding-top: 14px;
+        padding-right: 10px;
+    }
+    .header-search {
+        .header-search-position {
+            background-color: $white;
+            height: 100%;
+            left: 0;
+            padding-top: 18vh;
+            position: fixed;
+            right: 0;
+            text-align: center;
+            z-index: 99;
+        }
+        i {
+            cursor: pointer;
+        }
+        .search-field {
+            border-bottom: 2px solid $tertiary-color;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            font-size: $font-size-large + 50;
+        }
+        .submit-button-search {
+            background-color: transparent;
+            border: none;
+            color: $tertiary-color;
+            font-size: $font-size-large + 50;
+            transition: color 0.5s;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+    }
+}

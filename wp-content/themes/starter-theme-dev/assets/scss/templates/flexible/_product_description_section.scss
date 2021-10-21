@@ -1,0 +1,23 @@
+.product-description-section-wrapper {
+    padding: 72px 0;
+    .product-description-section-content-inner {
+        background-color: $white;
+        padding: 15px;
+        h1, h2, h3, h4, h5, h6 {
+            letter-spacing: -1.3px;
+            &:first-of-type {
+                margin: 0.15em 0 0.4em 0;
+            }
+        }
+        p {
+            margin-bottom: 1.5em;
+            letter-spacing: -0.5px;
+            &:last-child {
+                margin-bottom: 1.1em;
+            }
+        }
+    }
+    .title-label {
+        color: $tertiary-color;
+    }
+}

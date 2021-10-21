@@ -1,0 +1,104 @@
+.products-featured-img-wrap {
+    height: 780px;
+    min-height: 70vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &:after {
+        content: '';
+        background: $secondary-color;
+        background: -webkit-linear-gradient(to top, $secondary-color 0%, transparent 100%);
+        background: -moz-linear-gradient(to top, $secondary-color 0%, transparent 100%);
+        background: linear-gradient(to top, $secondary-color 0%, transparent 100%);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+    }
+}
+.products-slider-item {
+    position: relative;
+}
+.products-heading-excerpt-button-wraper {
+    bottom: 0;
+    color: $white;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    .products-title {
+        max-width: 40%;
+    }
+    > div {
+        position: relative;
+        z-index: 1;
+    }
+    &:after {
+        backdrop-filter: blur(10px);
+        background-color: rgba($color: $white, $alpha: 0.05);
+        bottom: 0;
+        content: '';
+        height: 375px;
+        left: 0;
+        min-height: 30vh;
+        position: absolute;
+        width: 43%;
+        z-index: 0;
+    }
+}
+.title-label {
+    font-size: $font-size-small;
+    text-transform: uppercase;
+    font-family: $secondary-font;
+}
+.product-details-wrap {
+    padding-top: 25px;
+    padding-bottom: 46px;
+    padding-left: 5px;
+    .products-description {
+        padding-bottom: 68px;
+        letter-spacing: 1.2px;
+    }
+}
+.products-heading-excerpt-wrap {
+    .title-label {
+        display: block;
+        letter-spacing: -0.6px;
+        padding-bottom: 8px;
+    }
+    .entry-title {
+        font-size: $font-size-h1-large;
+        letter-spacing: -2.2px;
+        margin: 0;
+    }
+    .entry-content {
+        margin-top: 0.7em;
+    }
+}
+.products-slider-wrapper {
+    position: relative;
+    .slick-dots {
+        display: none !important;
+    }
+    .slider__counter {
+        color: $white;
+        font-size: $font-size-h1-large + 10;
+        position: absolute;
+        @extend %right-calc;
+        top: 73px;
+        transform: rotate(-90deg);
+        span {
+            display: inline-block;
+            &:first-of-type {
+                font-family: $secondary-font;
+            }
+            &:last-of-type {
+                font-size: $font-size-h2;
+                vertical-align: top;
+            }
+        }
+    }
+}

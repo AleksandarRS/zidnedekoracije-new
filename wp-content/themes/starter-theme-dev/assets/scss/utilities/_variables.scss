@@ -1,0 +1,54 @@
+// Container widths
+$container-wide-width: 1830px;
+$container-width: 1355px;
+$container-narrow-width: 990px;
+
+// Colors
+$primary-color:		#7E7E8B;
+$secondary-color:	#2F2F40;
+$secondary-color-500:	#202024;
+$tertiary-color:	#CE1E2C;
+$white:				#ffffff;
+$black:				#000000;
+
+$gray-200:				#F7F7F7;
+$gray:				#aeaeae;
+
+// Fonts
+$primary-font: 'Sofia Pro';
+$secondary-font: 'Sofia Pro Bold';
+
+// Font Sizes
+$font-size-xsmall:	12px;
+$font-size-small:	14px;
+$font-size-base:	16px;
+$font-size-large:	18px;
+$font-size-xlarge:	20px;
+
+// Heading sizes
+$font-size-h1-large: 50px;
+$font-size-h1: 35px;
+$font-size-h2: 35px;
+$font-size-h3: 35px;
+$font-size-h4: 18px;
+$font-size-h5: 18px;
+$font-size-h6: 17px;
+
+// Breakpoints
+$mac: 1440px;
+$lt: 1366px;
+$ls: 1280px;
+$lg: 1199px;
+$md: 991px;
+$sm: 767px;
+$mb: 480px;
+$ip: 420px;
+$xs: 350px;
+
+// Navigation config
+$responsive-toggle-breakpoint: $lg;
+$toggle-menu-height: 20px;
+$toggle-menu-width: 25px;
+$toggle-menu-bar-height: 3px;
+$toggle-menu-bar-color: $primary-color;
+$toggle-menu-bar-active-color: transparent;

@@ -1,0 +1,58 @@
+%gradient-to-bottom {
+    background-image: -ms-linear-gradient(top, #35393B 0%, #282828 100%);
+    background-image: -moz-linear-gradient(top, #35393B 0%, #282828 100%);
+    background-image: -o-linear-gradient(top, #35393B 0%, #282828 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #35393B), color-stop(100, #282828));
+    background-image: -webkit-linear-gradient(top, #35393B 0%, #282828 100%);
+    background-image: linear-gradient(to bottom, #35393B 0%, #282828 100%);
+}
+
+%box-shadow {
+    box-shadow: 0px 0px 14px 0px rgba($color: $black, $alpha: 0.82);
+}
+
+%margin-auto-positioning {
+    margin-left: auto;
+    margin-right: auto;
+}
+%center-auto-positioning {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+%flex-center {
+    align-items: center;
+    display: flex;
+}
+
+%left-calc-padding {
+    padding-left: calc(50vw - ( #{$container-width} / 2 ) + 8px);
+    width: 100%;
+    @include max-mq ($ls) {
+        padding-left: 15px;
+    }
+}
+
+%right-calc-padding {
+    padding-right: calc(50vw - ( #{$container-width} / 2 ) + 8px);
+    width: 100%;
+    @include max-mq ($ls) {
+        padding-right: 15px;
+    }
+}
+
+%left-calc {
+    left: calc(50vw - ( #{$container-width} / 2 ) - 55px);
+    @include max-mq ($ls) {
+        left: 15px;
+    }
+}
+
+%right-calc {
+    right: calc(50vw - ( #{$container-width} / 2 ) - 55px);
+    @include max-mq ($ls) {
+        right: 15px;
+    }
+}

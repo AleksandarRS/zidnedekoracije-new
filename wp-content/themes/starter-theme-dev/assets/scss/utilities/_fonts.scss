@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Sofia Pro Bold';
+    src: url('../assets/fonts/Sofia-Pro/SofiaPro-Bold.eot');
+    src: url('../assets/fonts/Sofia-Pro/SofiaPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/Sofia-Pro/SofiaPro-Bold.woff2') format('woff2'),
+        url('../assets/fonts/Sofia-Pro/SofiaPro-Bold.woff') format('woff'),
+        url('../assets/fonts/Sofia-Pro/SofiaPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sofia Pro';
+    src: url('../assets/fonts/Sofia-Pro/SofiaPro.eot');
+    src: url('../assets/fonts/Sofia-Pro/SofiaPro.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/Sofia-Pro/SofiaPro.woff2') format('woff2'),
+        url('../assets/fonts/Sofia-Pro/SofiaPro.woff') format('woff'),
+        url('../assets/fonts/Sofia-Pro/SofiaPro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}

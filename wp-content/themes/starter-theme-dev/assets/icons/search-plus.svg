@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="Icon_feather-search" data-name="Icon feather-search" transform="translate(-3 -3)">
+    <path id="Path_1" data-name="Path 1" d="M11.965,3a8.965,8.965,0,1,1-6.34,2.626A8.907,8.907,0,0,1,11.965,3Zm0,15.939a6.973,6.973,0,1,0-6.973-6.973A6.981,6.981,0,0,0,11.965,18.939Z" fill="#ce1e2c"/>
+    <path id="Path_2" data-name="Path 2" d="M29.01,30.044a1.031,1.031,0,0,1-.732-.3l-4.5-4.5a1.035,1.035,0,0,1,1.463-1.463l4.5,4.5a1.035,1.035,0,0,1-.732,1.766Z" transform="translate(-7.044 -7.044)" fill="#ce1e2c"/>
+  </g>
+</svg>

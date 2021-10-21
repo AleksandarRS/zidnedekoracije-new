@@ -1,0 +1,33 @@
+.link {
+    &.link-tertiary {
+        color: $tertiary-color;
+        span {
+            color: $tertiary-color;
+            transition: color 0.5s;
+        }
+        &:hover {
+            span {
+                color: $secondary-color;
+            }
+            i {
+                color: $secondary-color;
+            }
+        }
+    }
+    &.link-arrow {
+        &:hover {
+            i {
+                margin-left: 12px;    
+            }
+        }
+        i {
+			display: inline-block;
+			font-size: $font-size-xsmall - 1;
+			margin-left: 7px;
+			top: -1px;
+            transition: all 0.5s;
+			vertical-align: middle;
+            position: relative;
+        }
+    }
+}
