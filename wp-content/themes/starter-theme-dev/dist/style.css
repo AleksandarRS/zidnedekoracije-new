@@ -4250,6 +4250,7 @@ fieldset {
 }
 
 .products-heading-excerpt-wrap .entry-title {
+  color: #ffffff;
   font-size: 50px;
   letter-spacing: -2.2px;
   margin: 0;
@@ -4446,6 +4447,16 @@ fieldset {
 
 .product-description-section-wrapper .title-label {
   color: #CE1E2C;
+}
+
+.product-description-repeater-section .product-description-repeater-item {
+  background-color: #ffffff;
+  padding: 15px;
+  margin-bottom: 25px;
+}
+
+.product-description-repeater-section .product-description-repeater-item h5 {
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

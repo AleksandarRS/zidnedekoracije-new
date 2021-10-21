@@ -21,3 +21,14 @@
         color: $tertiary-color;
     }
 }
+
+.product-description-repeater-section {
+    .product-description-repeater-item {
+        background-color: $white;
+        padding: 15px;
+        margin-bottom: 25px;
+        h5 {
+            margin: 0;
+        }
+    }
+}
