@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts.
  *
- * @package Starter
+ * @package mwns
  */
 
 get_header(); ?>

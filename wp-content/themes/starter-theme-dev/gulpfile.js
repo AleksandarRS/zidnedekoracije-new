@@ -56,8 +56,8 @@ let config = (function(){
 		/***********************************************************************
 		/** Translation related; NOTE: Leave empty to inherit from project_name above
 		/***********************************************************************/
-		text_domain: '' || project_name, // Example: 'starter' #lowercase, separated by underscore or dash ( _ or - )
-		packageName: '' || project_name, // Example: 'Starter package' #Capitalized
+		text_domain: '' || project_name, // Example: 'mwns' #lowercase, separated by underscore or dash ( _ or - )
+		packageName: '' || project_name, // Example: 'mwns package' #Capitalized
 	
 		flags: {
 			production: !!gutil.env.production,

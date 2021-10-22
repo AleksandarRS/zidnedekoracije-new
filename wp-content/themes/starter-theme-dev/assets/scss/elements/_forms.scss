@@ -1,33 +1,59 @@
 
-input[type='text'],
-input[type='email'],
-input[type='url'],
-input[type='password'],
-input[type='search'],
-input[type='number'],
-input[type='tel'],
-input[type='range'],
-input[type='date'],
-input[type='month'],
-input[type='week'],
-input[type='time'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='color'],
-textarea {
-  border: 1px solid;
-  border-radius: 0;
-  font-size: $font-size-base;
-  line-height: 1em;
-  padding: 10px;
-  vertical-align: middle;
+.site-content {
+  input[type='text'],
+  input[type='email'],
+  input[type='url'],
+  input[type='password'],
+  input[type='search'],
+  input[type='number'],
+  input[type='tel'],
+  input[type='range'],
+  input[type='date'],
+  input[type='month'],
+  input[type='week'],
+  input[type='time'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[type='color'] {
+    box-shadow: none;
+    height: 50px;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='url'],
+  input[type='password'],
+  input[type='search'],
+  input[type='number'],
+  input[type='tel'],
+  input[type='range'],
+  input[type='date'],
+  input[type='month'],
+  input[type='week'],
+  input[type='time'],
+  input[type='datetime'],
+  input[type='datetime-local'],
+  input[type='color'],
+  textarea {
+    border: 1px solid $gray-300;
+    border-radius: 0;
+    font-size: $font-size-base;
+    line-height: 1em;
+    padding: 10px;
+    vertical-align: middle;
+    .newsletter-section-inner & {
+      font-size: $font-size-xlarge;
+    }
+  }
+  
+  textarea {
+    resize: none;
+    padding-left: .6em;
+    width: 100%;
+  }
 }
 
-textarea {
-  resize: none;
-  padding-left: .6em;
-  width: 100%;
-}
+
 
 button,
 input[type='button'],
@@ -42,28 +68,60 @@ input[type='submit'] {
   vertical-align: middle;
 }
 
+.frm_form_fields {
+  font-family: $primary-font;
+  .frm_primary_label,
+  label {
+    font-size: $font-size-xsmall;
+    color: $secondary-color;
+    font-family: $primary-font;
+  }
+}
+
+
 
 /*---- Placeholder ----*/
 ::-webkit-input-placeholder {
   opacity: 1;
+  color: $gray-100 !important;
+  font-family: $primary-font;
+  font-weight: 400 !important;
 }
 \:-moz-placeholder {
   opacity: 1;
+  color: $gray-100 !important;
+  font-family: $primary-font;
+  font-weight: 400 !important;
 }
 ::-moz-placeholder {
   opacity: 1;
+  color: $gray-100 !important;
+  font-family: $primary-font;
+  font-weight: 400 !important;
 }
 \:-ms-input-placeholder {
   opacity: 1;
+  color: $gray-100 !important;
+  font-family: $primary-font;
+  font-weight: 400 !important;
 }
 *::-webkit-input-placeholder {
   opacity: 1;
+  color: $gray-100 !important;
+  font-family: $primary-font;
+  font-weight: 400 !important;
 }
 *:-moz-placeholder {
   opacity: 1;
+  color: $gray-100 !important;
+  font-family: $primary-font;
+  font-weight: 400 !important;
 }
 *:-ms-input-placeholder {
   opacity: 1;
+  color: $gray-100 !important;
+  font-family: $primary-font;
+  font-weight: 400 !important;
 }
 
 fieldset {

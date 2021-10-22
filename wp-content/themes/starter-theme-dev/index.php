@@ -8,7 +8,7 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Starter
+ * @package mwns
  */
 
 get_header(); ?>
@@ -37,7 +37,7 @@ get_header(); ?>
 						?>
 					<?php endwhile; ?>
 
-					<?php starter_post_navigation(); ?>
+					<?php mwns_post_navigation(); ?>
 
 				<?php else : ?>
 

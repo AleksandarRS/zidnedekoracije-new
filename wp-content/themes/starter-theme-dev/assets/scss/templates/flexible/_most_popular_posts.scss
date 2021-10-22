@@ -1,0 +1,36 @@
+.most-popular-posts-section-wrapper {
+    padding: 72px 0;
+    .post-featured-img-wrap {
+        overflow: hidden;
+        .post-featured-img {
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 303px;    
+            transition: all .5s;
+        }
+    }
+    .post-heading-excerpt-button-wraper {
+        padding-top: 11px;
+    }
+    .posts-items-cards-item {
+        > a {
+            &:hover {
+                .post-featured-img {
+                    transform: scale(1.05);
+                }
+            }
+        }
+        .entry-title {
+            color: $secondary-color;
+            font-size: $font-size-large;
+            font-weight: 400;
+            letter-spacing: -0.15px;
+        }
+        .entry-content {
+            p {
+                color: $primary-color;
+            }
+        }
+    }
+    
+}

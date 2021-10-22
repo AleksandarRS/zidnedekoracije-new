@@ -28,7 +28,7 @@
 }
 
 %left-calc-padding {
-    padding-left: calc(50vw - ( #{$container-width} / 2 ) + 8px);
+    padding-left: calc(50vw - ( #{$container-width} / 2 ) - 7px);
     width: 100%;
     @include max-mq ($ls) {
         padding-left: 15px;
@@ -36,7 +36,7 @@
 }
 
 %right-calc-padding {
-    padding-right: calc(50vw - ( #{$container-width} / 2 ) + 8px);
+    padding-right: calc(50vw - ( #{$container-width} / 2 ) - 7px);
     width: 100%;
     @include max-mq ($ls) {
         padding-right: 15px;
@@ -44,14 +44,14 @@
 }
 
 %left-calc {
-    left: calc(50vw - ( #{$container-width} / 2 ) - 55px);
+    left: calc(50vw - ( #{$container-width} / 2 ) - 3px);
     @include max-mq ($ls) {
         left: 15px;
     }
 }
 
 %right-calc {
-    right: calc(50vw - ( #{$container-width} / 2 ) - 55px);
+    right: calc(50vw - ( #{$container-width} / 2 ) - 3px);
     @include max-mq ($ls) {
         right: 15px;
     }

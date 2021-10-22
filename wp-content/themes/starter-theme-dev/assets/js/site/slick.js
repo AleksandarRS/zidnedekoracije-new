@@ -18,6 +18,8 @@ module.exports = {
 	-------------------------------------------------------------------------------*/
 	$dom: {
 		slickSliderProducts: $(".products-slider-wrapper"),
+		slickSliderTestimonials: $(".testimonials-slider"),
+		slickSliderPagination: $(".slick-slider-dots"),
 	},
 	
 
@@ -36,6 +38,8 @@ module.exports = {
 		// 	prevArrow: "<button type='button' class='slick-prev pull-left'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
 		// 	nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
 		// });
+
+		
 		
 		if ($(".products-slider-wrapper").length) {
 			var currentSlide;
@@ -43,19 +47,19 @@ module.exports = {
 			var sliderCounter = document.createElement('div');
 			sliderCounter.classList.add('slider__counter');
 			
-			var updateSliderCounter = function(slick, currentIndex) {
-			  currentSlide = slick.slickCurrentSlide() + 1;
-			  slidesCount = slick.slideCount;
-			  $(sliderCounter).html('<span>' + currentSlide + '/</span>' + '<span>' + slidesCount + '</span>')
+			var updateSliderCounter = function(slick) {
+				currentSlide = slick.slickCurrentSlide() + 1;
+				slidesCount = slick.slideCount;
+				$(sliderCounter).html('<span>' + currentSlide + '/</span>' + '<span>' + slidesCount + '</span>')
 			};
 		  
 			$(".products-slider-wrapper").on('init', function(event, slick) {
 				$(".products-slider-wrapper").append(sliderCounter);
-			  updateSliderCounter(slick);
+				updateSliderCounter(slick);
 			});
 		  
 			$(".products-slider-wrapper").on('afterChange', function(event, slick, currentSlide) {
-			  updateSliderCounter(slick, currentSlide);
+				updateSliderCounter(slick, currentSlide);
 			});
 
 			$(".products-slider-wrapper").slick({
@@ -63,6 +67,10 @@ module.exports = {
 				slidesToShow: 1,
 				dots: true,
 				arrows: false,
+				customPaging : function(slider, i) {
+					var thumb = $(slider.$slides[i]).find('.slick-slider-dots');
+					return thumb;
+			   }
 			// dotsClass: 'custom_paging',
 			// 	customPaging: function (slider, i) {
 			// 		//FYI just have a look at the object to find aviable information
@@ -72,6 +80,23 @@ module.exports = {
 			// 	}
 			});
 		}
+
+		// this.$dom.slickSliderPagination.slick({
+		// 	dots: true,
+		// 	focusOnSelect: true,
+		// 	asNavFor: '.products-slider-wrapper',
+		// });
+
+		this.$dom.slickSliderTestimonials.slick({
+			slidesToScroll: 1,
+			slidesToShow: 4,
+			infinite: true,
+			variableWidth: true,
+			dots: false,
+			arrows: true,
+			prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
+			nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>",
+		});
 
 	}
 };

@@ -1,14 +1,14 @@
 .products-featured-img-wrap {
-    height: 780px;
+    height: 833px;
     min-height: 70vh;
     background-repeat: no-repeat;
     background-size: cover;
     &:after {
         content: '';
-        background: $secondary-color;
-        background: -webkit-linear-gradient(to top, $secondary-color 0%, transparent 100%);
-        background: -moz-linear-gradient(to top, $secondary-color 0%, transparent 100%);
-        background: linear-gradient(to top, $secondary-color 0%, transparent 100%);
+        background: $black;
+        background: -webkit-linear-gradient(to top, $black 0%, transparent 100%);
+        background: -moz-linear-gradient(to top, $black 0%, transparent 100%);
+        background: linear-gradient(to top, $black 0%, transparent 100%);
         position: absolute;
         left: 0;
         right: 0;
@@ -21,6 +21,9 @@
 }
 .products-slider-item {
     position: relative;
+    .slick-slider-dots {
+        display: none;
+    }
 }
 .products-heading-excerpt-button-wraper {
     bottom: 0;
@@ -64,6 +67,9 @@
     }
 }
 .products-heading-excerpt-wrap {
+    a {
+        color: $white;
+    }
     .title-label {
         display: block;
         letter-spacing: -0.6px;
@@ -82,7 +88,47 @@
 .products-slider-wrapper {
     position: relative;
     .slick-dots {
-        display: none !important;
+        bottom: 55px;
+        list-style: none;
+        padding-left: 0;
+        position: absolute;
+        text-align: right;
+        @extend %right-calc;
+        > li {
+            margin-top: 18px;
+        }
+    }
+    .pagination-title {
+        color: $primary-color;
+        cursor: pointer;
+        font-weight: 400;
+        margin: 0;
+        padding-right: 0;
+        position: relative;
+        transition: all 0.5s;
+        &:hover {
+            color: $white;
+        }
+        &:after {
+            content: '';
+            height: 1px;
+            width: 31px;
+            background-color: transparent;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+    }
+    .slick-active {
+        .pagination-title {
+            color: $white;
+            padding-right: 42px;
+            &:after {
+                background-color: $white;
+            }
+        }
     }
     .slider__counter {
         color: $white;

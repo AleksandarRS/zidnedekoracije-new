@@ -1,8 +1,13 @@
 .product-description-section-wrapper {
-    padding: 72px 0;
+    padding: 130px 0 163px;
     .product-description-section-content-inner {
         background-color: $white;
-        padding: 15px;
+        padding: 43px 49px;
+        max-width: 100%;
+        width: 100%;
+        @include min-mq ($ls) {
+            max-width: 83%;
+        }
         h1, h2, h3, h4, h5, h6 {
             letter-spacing: -1.3px;
             &:first-of-type {
@@ -21,14 +26,46 @@
         color: $tertiary-color;
     }
 }
+.product-description-section-content {
+    padding-top: 32px;
+}
 
 .product-description-repeater-section {
-    .product-description-repeater-item {
+    .product-number-description-repeater-item {
+        display: flex;
+        margin-bottom: 52px;
+        &:nth-child(2) {
+            margin-left: 70px;
+            @include min-mq ($ls) {
+                margin-left: 160px;
+            }
+        }
+    }
+    .increase-number {
+        align-items: center;
+        background-color: rgba($color: $white, $alpha: 0.5);
+        border-radius: 50%;
+        color: $secondary-color;
+        display: flex;
+        font-size: $font-size-large;
+        height: 60px;
+        justify-content: center;
+        margin-right: 20px;
+        width: 60px;
+    }
+    .product-description {
         background-color: $white;
-        padding: 15px;
-        margin-bottom: 25px;
+        max-width: 450px;
+        padding: 18px 19px;
+        width: 100%;
         h5 {
             margin: 0;
+        }
+        p {
+            margin: 0;
+        }
+        > div {
+            padding-top: 8px;
         }
     }
 }

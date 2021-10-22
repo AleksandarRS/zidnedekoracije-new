@@ -1,0 +1,74 @@
+.newsletter-section-wrapper {
+    padding: 72px 0;
+    background-color: $tertiary-color;
+    color: $white;
+    .entry-title {
+        color: $white;
+    }
+    a {
+        color: $white;
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+}
+
+.newsletter-section {
+    position: relative;
+}
+
+.newsletter-form-cta {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px 0 20px;
+}
+
+.newsletter-row {
+    input {
+        color: $primary-color;
+        &[type="email"] {
+            height: 55px;
+            max-width: 70%;
+            width: 100%;
+        }
+        &[type="submit"] {
+            max-width: 30%;
+            padding: 18px 10px;
+            width: 100%;
+        }
+    }
+    .checkbox-label {
+        position: relative;
+        display: block;
+        font-size: $font-size-small;
+        padding-top: 7px;
+        cursor: pointer;
+        span {
+            background-color: transparent;
+            border: 1px solid $white;
+            display: block;
+            height: 14px;
+            left: 0;
+            position: absolute;
+            width: 15px;
+            border-radius: 2px;
+            top: 8px;
+        }
+        input[type="checkbox"] {
+            opacity: 0;
+            margin-right: 5px;
+            cursor: pointer;
+            &:checked {
+                + span {
+                    background-color: $white;
+                }
+            }
+        }
+    }
+    .button {
+        margin-left: -10px;
+        position: relative;
+        z-index: 9;
+    }
+}

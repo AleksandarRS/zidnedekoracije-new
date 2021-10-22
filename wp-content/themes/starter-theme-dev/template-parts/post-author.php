@@ -7,7 +7,7 @@
             </div>
         <?php endif; ?>
         <div class="post-author-description-name-wrapper pull-left">
-            <h3 class="title-author"><?php _e('Auteur', 'starter'); ?>: <span class="dark-title"><?php echo  get_the_author(); ?></span></h3>
+            <h3 class="title-author"><?php _e('Auteur', 'mwns'); ?>: <span class="dark-title"><?php echo  get_the_author(); ?></span></h3>
             <p><?php echo nl2br(get_the_author_meta('description')); ?></p>
         </div>
     </div>

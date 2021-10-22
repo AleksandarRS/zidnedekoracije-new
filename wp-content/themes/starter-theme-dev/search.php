@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results pages.
  *
- * @package Starter
+ * @package mwns
  */
 
 get_header(); ?>
@@ -17,7 +17,7 @@ get_header(); ?>
 						<h1 class="page-title">
 							<?php
 							/* translators: %s: search term */
-							printf( esc_html__( 'Search Results for: %s', 'starter' ), '<span>' . get_search_query() . '</span>' );
+							printf( esc_html__( 'Search Results for: %s', 'mwns' ), '<span>' . get_search_query() . '</span>' );
 							?>
 						</h1>
 					</header><!-- .page-header -->
@@ -36,7 +36,7 @@ get_header(); ?>
 					endwhile;
 					?>
 
-					<?php starter_post_navigation(); ?>
+					<?php mwns_post_navigation(); ?>
 
 				<?php else : ?>
 

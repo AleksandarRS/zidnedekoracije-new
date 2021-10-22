@@ -6,7 +6,7 @@
 ?>
 <section class="products-slider-section">
     <div class="products-slider-section-wrapper">
-        <div class="container-wide">
+        <div class="container-wide-full">
                 <?php  $featured_products_posts = get_sub_field('choose_slider_products');
                 if( $featured_products_posts ): ?>
                     <div class="products-slider-wrapper">
@@ -26,13 +26,15 @@
                                             <div class="row products-row">
                                                 <div class="col-md-12 product-details-wrap">
                                                     <div class="products-heading-excerpt-wrap">
-                                                        <header class="products-title entry-header">
-                                                            <span class="title-label"><?php _e('Proizvod', 'mwns') ?></span>
-                                                            <h2 class="entry-title"><?php the_title(); ?></h2>
-                                                            <div class="products-description entry-content">
-                                                                <?php echo $slider_short_description; ?>
-                                                            </div>
-                                                        </header>
+                                                        <a href="<?php the_permalink(); ?>">
+                                                            <header class="products-title entry-header">
+                                                                <span class="title-label"><?php _e('Proizvod', 'mwns') ?></span>
+                                                                <h2 class="entry-title"><?php the_title(); ?></h2>
+                                                                <div class="products-description entry-content">
+                                                                    <?php echo $slider_short_description; ?>
+                                                                </div>
+                                                            </header>
+                                                        </a>
                                                     </div>
                                                     <div class="products-product-read-more read-more-button-wrap button-wrap">
                                                         <a href="<?php the_permalink(); ?>" class="button button-transparent button-arrow"><span><?php _e('Pročitaj više','mwns'); ?> <i class="icon icon-arrow-right"></i></span></a>
@@ -41,10 +43,15 @@
                                             </div> <!-- /.row products-row -->
                                         </div> <!-- /.container -->
                                     </div> <!-- /.products-heading-excerpt-button-wraper -->
+                                    <div class="slick-slider-dots">
+                                        <p class="pagination-title"><?php the_title(); ?></p>
+                                    </div>
                             </div> <!-- /.products-slider-item -->
+                            
                         <?php endforeach; ?>
                         
                     </div> <!-- /.products-slider-wrapper -->
+                    
                         <?php 
                         // Reset the global post object so that the rest of the page works correctly.
                         wp_reset_postdata(); ?>

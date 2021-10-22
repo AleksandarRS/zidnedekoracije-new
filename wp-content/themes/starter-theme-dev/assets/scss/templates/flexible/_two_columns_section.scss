@@ -1,0 +1,26 @@
+.two-column-section {
+    background-color: $gray-200;
+    padding: 75px 0;
+}
+.main-content-section {
+    padding-top: 35px;
+    h3, h4 {
+        margin-bottom: 0.15em;
+    }
+    p {
+        margin-top: 0;
+    }
+    strong {
+        color: $secondary-color-500;
+    }
+    .contact-icon-position & {
+        strong {
+            display: block;
+        }
+        i {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+    }
+}

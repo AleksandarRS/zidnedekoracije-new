@@ -1,0 +1,13 @@
+.full-width-section {
+    padding-top: 60px;
+    padding-bottom: 80px;
+    h1, h2, h3 {
+        &:first-child {
+            margin-top: 0.5em;
+        }
+    }
+    h1, h2 {
+        margin-bottom: 0.3em;
+        margin-top: 0.3em;
+    }
+}

@@ -1,4 +1,4 @@
-# LibraFire Starter Theme
+# LibraFire mwns Theme
 
 Tags: **translation-ready, custom-background, theme-options, custom-menu, post-formats, thremwnsd-comments**
 
@@ -40,15 +40,15 @@ Custom theme which uses bootstrap framework and a couple of predefined sample co
     Run [npm run build]
 
 #Theme functions
-- starter_posted_on();
+- mwns_posted_on();
     > Example: Posted on April 11, 2019 by 
-- starter_entry_footer();
+- mwns_entry_footer();
     > Example: Posted in Uncategorized Tagged test Leave a comment
-- starter_post_navigation();
+- mwns_post_navigation();
     > Example: 1 2 3 … 11 
-- starter_share_links();
+- mwns_share_links();
     > Example: fb, tw, ln, pinterest
-- starter_archive_title();
+- mwns_archive_title();
     > <h1 class='page-title'>Title</h1>
 
 #ACF google API key

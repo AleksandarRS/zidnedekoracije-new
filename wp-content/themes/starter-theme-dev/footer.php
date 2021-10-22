@@ -4,7 +4,7 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package Starter
+ * @package mwns
  */
 
 ?>
@@ -21,7 +21,21 @@
 				<?php if (get_theme_mod('footer_customizer_text') != ''): ?>
 					<div class="site-info">
 						<div class="container">
-							<div class="footer-copyright col-md-12 align-center"><?php echo get_theme_mod('footer_customizer_text'); ?></div>
+							<div class="footer-copyright col-md-12">
+								<p><?php echo get_theme_mod('footer_customizer_text'); ?></p>
+								<div class="footer-copyright-menu">
+									<nav id="footer-navigation" class="footer-navigation" role="navigation">
+										<?php wp_nav_menu(
+											array(
+												'theme_location' 		=> 	'copyright',
+												'menu_id' 				=> 	'copyright-menu',
+												'menu_class' 			=> 	'main-footer-menu',
+												'container_class'		=>	'copyright-menu-container'
+											)
+										); ?>
+									</nav><!-- #site-navigation -->
+								</div>
+							</div>
 						</div>
 					</div><!-- .site-info -->
 				<?php endif; ?>

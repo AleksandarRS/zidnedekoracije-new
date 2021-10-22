@@ -10,7 +10,7 @@
         );
 
 	$wp_customize->add_section( 'footer_customizer' , array(
-        'title'      => __( 'Footer', 'starter' ),
+        'title'      => __( 'Footer', 'mwns' ),
         'priority'   => 260,
 	) );
 
@@ -21,7 +21,7 @@
     ) );
     
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'footer_customizer_text', array(
-        'label'    => __( 'Footer CopyRight Text', 'starter' ),
+        'label'    => __( 'Footer CopyRight Text', 'mwns' ),
         'section'  => 'footer_customizer',
         'settings' => 'footer_customizer_text',
     ) ) );
@@ -30,7 +30,7 @@
     ) );
 
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'footer_layout', array(
-        'label'    => __( 'Footer Layout ', 'starter' ),
+        'label'    => __( 'Footer Layout ', 'mwns' ),
         'section'  => 'footer_customizer',
         'settings' => 'footer_layout',
         'type' => 'select',
@@ -42,7 +42,7 @@
     ) );
 
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'footer_column_number', array(
-        'label'    => __( 'Footer Column Number', 'starter' ),
+        'label'    => __( 'Footer Column Number', 'mwns' ),
         'section'  => 'footer_customizer',
         'settings' => 'footer_column_number',
         'type' => 'select',

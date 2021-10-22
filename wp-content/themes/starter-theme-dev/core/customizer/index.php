@@ -5,7 +5,7 @@
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function starter_customize_register( $wp_customize ) {
+function mwns_customize_register( $wp_customize ) {
 
 	/**
 	 * Implement the social functionality.
@@ -32,6 +32,6 @@ function starter_customize_register( $wp_customize ) {
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-add_action( 'customize_register', 'starter_customize_register' );
+add_action( 'customize_register', 'mwns_customize_register' );
 
 ?>

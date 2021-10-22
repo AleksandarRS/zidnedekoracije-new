@@ -33,20 +33,20 @@ $link = get_sub_field('see_all_posts_link');
                                 <div class="posts-items-cards-item col-md-4">
                                     <a href="<?php the_permalink(); ?>">
                                         <?php if( get_the_post_thumbnail() ): ?>
-                                            <div class="post-featured-img-wrap" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
-                                                <?php // the_post_thumbnail(); ?>
+                                            <div class="post-featured-img-wrap">
+                                                <div class="post-featured-img" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
+                                                </div>
                                             </div>
                                         <?php else: ?>
-                                            <div class="post-featured-img-wrap" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/default-image.jpg')">
+                                            <div class="post-featured-img-wrap">
+                                                <div class="post-featured-img" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/default-image.jpg')">
+                                                </div>
                                             </div>
                                         <?php endif; ?>
                                         <div class="post-heading-excerpt-button-wraper">
                                             <div class="post-heading-excerpt-wrap">
                                                 <header class="post-title entry-header">
-                                                    <h2 class="title-h3-size entry-title"><?php the_title(); ?></h2>
-                                                    <div class="post-date entry-meta">
-                                                        <?php the_date( 'd.m.Y', '<p>', '</p>' ); ?>
-                                                    </div>
+                                                    <h2 class="entry-title"><?php the_title(); ?></h2>
                                                 </header>
                                                 <div class="post-product-excerpt entry-content">
                                                     <?php the_excerpt(); ?>

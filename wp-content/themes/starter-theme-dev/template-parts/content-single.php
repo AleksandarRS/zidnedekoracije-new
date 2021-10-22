@@ -2,7 +2,7 @@
 /**
  * Template part for displaying single posts.
  *
- * @package Starter
+ * @package mwns
  */
 
 ?>
@@ -16,14 +16,14 @@
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'starter' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'mwns' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php starter_entry_footer(); ?>
+		<?php mwns_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 

@@ -10,18 +10,18 @@ add_filter( 'use_block_editor_for_post', '__return_false', 10);
 add_filter( 'use_block_editor_for_post_type', '__return_false', 10);
 add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
 add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
-add_filter( 'frm_field_label_seen', 'starter_formidable_customize_html', 11, 3);
+add_filter( 'frm_field_label_seen', 'mwns_formidable_customize_html', 11, 3);
 
-add_action( 'login_head', 'starter_remove_login_shake' );
+add_action( 'login_head', 'mwns_remove_login_shake' );
 add_action( 'admin_head', 'fix_svg_thumb_display');
 add_action( 'login_enqueue_scripts', 'lf_login_logo');
 add_action( 'acf/init', 'lf_acf_init');
-add_action( 'widgets_init', 'starter_widgets_init');
-add_action( 'after_setup_theme', 'starter_after_setup_theme_function', 0);
-add_action( 'wp_enqueue_scripts', 'starter_scripts_and_styles');
-add_action( 'wp_print_styles', 'starter_deregister_styles', 100 );
-add_action( 'init', 'starter_init_action' );
-add_action( 'admin_enqueue_scripts', 'starter_load_admin_style' );
+add_action( 'widgets_init', 'mwns_widgets_init');
+add_action( 'after_setup_theme', 'mwns_after_setup_theme_function', 0);
+add_action( 'wp_enqueue_scripts', 'mwns_scripts_and_styles');
+add_action( 'wp_print_styles', 'mwns_deregister_styles', 100 );
+add_action( 'init', 'mwns_init_action' );
+add_action( 'admin_enqueue_scripts', 'mwns_load_admin_style' );
 
 
 /***********************************************************************
@@ -79,14 +79,14 @@ if ( !function_exists('disable_emojis_tinymce') ):
 endif;
 
 /**
- * starter_deregister_styles
+ * mwns_deregister_styles
  *
  * @return void
  */
-if ( !function_exists('starter_init_action') ):
+if ( !function_exists('mwns_init_action') ):
 
     //Disable gutenberg style in Front
-    function starter_init_action() {
+    function mwns_init_action() {
         remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
         remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
         remove_action( 'wp_print_styles', 'print_emoji_styles' );
@@ -99,28 +99,28 @@ if ( !function_exists('starter_init_action') ):
 endif;
 
 /**
- * starter_deregister_styles
+ * mwns_deregister_styles
  *
  * @return void
  */
-if ( !function_exists('starter_deregister_styles') ):
+if ( !function_exists('mwns_deregister_styles') ):
 
     //Disable gutenberg style in Front
-    function starter_deregister_styles() {
+    function mwns_deregister_styles() {
         wp_dequeue_style( 'wp-block-library' );
     }
 
 endif;
 
 /**
- * starter_remove_login_shake
+ * mwns_remove_login_shake
  *
  * @return void
  */
-if ( !function_exists('starter_remove_login_shake') ):
+if ( !function_exists('mwns_remove_login_shake') ):
 
     // remove error shaking
-	function starter_remove_login_shake() {
+	function mwns_remove_login_shake() {
 		remove_action( 'login_head', 'wp_shake_js', 12 );
 	}
 
@@ -207,7 +207,7 @@ if (!function_exists('lf_acf_init')):
                 add_action( 'admin_notices', function(){
                     ?>
                     <div class="notice notice-error is-dismissible">
-                        <p><?php _e( "Please define ACF_GOOGLE_API_KEY in wp-config.php: <strong>define('ACF_GOOGLE_API_KEY', 'YOUR_API_KEY_HERE');</strong>", 'starter' ); ?></p>
+                        <p><?php _e( "Please define ACF_GOOGLE_API_KEY in wp-config.php: <strong>define('ACF_GOOGLE_API_KEY', 'YOUR_API_KEY_HERE');</strong>", 'mwns' ); ?></p>
                     </div>
                     <?php
                 } );
@@ -217,16 +217,16 @@ if (!function_exists('lf_acf_init')):
 
 endif;
 
-if (!function_exists('starter_widgets_init')):
+if (!function_exists('mwns_widgets_init')):
 
     /**
      * Register widget area.
      *
      * @link http://codex.wordpress.org/Function_Reference/register_sidebar
      */
-    function starter_widgets_init() {
+    function mwns_widgets_init() {
         register_sidebar(array(
-            'name' => esc_html__('Sidebar', 'starter'),
+            'name' => esc_html__('Sidebar', 'mwns'),
             'id' => 'sidebar-1',
             'description' => '',
             'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -235,7 +235,7 @@ if (!function_exists('starter_widgets_init')):
             'after_title' => '</h4>',
         ));
         register_sidebar(array(
-            'name' => esc_html__('Footer 1', 'starter'),
+            'name' => esc_html__('Footer 1', 'mwns'),
             'id' => 'footer-1',
             'description' => '',
             'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -244,7 +244,7 @@ if (!function_exists('starter_widgets_init')):
             'after_title' => '</h4>',
         ));
         register_sidebar(array(
-            'name' => esc_html__('Footer 2', 'starter'),
+            'name' => esc_html__('Footer 2', 'mwns'),
             'id' => 'footer-2',
             'description' => '',
             'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -253,7 +253,7 @@ if (!function_exists('starter_widgets_init')):
             'after_title' => '</h4>',
         ));
         register_sidebar(array(
-            'name' => esc_html__('Footer 3', 'starter'),
+            'name' => esc_html__('Footer 3', 'mwns'),
             'id' => 'footer-3',
             'description' => '',
             'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -262,7 +262,7 @@ if (!function_exists('starter_widgets_init')):
             'after_title' => '</h4>',
         ));
         register_sidebar(array(
-            'name' => esc_html__('Footer 4', 'starter'),
+            'name' => esc_html__('Footer 4', 'mwns'),
             'id' => 'footer-4',
             'description' => '',
             'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -283,15 +283,15 @@ if (!function_exists('after_setup_theme_function')):
      * as indicating support for post thumbnails.
      */
 
-    function starter_after_setup_theme_function() {
+    function mwns_after_setup_theme_function() {
 
         /*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
-         * If you're building a theme based on Starter, use a find and replace
-         * to change 'starter' to the name of your theme in all the template files
+         * If you're building a theme based on mwns, use a find and replace
+         * to change 'mwns' to the name of your theme in all the template files
          */
-        load_theme_textdomain('starter', get_template_directory() . '/languages');
+        load_theme_textdomain('mwns', get_template_directory() . '/languages');
 
 		/**
 		 * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -300,7 +300,7 @@ if (!function_exists('after_setup_theme_function')):
 		 *
 		 * @global int $content_width
 		 */
-        $GLOBALS['content_width'] = apply_filters('starter_content_width', 1170);
+        $GLOBALS['content_width'] = apply_filters('mwns_content_width', 1170);
 
         // Add theme support for custom header image
         add_theme_support('custom-header', array(
@@ -370,17 +370,18 @@ if (!function_exists('after_setup_theme_function')):
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			array(
-				'primary' => esc_html__( 'Primary Menu', 'starter' ),
+				'primary' => esc_html__( 'Primary Menu', 'mwns' ),
+				'copyright' => esc_html__( 'Copyright Menu', 'mwns' ),
 			)
 		);
 
 	}
 	
-	if ( !function_exists('starter_scripts_and_styles') ) :
+	if ( !function_exists('mwns_scripts_and_styles') ) :
 
-		function starter_scripts_and_styles() {
+		function mwns_scripts_and_styles() {
 
-			wp_enqueue_style('starter-style', get_stylesheet_uri());
+			wp_enqueue_style('mwns-style', get_stylesheet_uri());
 			wp_enqueue_style('lf-css', get_stylesheet_directory_uri() . '/dist/style.css');
 
 			// wp_enqueue_script('vendor-main', get_template_directory_uri() . '/assets/js/vendor.min.js', array('jquery'), '1.0',true);
@@ -396,9 +397,9 @@ if (!function_exists('after_setup_theme_function')):
 	endif;
 endif;
 
-if ( !function_exists('starter_formidable_customize_html') ) :
+if ( !function_exists('mwns_formidable_customize_html') ) :
 
-    function starter_formidable_customize_html( $opt, $key, $field ){
+    function mwns_formidable_customize_html( $opt, $key, $field ){
 		
 		if( !is_admin() ){
 			
@@ -425,9 +426,9 @@ if ( !function_exists('starter_formidable_customize_html') ) :
 
 endif;
 
-if ( !function_exists('starter_load_admin_style') ) :
+if ( !function_exists('mwns_load_admin_style') ) :
 
-	function starter_load_admin_style() {
+	function mwns_load_admin_style() {
 		wp_register_style( 'admin_css', get_stylesheet_directory_uri() . '/assets/admin/css/style.css', false, '1.0.0' );
 		wp_enqueue_style( 'admin_css', get_stylesheet_directory_uri() . '/assets/admin/css/style.css', false, '1.0.0' );
 	}

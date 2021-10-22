@@ -1,7 +1,7 @@
 {
   "name": "wp-gulp",
   "version": "1.0.0",
-  "description": "Custom gulp file for starter theme",
+  "description": "Custom gulp file for mwns theme",
   "main": "gulpfile.js",
   "dependencies": {
     "@wordpress/eslint-plugin": "^2.4.0",
@@ -55,7 +55,7 @@
   "keywords": [
     "custom",
     "gulp",
-    "starter",
+    "mwns",
     "theme",
     "js",
     "scss"

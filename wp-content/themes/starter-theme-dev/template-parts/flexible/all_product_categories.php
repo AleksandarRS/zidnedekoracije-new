@@ -32,26 +32,26 @@ $link = get_sub_field('see_all_products_link');
                     </div>
                 <?php endif; ?>
 
-                        <?php $terms = get_terms( array( 
-                                'taxonomy' => 'kategorija-proizvoda',
-                                'parent'   => 0
-                            ) );
-                        if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){ ?>
-                           <div class="product-cards-wrapper category-cards-wrapper col-md-12">
-                               <div class="row category-row">
-                                    <?php foreach ( $terms as $term ) { ?>
-                                        <div class="col-md-3 product-card-item category-card-item">
-                                            <a class="category-card-link" href="<?php echo get_term_link($term->term_id); ?>">
-                                                <div class="term-featured-image" style="background-image: url('<?php the_field('category_image', $term); ?>')"></div>
-                                                <h2 class="product-card-title"><?php echo $term->name; ?></h2>
-                                                <div class="product-card-description"><?php the_field('short_category_description', $term); ?></div>
-                                                <span class="link link-tertiary link-arrow"><span><?php _e('Saznaj više', 'mwns') ?></span> <i class="icon icon-arrow-right"></i></span>
-                                            </a>
-                                        </div>
-                                    <?php  } ?>
+                <?php $terms = get_terms( array( 
+                        'taxonomy' => 'kategorija-proizvoda',
+                        'parent'   => 0
+                    ) );
+                if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){ ?>
+                    <div class="product-cards-wrapper category-cards-wrapper col-md-12">
+                        <div class="row category-row">
+                            <?php foreach ( $terms as $term ) { ?>
+                                <div class="col-md-3 product-card-item category-card-item">
+                                    <a class="category-card-link" href="<?php echo get_term_link($term->term_id); ?>">
+                                        <div class="term-featured-image" style="background-image: url('<?php the_field('category_image', $term); ?>')"></div>
+                                        <h2 class="product-card-title"><?php echo $term->name; ?></h2>
+                                        <div class="product-card-description"><?php the_field('short_category_description', $term); ?></div>
+                                        <span class="link link-tertiary link-arrow"><span><?php _e('Više o proizvodu', 'mwns') ?></span> <i class="icon icon-arrow-right"></i></span>
+                                    </a>
                                 </div>
-                           </div>
-                        <?php } ?>
+                            <?php  } ?>
+                        </div>
+                    </div>
+                <?php } ?>
 
             </div> <!-- /.row -->
         </div> <!-- /.container -->

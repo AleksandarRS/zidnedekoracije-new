@@ -1,0 +1,41 @@
+.site-footer {
+    background-color: $gray-200;
+    border-top: 1px solid $secondary-color;
+    padding-top: 72px;
+    .widget-wrapper {
+        padding-bottom: 35px;
+        li {
+            padding-bottom: 7px;
+        }
+    }
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    .sub-menu {
+        display: none;
+    }
+    .widget-title {
+        margin-bottom: 0.35em;
+    }
+    .footer-widgets-wrapper {
+        > div {
+            > aside {
+                padding-bottom: 15px;
+            }
+        }
+    }
+}
+.site-info {
+    background-color: $gray-200;
+    border-top: 1px solid $secondary-color;
+    padding: 15px;
+    .footer-copyright {
+        display: flex;
+        justify-content: space-between;
+        p {
+            margin: 0;
+
+        }
+    }
+}

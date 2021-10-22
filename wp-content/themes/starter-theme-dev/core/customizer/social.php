@@ -1,7 +1,7 @@
 <?php
 /*Social icons section */
 $wp_customize->add_section( 'social_icons', array(
-	'title'    => __( 'Social', 'starter' ),
+	'title'    => __( 'Social', 'mwns' ),
 	'priority' => 260,
 ) );
 
@@ -15,13 +15,13 @@ $wp_customize->add_setting( 'social_customizer_fb_url', array(
 ) );
 
 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'facebook_icon', array(
-	'label'    => __( 'Upload Facebook Icon', 'starter' ),
+	'label'    => __( 'Upload Facebook Icon', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_fb_icon',
 ) ) );
 
 $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'facebook_url', array(
-	'label'    => __( 'Facebook URL', 'starter' ),
+	'label'    => __( 'Facebook URL', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_fb_url',
 ) ) );
@@ -35,13 +35,13 @@ $wp_customize->add_setting( 'social_customizer_tw_url', array(
 ) );
 
 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'twitter_icon', array(
-	'label'    => __( 'Upload Twitter Icon', 'starter' ),
+	'label'    => __( 'Upload Twitter Icon', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_tw_icon',
 ) ) );
 
 $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'twitter_url', array(
-	'label'    => __( 'Twitter URL', 'starter' ),
+	'label'    => __( 'Twitter URL', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_tw_url',
 ) ) );
@@ -55,13 +55,13 @@ $wp_customize->add_setting( 'social_customizer_g_url', array(
 ) );
 
 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'google_icon', array(
-	'label'    => __( 'Upload Google+ Icon', 'starter' ),
+	'label'    => __( 'Upload Google+ Icon', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_g_icon',
 ) ) );
 
 $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'google_url', array(
-	'label'    => __( 'Google+ URL', 'starter' ),
+	'label'    => __( 'Google+ URL', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_g_url',
 ) ) );
@@ -75,13 +75,13 @@ $wp_customize->add_setting( 'social_customizer_instagram_url', array(
 ) );
 
 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'instagram_icon', array(
-	'label'    => __( 'Upload Instagram Icon', 'starter' ),
+	'label'    => __( 'Upload Instagram Icon', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_instagram_icon',
 ) ) );
 
 $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'instagram_url', array(
-	'label'    => __( 'Instagram URL', 'starter' ),
+	'label'    => __( 'Instagram URL', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_instagram_url',
 ) ) );
@@ -95,13 +95,13 @@ $wp_customize->add_setting( 'social_customizer_lni_url', array(
 ) );
 
 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'linkedin_icon', array(
-	'label'    => __( 'Upload LinkedIn Icon', 'starter' ),
+	'label'    => __( 'Upload LinkedIn Icon', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_lni_icon',
 ) ) );
 
 $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'linkedin_url', array(
-	'label'    => __( 'LinkedIn URL', 'starter' ),
+	'label'    => __( 'LinkedIn URL', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_lni_url',
 ) ) );
@@ -116,13 +116,13 @@ $wp_customize->add_setting( 'social_customizer_youtube_url', array(
 ) );
 
 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'social_customizer_youtube_icon', array(
-	'label'    => __( 'Upload Youtube Icon', 'starter' ),
+	'label'    => __( 'Upload Youtube Icon', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_youtube_icon',
 ) ) );
 
 $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'social_customizer_youtube_url', array(
-	'label'    => __( 'Youtube URL', 'starter' ),
+	'label'    => __( 'Youtube URL', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_youtube_url',
 ) ) );
@@ -138,13 +138,13 @@ $wp_customize->add_setting( 'social_customizer_pinterest_url', array(
 ) );
 
 $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'social_customizer_pinterest_icon', array(
-	'label'    => __( 'Upload Pinterest Icon', 'starter' ),
+	'label'    => __( 'Upload Pinterest Icon', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_pinterest_icon',
 ) ) );
 
 $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'social_customizer_pinterest_url', array(
-	'label'    => __( 'Pinterest URL', 'starter' ),
+	'label'    => __( 'Pinterest URL', 'mwns' ),
 	'section'  => 'social_icons',
 	'settings' => 'social_customizer_pinterest_url',
 ) ) );

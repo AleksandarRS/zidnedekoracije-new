@@ -33,7 +33,7 @@
 	
 		min-width: 270px;
 		top: 0;
-		margin: auto;
+		margin: 0 0 0 auto;
 		@include max-mq($responsive-toggle-breakpoint) {
 			background-color: $white;
 			position: fixed;
@@ -97,7 +97,7 @@
 					&.current-menu-item, 
 					&.current_page_parent {
 						a {
-							color: $primary-color;
+							color: $tertiary-color;
 						}
 					}
 

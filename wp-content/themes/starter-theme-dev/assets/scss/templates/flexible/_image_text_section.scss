@@ -18,7 +18,7 @@
     }
     .image-text-section-main-text-content-description {
         h1, h2, h3, h4, h5, h6 {
-            letter-spacing: -1.3px;
+            letter-spacing: -0.5px;
             &:first-of-type {
                 margin: 0.15em 0 0.4em 0;
             }
@@ -31,7 +31,9 @@
             }
         }
     }
-    
+    .image-text-section-read-more-button-wrap {
+        padding-top: 25px;
+    }
 }
 .icon-desc-row {
     padding-top: 70px;

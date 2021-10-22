@@ -33,3 +33,9 @@ let _this = module.exports = {
     },
 
 };
+jQuery(window).on("load", function () {
+    jQuery(".page-loader-wrapper").fadeOut("slow", function () {
+        jQuery('body').addClass('page-loaded')
+    });
+    jQuery("body").css("overflow-y", "visible");
+});

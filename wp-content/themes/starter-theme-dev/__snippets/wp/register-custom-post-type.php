@@ -1,25 +1,25 @@
 <?php
 
-function starter_register_post_type() {
+function mwns_register_post_type() {
     $singular = 'Custom post type name'; // Book
 	$plural = 'Custom post type names';  // Books
 	
     $slug = str_replace( ' ', '-', strtolower( $singular ) );
 
     $labels = array(
-        'name' 			      => __( $plural, 'starter' ),
-        'singular_name' 	  => __( $singular, 'starter' ),
-        'add_new' 		      => _x( 'Add New', 'starter', 'starter' ),
-        'add_new_item'  	  => __( 'Add New ' . $singular, 'starter' ),
-        'edit'		          => __( 'Edit', 'starter' ),
-        'edit_item'	          => __( 'Edit ' . $singular, 'starter' ),
-        'new_item'	          => __( 'New ' . $singular, 'starter' ),
-        'view' 			      => __( 'View ' . $singular, 'starter' ),
-        'view_item' 		  => __( 'View ' . $singular, 'starter' ),
-        'search_term'   	  => __( 'Search ' . $plural, 'starter' ),
-        'parent' 		      => __( 'Parent ' . $singular, 'starter' ),
-        'not_found'           => __( 'No ' . $plural .' found', 'starter' ),
-        'not_found_in_trash'  => __( 'No ' . $plural .' in Trash', 'starter' ),
+        'name' 			      => __( $plural, 'mwns' ),
+        'singular_name' 	  => __( $singular, 'mwns' ),
+        'add_new' 		      => _x( 'Add New', 'mwns', 'mwns' ),
+        'add_new_item'  	  => __( 'Add New ' . $singular, 'mwns' ),
+        'edit'		          => __( 'Edit', 'mwns' ),
+        'edit_item'	          => __( 'Edit ' . $singular, 'mwns' ),
+        'new_item'	          => __( 'New ' . $singular, 'mwns' ),
+        'view' 			      => __( 'View ' . $singular, 'mwns' ),
+        'view_item' 		  => __( 'View ' . $singular, 'mwns' ),
+        'search_term'   	  => __( 'Search ' . $plural, 'mwns' ),
+        'parent' 		      => __( 'Parent ' . $singular, 'mwns' ),
+        'not_found'           => __( 'No ' . $plural .' found', 'mwns' ),
+        'not_found_in_trash'  => __( 'No ' . $plural .' in Trash', 'mwns' ),
     );
 
     $args = array(
@@ -37,4 +37,4 @@ function starter_register_post_type() {
     register_post_type( $slug, $args );
 }
 
-add_action( 'init', 'starter_register_post_type' );
+add_action( 'init', 'mwns_register_post_type' );

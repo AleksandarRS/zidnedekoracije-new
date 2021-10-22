@@ -17,6 +17,14 @@ q::after {
   content: '';
 }
 
+a {
+  color: $tertiary-color;
+  transition: color 0.5s;
+  &:hover {
+    color: $secondary-color-500;
+  }
+}
+
 blockquote,
 q {
   quotes: '' '';
@@ -42,6 +50,11 @@ table {
   margin: 0 0 1em;
   width: 100%;
 }
+
+strong {
+  font-family: $secondary-font;
+}
+
 
 /*--------------------------------------------------------------
 # Clearfix

@@ -8,7 +8,7 @@ $link = get_sub_field('select_your_url');
 
 ?>
 
-<section class="product-description-section">
+<section class="product-description-section container-wide-full">
     <div class="product-description-section-wrapper" arealabel="<?php echo esc_attr($main_bg_image['alt']); ?>" role="img" style="background-image: url('<?php echo esc_url($main_bg_image['url']); ?>')">
         <div class="container">
             <div class="row product-description-row">
@@ -39,11 +39,18 @@ $link = get_sub_field('select_your_url');
 
                 <?php if( have_rows('add_section_items') ): ?>
                     <div class="col-md-6 product-description-repeater-section">
+                        <?php $i = 1; ?>
                         <?php while ( have_rows('add_section_items') ) : the_row(); ?>
-                            <div class="product-description-repeater-item">
-                                <h5><?php the_sub_field('item_title'); ?></h5>
-                                <div><?php the_sub_field('item_description'); ?></div>
-                            </div>
+                            <div class="product-number-description-repeater-item">
+                                <div class="increase-number">
+                                    <span><?php echo $i . '.'; ?></span>
+                                </div>
+                                <div class="product-description">
+                                    <h5><?php the_sub_field('item_title'); ?></h5>
+                                    <div><?php the_sub_field('item_description'); ?></div>
+                                </div>
+                                <?php $i++; ?>
+                            </div> <!-- /.product-number-description-repeater-item -->
                         <?php endwhile; ?>
                     </div> <!-- /.col-md-6 product-description-repeater-section -->
                 <?php  else : ?>

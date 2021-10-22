@@ -4,7 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package Starter
+ * @package mwns
  */
 
 ?><!DOCTYPE html>
@@ -28,14 +28,17 @@
 ?>
 
 <body <?php body_class(); ?>>
+<div class="page-loader-wrapper">
+    <div class="page-loader"></div>
+</div>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-remwnsr-text" href="#content"><?php esc_html_e( 'Skip to content', 'starter' ); ?></a>
+	<a class="skip-link screen-remwnsr-text" href="#content"><?php esc_html_e( 'Skip to content', 'mwns' ); ?></a>
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-header-inner">
 			<div class="container">
 				<div class="row justify-content-between">
 					<div class="justify-content-end social-icons-wrapper">
-						<?php the_social_links( true ); ?>
+						
 					</div><!-- /.social-icons-wrapper -->
 				</div>
 			</div> <!-- /.container -->
@@ -56,6 +59,9 @@
 
 				<div class="header-contact-info-nav-wrap">
 					<div class="header-details-wrapper">
+						<div class="social-header-wrap">
+							<span><?php _e('Zapratite nas:', 'mwns'); ?> </span><?php the_social_links( true ); ?>
+						</div>
 						<?php if ( $header_contact_title || $header_contact_number ) : ?>
 							<div class="header-contact-phone">
 								<span><?php echo $header_contact_title; ?></span>

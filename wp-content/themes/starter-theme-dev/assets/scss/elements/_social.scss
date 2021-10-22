@@ -1,0 +1,13 @@
+.lf-social-wrapper {
+  .social-icon-menu-items {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px;
+    &:last-of-type {
+      margin-right: 0;
+    }
+    i {
+      font-size: $font-size-xlarge;
+    }
+  }
+}

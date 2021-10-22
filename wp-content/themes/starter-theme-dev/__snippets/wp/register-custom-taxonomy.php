@@ -1,6 +1,6 @@
 <?php
 
-function starter_register_custom_taxonomy() {
+function mwns_register_custom_taxonomy() {
     $singular = 'Category singular name'; // Book category
 	$plural = 'Category plural name'; // Book categories
 	
@@ -29,4 +29,4 @@ function starter_register_custom_taxonomy() {
 	
     register_taxonomy( $slug, 'post_type_name', $args );
 }
-add_action( 'init', 'starter_register_custom_taxonomy', 0 );
+add_action( 'init', 'mwns_register_custom_taxonomy', 0 );

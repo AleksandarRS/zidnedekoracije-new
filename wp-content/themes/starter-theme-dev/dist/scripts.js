@@ -161,17 +161,23 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			}
 
 		};
-	}, { "../site/global": 4 }], 2: [function (require, module, exports) {
+	}, { "../site/global": 5 }], 2: [function (require, module, exports) {
 		'use strict';
 
 		$ = require('jquery');
 
 		var Navigation = require('./core/navigation');
+		var equalheight = require('./site/equalheight');
 		var toggle = require('./site/toggle');
 		var slick = require('./site/slick');
 		var example = require('./site/example');
 
 		jQuery(function () {
+
+			/**
+   * Initialize equalheight module
+   */
+			equalheight.init();
 
 			/**
     * Initialize site navigation
@@ -193,7 +199,123 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     */
 			example.init();
 		});
-	}, { "./core/navigation": 1, "./site/example": 3, "./site/slick": 5, "./site/toggle": 6, "jquery": 7 }], 3: [function (require, module, exports) {
+	}, { "./core/navigation": 1, "./site/equalheight": 3, "./site/example": 4, "./site/slick": 6, "./site/toggle": 7, "jquery": 8 }], 3: [function (require, module, exports) {
+		"use strict";
+
+		/**  
+   * 1. Copy equalheight.js from __js_snippets to assets/js/site
+   * 2. Add const equalheight = require('./site/equalheight');
+   * 3. Initialize equalheight => equalheight.init();
+   * 4. Add [ data-equal='{somename}' ] on each element that you want to have same height
+   * 
+  */
+
+		var Global = require('./global');
+
+		var _this = void 0;
+
+		module.exports = {
+
+			/*-------------------------------------------------------------------------------
+   	# Cache dom and strings
+   -------------------------------------------------------------------------------*/
+			$dom: {
+				equalElements: $("[data-equal], [class*='data-equal-']")
+			},
+
+			defaults: {
+				heights: {
+					'full': {}
+				}
+			},
+
+			vars: {
+				heights: {}
+			},
+
+			/*-------------------------------------------------------------------------------
+   	# Initialize
+   -------------------------------------------------------------------------------*/
+			init: function init() {
+
+				_this = this;
+				_this.bind();
+			},
+
+			reset: function reset() {
+
+				_this.vars.heights = _this.defaults.heights;
+				_this.$dom.equalElements.css('height', 'auto');
+			},
+
+			calculate: function calculate() {
+
+				_this.$dom.equalElements.each(function () {
+
+					var dataType = $(this).is("[class*='data-equal-']") ? 'class' : 'data';
+					var refElement = void 0,
+					    size = void 0;
+
+					if (dataType === 'data') {
+						refElement = $(this).attr('data-equal');
+						size = $(this).attr('data-equal-width');
+					} else {
+
+						var classes = this.className.split(/\s+/);
+
+						for (var i = 0; i < classes.length; i++) {
+							if (classes[i].indexOf('data-equal-') > -1) {
+								refElement = classes[i].replace('data-equal-', '');
+							}
+							if (classes[i].indexOf('data-equal-width-') > -1) {
+								size = classes[i].replace('data-equal-width-', '');
+							}
+						}
+					}
+
+					if (size === undefined) size = 'full';
+
+					if (_this.vars.heights[size] === undefined) {
+						_this.vars.heights[size] = {};
+					}
+
+					if (_this.vars.heights[size][refElement] === undefined) {
+						_this.vars.heights[size][refElement] = 0;
+					}
+
+					if ($(this).outerHeight() > _this.vars.heights[size][refElement]) {
+						_this.vars.heights[size][refElement] = $(this).outerHeight();
+					}
+				});
+			},
+
+			render: function render() {
+
+				for (var breakpoint in _this.vars.heights) {
+
+					var elementDataValue = _this.vars.heights[breakpoint];
+
+					for (var element in elementDataValue) {
+
+						if (Global.device.width > parseInt(breakpoint) || breakpoint === 'full') {
+							$("[data-equal='" + element + "'], [class*='data-equal-" + element + "']").css('height', elementDataValue[element]);
+						}
+					}
+				}
+			},
+
+			bind: function bind() {
+				Global.$dom.window.on('load', _this.recalculate);
+				Global.$dom.window.on('resize', Global.functions.throttle(_this.recalculate, 100));
+			},
+
+			recalculate: function recalculate() {
+				_this.reset();
+				_this.calculate();
+				_this.render();
+			}
+		};
+	}, { "./global": 5 }], 4: [function (require, module, exports) {
 		"use strict";
 
 		// const Global = require('./global');
@@ -219,7 +341,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			}
 
 		};
-	}, {}], 4: [function (require, module, exports) {
+	}, {}], 5: [function (require, module, exports) {
 		// "use strict";
 		var Global = module.exports = {
 
@@ -370,7 +492,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		};
 
 		Global.privateFunctions.init();
-	}, {}], 5: [function (require, module, exports) {
+	}, {}], 6: [function (require, module, exports) {
 		"use strict";
 
 		/**  
@@ -390,7 +512,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
    	# Cache dom and strings
    -------------------------------------------------------------------------------*/
 			$dom: {
-				slickSliderProducts: $(".products-slider-wrapper")
+				slickSliderProducts: $(".products-slider-wrapper"),
+				slickSliderTestimonials: $(".testimonials-slider"),
+				slickSliderPagination: $(".slick-slider-dots")
 			},
 
 			/*-------------------------------------------------------------------------------
@@ -409,13 +533,14 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				// 	nextArrow: "<button type='button' class='slick-next pull-right'><i class='fa fa-angle-right' aria-hidden='true'></i></button>",
 				// });
 
+
 				if ($(".products-slider-wrapper").length) {
 					var currentSlide;
 					var slidesCount;
 					var sliderCounter = document.createElement('div');
 					sliderCounter.classList.add('slider__counter');
 
-					var updateSliderCounter = function updateSliderCounter(slick, currentIndex) {
+					var updateSliderCounter = function updateSliderCounter(slick) {
 						currentSlide = slick.slickCurrentSlide() + 1;
 						slidesCount = slick.slideCount;
 						$(sliderCounter).html('<span>' + currentSlide + '/</span>' + '<span>' + slidesCount + '</span>');
@@ -434,7 +559,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 						slidesToScroll: 1,
 						slidesToShow: 1,
 						dots: true,
-						arrows: false
+						arrows: false,
+						customPaging: function customPaging(slider, i) {
+							var thumb = $(slider.$slides[i]).find('.slick-slider-dots');
+							return thumb;
+						}
 						// dotsClass: 'custom_paging',
 						// 	customPaging: function (slider, i) {
 						// 		//FYI just have a look at the object to find aviable information
@@ -444,9 +573,26 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 						// 	}
 					});
 				}
+
+				// this.$dom.slickSliderPagination.slick({
+				// 	dots: true,
+				// 	focusOnSelect: true,
+				// 	asNavFor: '.products-slider-wrapper',
+				// });
+
+				this.$dom.slickSliderTestimonials.slick({
+					slidesToScroll: 1,
+					slidesToShow: 4,
+					infinite: true,
+					variableWidth: true,
+					dots: false,
+					arrows: true,
+					prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
+					nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>"
+				});
 			}
 		};
-	}, { "slick-carousel": 8 }], 6: [function (require, module, exports) {
+	}, { "slick-carousel": 9 }], 7: [function (require, module, exports) {
 		"use strict";
 
 		// const Global = require('./global');
@@ -480,7 +626,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			}
 
 		};
-	}, {}], 7: [function (require, module, exports) {
+		jQuery(window).on("load", function () {
+			jQuery(".page-loader-wrapper").fadeOut("slow", function () {
+				jQuery('body').addClass('page-loaded');
+			});
+			jQuery("body").css("overflow-y", "visible");
+		});
+	}, {}], 8: [function (require, module, exports) {
 		/*!
    * jQuery JavaScript Library v3.4.1
    * https://jquery.com/
@@ -10615,7 +10767,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 			return jQuery;
 		});
-	}, {}], 8: [function (require, module, exports) {
+	}, {}], 9: [function (require, module, exports) {
 		/*
        _ _      _       _
    ___| (_) ___| | __  (_)___
@@ -13369,5 +13521,5 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				return _;
 			};
 		});
-	}, { "jquery": 7 }] }, {}, [2]);
+	}, { "jquery": 8 }] }, {}, [2]);
 //# sourceMappingURL=scripts.js.map

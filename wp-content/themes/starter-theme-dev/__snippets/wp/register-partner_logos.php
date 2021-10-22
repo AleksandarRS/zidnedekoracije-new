@@ -21,7 +21,7 @@ add_action( 'admin_bar_menu', function( \WP_Admin_Bar $bar )
          'href'   => 'https://www.up3up.it/',
          'meta'   => array(
                'target'   => '_blank',
-               'title'    => __( 'Up&Up Support', 'starter' ),
+               'title'    => __( 'Up&Up Support', 'mwns' ),
                'html'     => '',
                'class'    => 'wpse--item',
                'rel'      => 'up3up',
@@ -51,7 +51,7 @@ add_action( 'admin_bar_menu', function( \WP_Admin_Bar $bar )
          'href'   => 'https://www.webkrunch.be',
          'meta'   => array(
                'target'   => '_blank',
-               'title'    => __( 'Webkrunch Support', 'starter' ),
+               'title'    => __( 'Webkrunch Support', 'mwns' ),
                'html'     => '',
                'class'    => 'wpse--item',
                'rel'      => 'webkrunch',
@@ -82,7 +82,7 @@ add_action( 'admin_bar_menu', function( \WP_Admin_Bar $bar )
          'href'   => 'https://librafire.com',
          'meta'   => array(
                'target'   => '_blank',
-               'title'    => __( 'LibraFire Support', 'starter' ),
+               'title'    => __( 'LibraFire Support', 'mwns' ),
                'html'     => '',
                'class'    => 'wpse--item',
                'rel'      => 'librafire',

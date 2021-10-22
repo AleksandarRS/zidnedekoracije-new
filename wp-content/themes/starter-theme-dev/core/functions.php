@@ -1,10 +1,10 @@
 <?php
 
-if ( ! function_exists( 'starter_posted_on' ) ) :
+if ( ! function_exists( 'mwns_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
-	function starter_posted_on() {
+	function mwns_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -18,12 +18,12 @@ if ( ! function_exists( 'starter_posted_on' ) ) :
 		);
 
 		$posted_on = sprintf(
-			esc_html_x( 'Posted on %s', 'post date', 'starter' ),
+			esc_html_x( 'Posted on %s', 'post date', 'mwns' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
 		$byline = sprintf(
-			esc_html_x( 'by %s', 'post author', 'starter' ),
+			esc_html_x( 'by %s', 'post author', 'mwns' ),
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
@@ -32,41 +32,41 @@ if ( ! function_exists( 'starter_posted_on' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'starter_entry_footer' ) ) :
+if ( ! function_exists( 'mwns_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function starter_entry_footer() {
+	function mwns_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' == get_post_type() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'starter' ) );
+			$categories_list = get_the_category_list( esc_html__( ', ', 'mwns' ) );
 			if ( $categories_list ) {
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'starter' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'mwns' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 			}
 
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'starter' ) );
+			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'mwns' ) );
 			if ( $tags_list ) {
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'starter' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'mwns' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 			echo '<span class="comments-link">';
-			comments_popup_link( esc_html__( 'Leave a comment', 'starter' ), esc_html__( '1 Comment', 'starter' ), esc_html__( '% Comments', 'starter' ) );
+			comments_popup_link( esc_html__( 'Leave a comment', 'mwns' ), esc_html__( '1 Comment', 'mwns' ), esc_html__( '% Comments', 'mwns' ) );
 			echo '</span>';
 		}
 
-		edit_post_link( esc_html__( 'Edit', 'starter' ), '<span class="edit-link">', '</span>' );
+		edit_post_link( esc_html__( 'Edit', 'mwns' ), '<span class="edit-link">', '</span>' );
 	}
 endif;
 
-if ( ! function_exists( 'starter_post_navigation' ) ) :
+if ( ! function_exists( 'mwns_post_navigation' ) ) :
 	/**
 	 * Lf Post Navigation
 	 */
-	function starter_post_navigation() {
+	function mwns_post_navigation() {
 		?>
 		<div class="nav-links">
 		<?php
@@ -88,12 +88,12 @@ if ( ! function_exists( 'starter_post_navigation' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'starter_share_links' ) ) :
+if ( ! function_exists( 'mwns_share_links' ) ) :
 	/**
 	 * Lf Share links
 	 **/
 
-	function starter_share_links() {
+	function mwns_share_links() {
 		?>
 		<div class="share-buttons">
 			<div class="share-links-wrapper">
@@ -119,13 +119,13 @@ if ( ! function_exists( 'starter_share_links' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'starter_archive_title' ) ) :
+if ( ! function_exists( 'mwns_archive_title' ) ) :
 	/**
 	 * @param string $before_title
 	 * @param string $after_title
 	 * @return string
 	 */
-	function starter_archive_title( $before_title = "", $after_title = "" ) {
+	function mwns_archive_title( $before_title = "", $after_title = "" ) {
 
 		if ( is_category() ) {
 			$title = $before_title . single_cat_title( '', false ) . $after_title;

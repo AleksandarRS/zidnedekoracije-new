@@ -4,7 +4,7 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Starter
+ * @package mwns
  */
 
 get_header(); ?>
@@ -18,7 +18,7 @@ get_header(); ?>
 
                     <header class="page-header">
                         <?php
-                        echo starter_archive_title('<h1 class="page-title">', '</h1>');
+                        echo mwns_archive_title('<h1 class="page-title">', '</h1>');
                         the_archive_description('<div class="taxonomy-description">', '</div>');
                         ?>
                     </header><!-- .page-header -->
@@ -38,7 +38,7 @@ get_header(); ?>
 
                     <?php endwhile; ?>
 
-                    <?php starter_post_navigation(); ?>
+                    <?php mwns_post_navigation(); ?>
 
                 <?php else : ?>
 
