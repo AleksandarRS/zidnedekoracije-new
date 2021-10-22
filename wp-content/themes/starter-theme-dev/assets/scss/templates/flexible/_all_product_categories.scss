@@ -1,18 +1,47 @@
+.term-featured-image-wrap {
+    overflow: hidden;
+}
 .term-featured-image {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 480px;
+    transition: all .5s;
 }
 .all-products-section-wrapper {
     padding-bottom: 72px;
     padding-top: 72px;
+}
+.all-products-section {
+    .term-name {
+        padding-top: 10px;
+        transition: all .5s;
+        > span {
+            background-color: $tertiary-color;
+            clear: both;
+            color: $white;
+            display: inline-block;
+            float: left;
+            font-size: $font-size-small;
+            letter-spacing: -0.2px;
+            margin: 10px 0 0;
+            padding: 5px 11px;
+        }
+    }
 }
 .product-cards-wrapper {
     color: $primary-color;
     padding-top: 3px;
     a {
         color: $primary-color;
+        &:hover {
+            .term-featured-image {
+                transform: scale(1.05);
+            }
+            .term-name {
+                transform: scale(0.95);
+            }
+        }
     }
     .product-card-title {
         font-size: $font-size-large;
@@ -27,5 +56,15 @@
 .main-title-section-heading {
     .title-label {
         color: $tertiary-color;
+    }
+}
+
+
+.archive-product-cards-wrapper {
+    padding-bottom: 70px;
+    padding-top: 70px;
+    .product-card-item {
+        margin-bottom: 25px;
+        margin-top: 25px;
     }
 }

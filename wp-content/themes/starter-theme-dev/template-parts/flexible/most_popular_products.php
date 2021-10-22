@@ -45,31 +45,32 @@ $link = get_sub_field('see_all_products_link');
                                 <div class="col-md-3 product-card-item category-card-item">
                                     <a class="category-card-link" href="<?php the_permalink(); ?>">
                                         <?php if( get_the_post_thumbnail() ): ?>
-                                            <div class="term-featured-image" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
-                                                <div class="term-name">
-                                                <?php   // Get terms for post
-                                                    $terms = get_the_terms( $post->ID , 'kategorija-proizvoda' );
-                                                    // Loop over each item since it's an array
-                                                    if ( $terms != null ){
-                                                    foreach( $terms as $term ) { ?>
-                                                    
-                                                        <span><?php print $term->name ; ?></span>
-                                                    
-                                                    <?php unset($term);
-                                                    } } ?>
+                                            <div class="term-featured-image-wrap">
+                                                <div class="term-featured-image" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
+                                                    <div class="term-name">
+                                                        <?php   // Get terms for post
+                                                            $terms = get_the_terms( $post->ID , 'kategorija-proizvoda' );
+                                                            // Loop over each item since it's an array
+                                                            if ( $terms != null ){
+                                                            foreach( $terms as $term ) { ?>
+                                                                <span><?php print $term->name ; ?></span>
+                                                            <?php unset($term);
+                                                        } } ?>
+                                                    </div>
                                                 </div>
                                             </div>
                                         <?php else: ?>
-                                            <div class="term-featured-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/default-image.jpg')">
-                                                <?php $terms = get_terms( array( 
-                                                            'taxonomy' => 'kategorija-proizvoda',
-                                                            'parent'   => 0
-                                                    ) );
-                                                    if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){ ?>
-                                                    <?php foreach ( $terms as $term ) { ?>
-                                                        <span><?php echo $term->name; ?></span>
-                                                    <?php  } ?>
-                                                <?php  } ?>
+                                            <div class="term-featured-image-wrap">
+                                                <div class="term-featured-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/default-image.jpg')">
+                                                        <?php   // Get terms for post
+                                                            $terms = get_the_terms( $post->ID , 'kategorija-proizvoda' );
+                                                            // Loop over each item since it's an array
+                                                            if ( $terms != null ){
+                                                            foreach( $terms as $term ) { ?>
+                                                                <span><?php print $term->name ; ?></span>
+                                                            <?php unset($term);
+                                                        } } ?>
+                                                </div>
                                             </div>
                                         <?php endif; ?>
 

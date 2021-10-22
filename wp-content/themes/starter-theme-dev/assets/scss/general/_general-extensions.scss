@@ -45,14 +45,14 @@
 
 %left-calc {
     left: calc(50vw - ( #{$container-width} / 2 ) - 3px);
-    @include max-mq ($ls) {
+    @include max-mq ($mac_l) {
         left: 15px;
     }
 }
 
 %right-calc {
     right: calc(50vw - ( #{$container-width} / 2 ) - 3px);
-    @include max-mq ($ls) {
+    @include max-mq ($mac_l) {
         right: 15px;
     }
 }

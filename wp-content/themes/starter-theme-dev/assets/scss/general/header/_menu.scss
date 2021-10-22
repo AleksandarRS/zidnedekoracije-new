@@ -162,6 +162,7 @@
 	
 					a {
 						padding: 10px 20px;
+						font-size: $font-size-base;
 	
 						@include max-mq($lg - 1) {
 							padding: 10px 0;

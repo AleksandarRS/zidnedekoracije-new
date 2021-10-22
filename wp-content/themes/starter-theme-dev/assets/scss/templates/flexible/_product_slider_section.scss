@@ -32,6 +32,9 @@
     position: absolute;
     right: 0;
     width: 100%;
+    @include max-mq ($mac + 20) {
+        padding-left: 15px;
+    }
     .products-title {
         max-width: 40%;
     }

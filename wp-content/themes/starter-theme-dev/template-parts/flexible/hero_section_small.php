@@ -4,7 +4,7 @@ $hero_description_small = get_sub_field('hero_description_small');
 $hero_image = get_sub_field('hero_image');
 ?>
 <section class="hero-section hero-section-small">
-    <div class="hero-section-small-media-wrap left-calc">
+    <div class="hero-section-small-media-wrap">
         <div class="hero-section-small-image-wrap" style="background-image: url(<?php echo esc_url($hero_image['url']); ?>);" role="img" aria-label="<?php echo esc_attr($hero_image['alt']); ?>">
             <div class="container container-narrow">
                 <div class="row image-text-row">
@@ -29,11 +29,8 @@ $hero_image = get_sub_field('hero_image');
                             </header>
                         <?php endif; ?>
                     </div>
-                    
                 </div>
             </div>
-            <div class="hero-section-small-image-wrap-inner">
-            </div> <!-- /.hero-section-image-wrap-inner -->
-        </div> <!-- /.hero-section-image-wrap -->
-    </div> <!-- /.hero-section-media-wrap -->
+        </div> <!-- /.hero-section-small-image-wrapl -->
+    </div> <!-- /.hero-section-small-media-wrap -->
 </section>
