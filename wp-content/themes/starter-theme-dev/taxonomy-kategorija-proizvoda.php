@@ -31,6 +31,19 @@ get_header(); ?>
                     </div> <!-- /.hero-section-small-image-wrap -->
                 </div> <!-- /.hero-section-small-media-wrap -->
             </section>
+            <div class="breadcrumbs-wrapper">
+            <?php if (function_exists('yoast_breadcrumb')) {
+                yoast_breadcrumb('
+                    <div class="site-content">
+                        <div class="container">
+                            <div class="full-width">
+                            <div id="breadcrumbs">', '</div>
+                            </div>
+                        </div>
+                    </div>
+                ');
+                } ?>
+            </div>
             <?php 
                 $term_children = get_terms( 'kategorija-proizvoda',
                 array(
