@@ -48,28 +48,36 @@ $link = get_sub_field('see_all_products_link');
                                             <div class="term-featured-image-wrap">
                                                 <div class="term-featured-image" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
                                                     <div class="term-name">
-                                                        <?php   // Get terms for post
-                                                            $terms = get_the_terms( $post->ID , 'kategorija-proizvoda' );
-                                                            // Loop over each item since it's an array
-                                                            if ( $terms != null ){
-                                                            foreach( $terms as $term ) { ?>
-                                                                <span><?php print $term->name ; ?></span>
-                                                            <?php unset($term);
-                                                        } } ?>
+                                                        <?php $term_list = wp_get_post_terms($post->ID, 'kategorija-proizvoda', ['fields' => 'all']);
+                                                            foreach($term_list as $term) {
+                                                                if( get_post_meta($post->ID, '_yoast_wpseo_primary_kategorija-proizvoda',true) == $term->term_id ) { ?>
+                                                                    <span><?php print $term->name ; ?></span>
+                                                                <?php }
+                                                            }
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>
                                         <?php else: ?>
                                             <div class="term-featured-image-wrap">
                                                 <div class="term-featured-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/default-image.jpg')">
+                                                    <div class="term-name">
                                                         <?php   // Get terms for post
-                                                            $terms = get_the_terms( $post->ID , 'kategorija-proizvoda' );
-                                                            // Loop over each item since it's an array
-                                                            if ( $terms != null ){
-                                                            foreach( $terms as $term ) { ?>
-                                                                <span><?php print $term->name ; ?></span>
-                                                            <?php unset($term);
-                                                        } } ?>
+                                                        //     $terms = get_the_terms( $post->ID , 'kategorija-proizvoda' );
+                                                        //     // Loop over each item since it's an array
+                                                        //     if ( $terms != null ){
+                                                        //     foreach( $terms as $term ) { ?>
+                                                                <!-- <span><?php // print $term->name ; ?></span> -->
+                                                             <?php // unset($term);
+                                                        // } } ?>
+                                                        <?php $term_list = wp_get_post_terms($post->ID, 'kategorija-proizvoda', ['fields' => 'all']);
+                                                            foreach($term_list as $term) {
+                                                                if( get_post_meta($post->ID, '_yoast_wpseo_primary_kategorija-proizvoda',true) == $term->term_id ) { ?>
+                                                                    <span><?php print $term->name ; ?></span>
+                                                                <?php }
+                                                            }
+                                                        ?>
+                                                    </div>
                                                 </div>
                                             </div>
                                         <?php endif; ?>

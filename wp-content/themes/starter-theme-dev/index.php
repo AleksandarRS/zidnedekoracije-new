@@ -13,6 +13,8 @@
 
 get_header(); ?>
 
+<?php get_template_part( 'template-parts/content', 'blog-hero' ); ?>
+
 <div class="container">
 	<div class="row">
 		<div id="primary" class="content-area">
@@ -21,22 +23,28 @@ get_header(); ?>
 				<?php if ( have_posts() ) : ?>
 
 					<?php /* Start the Loop */ ?>
-					<?php while ( have_posts() ) : ?>
-						<?php
+					<div class="most-popular-posts-section-wrapper">
+						<div class="posts-items-cards-wrapper post-product-items-cards-wrapper col-md-12">
+							<div class="row post-posts-items-cards-row">
+								<?php while ( have_posts() ) : ?>
+									<?php
 
-						the_post();
+									the_post();
 
 
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'template-parts/content', get_post_format() );
+									/*
+									* Include the Post-Format-specific template for the content.
+									* If you want to override this in a child theme, then include a file
+									* called content-___.php (where ___ is the Post Format name) and that will be used instead.
+									*/
+									// get_template_part( 'template-parts/content', get_post_format() );
+									get_template_part( 'template-parts/content', 'posts' );
 
-						?>
-					<?php endwhile; ?>
-
+									?>
+								<?php endwhile; ?>
+							</div> <!-- /.row post-posts-items-cards-row -->
+						</div> <!-- /.posts-items-cards-wrapper post-product-items-cards-wrapper col-md-12 -->
+					</div> <!-- /.most-popular-products-section-wrapper -->
 					<?php mwns_post_navigation(); ?>
 
 				<?php else : ?>

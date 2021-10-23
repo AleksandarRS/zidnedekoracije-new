@@ -9,7 +9,7 @@
     transition: all .5s;
 }
 .all-products-section-wrapper {
-    padding-bottom: 72px;
+    padding-bottom: 30px;
     padding-top: 72px;
 }
 .all-products-section {
@@ -31,7 +31,6 @@
 }
 .product-cards-wrapper {
     color: $primary-color;
-    padding-top: 3px;
     a {
         color: $primary-color;
         &:hover {
@@ -43,6 +42,10 @@
             }
         }
     }
+    .product-card-item {
+        padding-bottom: 42px;
+        padding-top: 3px;
+    }
     .product-card-title {
         font-size: $font-size-large;
         margin-bottom: 0.2em;
@@ -50,7 +53,7 @@
     }
     .link {
         display: block;
-        padding-top: 25px;
+        padding-top: 15px;
     }
 }
 .main-title-section-heading {

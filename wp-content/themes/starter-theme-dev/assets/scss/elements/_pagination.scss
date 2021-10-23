@@ -1,20 +1,26 @@
 .nav-links {
+  padding-bottom: 45px;
   text-align: center;
   width: 100%;
 
   .page-numbers {
-    border: 2px solid $secondary-color;
-    color: $secondary-color;
+    align-items: center;
+    background-color: $gray-200;
+    border-radius: 50%;
+    border: 1px solid $tertiary-color;
+    bottom: 0;
+    color: $tertiary-color;
     display: inline-block;
-    height: 30px;
-    line-height: 1.7em;
-    margin: 0 3px;
-    min-width: 30px;
-    transition: .2s;
+    height: 40px;
+    justify-content: center;
+    margin: 0 7px;
+    padding: 7px;
+    transition: all .5s;
+    width: 40px;
 
     &:hover,
     &.current {
-      background-color: $secondary-color;
+      background-color: $tertiary-color;
       color: #fff;
     }
 
@@ -25,6 +31,12 @@
       color: $secondary-color;
       height: auto;
       width: auto;
+      position: relative;
+      top: 7px;
+      font-size: $font-size-xlarge + 5;
+      &:hover {
+        color: $tertiary-color;
+      }
     }
   }
 }

@@ -18,7 +18,12 @@
     box-shadow: none;
     height: 50px;
   }
-
+  .newsletter-section-inner {
+    input[type='text'],
+    input[type='email'] {
+      font-size: $font-size-xlarge;
+    }
+  }
   input[type='text'],
   input[type='email'],
   input[type='url'],
@@ -41,8 +46,9 @@
     line-height: 1em;
     padding: 10px;
     vertical-align: middle;
-    .newsletter-section-inner & {
-      font-size: $font-size-xlarge;
+    
+    .newsletter-form-cta & {
+      font-size: $font-size-large;
     }
   }
   
@@ -119,9 +125,37 @@ input[type='submit'] {
 }
 *:-ms-input-placeholder {
   opacity: 1;
-  color: $gray-100 !important;
-  font-family: $primary-font;
-  font-weight: 400 !important;
+  color: $primary-color !important;
+}
+.newsletter-form-cta {
+  ::-webkit-input-placeholder {
+    opacity: 1;
+    color: $primary-color !important;
+  }
+  \:-moz-placeholder {
+    opacity: 1;
+    color: $primary-color !important;
+  }
+  ::-moz-placeholder {
+    opacity: 1;
+    color: $primary-color !important;
+  }
+  \:-ms-input-placeholder {
+    opacity: 1;
+    color: $primary-color !important;
+  }
+  *::-webkit-input-placeholder {
+    opacity: 1;
+    color: $primary-color !important;
+  }
+  *:-moz-placeholder {
+    opacity: 1;
+    color: $primary-color !important;
+  }
+  *:-ms-input-placeholder {
+    opacity: 1;
+    color: $primary-color !important;
+  }
 }
 
 fieldset {
