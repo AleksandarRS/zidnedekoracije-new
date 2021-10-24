@@ -11,7 +11,10 @@ let _this = module.exports = {
 		# Cache dom and strings
 	-------------------------------------------------------------------------------*/
 	$dom: {
-		toggleSearchIcon: $('.toggle-icon')
+		toggleSearchIcon: $('.toggle-icon'),
+
+		toggleOrderForm: $('#order-product-button'),
+		toggleOrderFormClose: $('.order-product-close-button'),
     },
 
     vars: {
@@ -22,10 +25,13 @@ let _this = module.exports = {
 	-------------------------------------------------------------------------------*/
 	init: function () {
 		if( _this ){
-			// this.$dom.toggleIcon.click(function() {
-			// 	// $( this ).parent('.hero-decription-icon-animate-wrap').toggleClass( "toggled-content" );
-			// 	$( this ).parent('.hero-decription-icon-animate-wrap').find('.hero-text-description').slideToggle( "slow" );
-			// });
+			this.$dom.toggleOrderForm.click(function() {
+				// $( this ).parent('.hero-decription-icon-animate-wrap').toggleClass( "toggled-content" );
+				$( this ).parents('.single-post-content-wrapper').find('#order-form').slideToggle( "slow" );
+			});
+			this.$dom.toggleOrderFormClose.click(function() {
+				$( this ).parents('.single-post-content-wrapper').find('#order-form').slideToggle( "slow" );
+			});
 			this.$dom.toggleSearchIcon.click(function() {
 				$( this ).parents('.site-header').toggleClass( "search-opened" );
 			});

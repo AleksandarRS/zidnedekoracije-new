@@ -1,0 +1,52 @@
+.single-page-img,
+.single-page-thumbnail {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.single-page-main-slider-wrapper,
+.single-page-main-content {
+    padding-bottom: 72px;
+}
+.single-page-img {
+    height: 500px;
+}
+#order-form {
+    display: none;
+}
+
+.single-page-thumbnail {
+    border: 1px solid transparent;
+    height: 100px;
+    width: 100px;
+    transition: all 0.5s;
+    .slick-current & {
+        border-color: $tertiary-color;
+    }
+}
+
+.single-page-button-wrap {
+    padding-top: 25px;
+}
+
+.single-page-order-form-inner {
+    padding: 12px 0 65px;
+    margin: 10px 0;
+    border-bottom: 1px solid $gray-300;
+    border-top: 1px solid $gray-300;
+}
+
+.order-product-close {
+    text-align: right;
+    padding-bottom: 65px;
+    padding-top: 0;
+    i {
+        font-size: $font-size-xlarge + 8;
+        cursor: pointer;
+        transition: color .5s;
+        &:hover {
+            color: $tertiary-color;
+        }
+
+    }
+}

@@ -20,6 +20,11 @@ module.exports = {
 		slickSliderProducts: $(".products-slider-wrapper"),
 		slickSliderTestimonials: $(".testimonials-slider"),
 		slickSliderPagination: $(".slick-slider-dots"),
+
+		slickSliderSingleMain: $(".single-page-main-slider"),
+		slickSliderSingleThumb: $(".single-page-thumbnail-slider"),
+
+		slickSliderSingleinstructions: $(".instructions-slider"),
 	},
 	
 
@@ -96,6 +101,29 @@ module.exports = {
 			arrows: true,
 			prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
 			nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>",
+		});
+
+		this.$dom.slickSliderSingleinstructions.slick({
+			slidesToScroll: 1,
+			slidesToShow: 1,
+			infinite: true,
+			dots: false,
+			arrows: true,
+			prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
+			nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>",
+		});
+
+
+		this.$dom.slickSliderSingleMain.slick({
+			autoplay: true,
+			speed: 1000,
+			arrows: false,
+			asNavFor: ".single-page-thumbnail-slider"
+		});
+		this.$dom.slickSliderSingleThumb.slick({
+			slidesToShow: 4,
+			speed: 1000,    
+			asNavFor: ".single-page-main-slider"
 		});
 
 	}

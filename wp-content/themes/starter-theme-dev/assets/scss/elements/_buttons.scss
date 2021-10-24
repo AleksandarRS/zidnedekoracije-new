@@ -1,6 +1,7 @@
 .button {
 	border: 1px solid;
 	color: $white;
+	cursor: pointer;
 	display: inline-block;
 	padding: 10px 28px;
 	transition: all 0.5s;
@@ -21,6 +22,15 @@
 		&:hover {
 			background-color: $white;
 			color: $secondary-color;
+		}
+	}
+	&.button-secondary-outline {
+		border-color: $secondary-color;
+		background-color: $white;
+		color: $secondary-color;
+		&:hover {
+			background-color: $secondary-color;
+			color: $white;
 		}
 	}
 	&.button-tertiary {
@@ -60,6 +70,7 @@
 		}
 	}
 	&.dd_frm_button_submit {
-		padding: 11px 40px;
+		padding: 13px 70px;
+		margin-top: 10px;
 	}
 }

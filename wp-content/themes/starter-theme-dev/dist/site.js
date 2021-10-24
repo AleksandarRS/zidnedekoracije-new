@@ -514,7 +514,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			$dom: {
 				slickSliderProducts: $(".products-slider-wrapper"),
 				slickSliderTestimonials: $(".testimonials-slider"),
-				slickSliderPagination: $(".slick-slider-dots")
+				slickSliderPagination: $(".slick-slider-dots"),
+
+				slickSliderSingleMain: $(".single-page-main-slider"),
+				slickSliderSingleThumb: $(".single-page-thumbnail-slider"),
+
+				slickSliderSingleinstructions: $(".instructions-slider")
 			},
 
 			/*-------------------------------------------------------------------------------
@@ -590,6 +595,28 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
 					nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>"
 				});
+
+				this.$dom.slickSliderSingleinstructions.slick({
+					slidesToScroll: 1,
+					slidesToShow: 1,
+					infinite: true,
+					dots: false,
+					arrows: true,
+					prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
+					nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>"
+				});
+
+				this.$dom.slickSliderSingleMain.slick({
+					autoplay: true,
+					speed: 1000,
+					arrows: false,
+					asNavFor: ".single-page-thumbnail-slider"
+				});
+				this.$dom.slickSliderSingleThumb.slick({
+					slidesToShow: 4,
+					speed: 1000,
+					asNavFor: ".single-page-main-slider"
+				});
 			}
 		};
 	}, { "slick-carousel": 9 }], 7: [function (require, module, exports) {
@@ -605,7 +632,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
    	# Cache dom and strings
    -------------------------------------------------------------------------------*/
 			$dom: {
-				toggleSearchIcon: $('.toggle-icon')
+				toggleSearchIcon: $('.toggle-icon'),
+
+				toggleOrderForm: $('#order-product-button'),
+				toggleOrderFormClose: $('.order-product-close-button')
 			},
 
 			vars: {},
@@ -615,10 +645,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
    -------------------------------------------------------------------------------*/
 			init: function init() {
 				if (_this) {
-					// this.$dom.toggleIcon.click(function() {
-					// 	// $( this ).parent('.hero-decription-icon-animate-wrap').toggleClass( "toggled-content" );
-					// 	$( this ).parent('.hero-decription-icon-animate-wrap').find('.hero-text-description').slideToggle( "slow" );
-					// });
+					this.$dom.toggleOrderForm.click(function () {
+						// $( this ).parent('.hero-decription-icon-animate-wrap').toggleClass( "toggled-content" );
+						$(this).parents('.single-post-content-wrapper').find('#order-form').slideToggle("slow");
+					});
+					this.$dom.toggleOrderFormClose.click(function () {
+						$(this).parents('.single-post-content-wrapper').find('#order-form').slideToggle("slow");
+					});
 					this.$dom.toggleSearchIcon.click(function () {
 						$(this).parents('.site-header').toggleClass("search-opened");
 					});
