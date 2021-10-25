@@ -40,35 +40,38 @@
 	@if $filename == arrow-right {
 		$char: "\E006";
 	}
-	@if $filename == facebook {
+	@if $filename == check-ok {
 		$char: "\E007";
 	}
-	@if $filename == google-plus-g {
+	@if $filename == facebook {
 		$char: "\E008";
 	}
-	@if $filename == instagram {
+	@if $filename == google-plus-g {
 		$char: "\E009";
 	}
-	@if $filename == linkedin {
+	@if $filename == instagram {
 		$char: "\E00A";
 	}
-	@if $filename == pinterest {
+	@if $filename == linkedin {
 		$char: "\E00B";
 	}
-	@if $filename == search-plus {
+	@if $filename == pinterest {
 		$char: "\E00C";
 	}
-	@if $filename == search {
+	@if $filename == search-plus {
 		$char: "\E00D";
 	}
-	@if $filename == times {
+	@if $filename == search {
 		$char: "\E00E";
 	}
-	@if $filename == twitter {
+	@if $filename == times {
 		$char: "\E00F";
 	}
-	@if $filename == youtube {
+	@if $filename == twitter {
 		$char: "\E010";
+	}
+	@if $filename == youtube {
+		$char: "\E011";
 	}
 
 	@return $char;
@@ -102,6 +105,9 @@
 }
 .icon-arrow-right {
 	@include icon(arrow-right);
+}
+.icon-check-ok {
+	@include icon(check-ok);
 }
 .icon-facebook {
 	@include icon(facebook);

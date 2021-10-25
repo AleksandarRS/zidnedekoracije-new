@@ -7,8 +7,7 @@
 
 get_header(); ?>
 
-<div class="container">
-	<div class="row">
+
 		<div id="primary" class="content-area col-md-12">
 			<main id="main" class="site-main" role="main">
 
@@ -27,7 +26,6 @@ get_header(); ?>
 				   
 			</main><!-- #main -->
 		</div><!-- #primary -->
-	</div><!-- .row -->
-</div><!-- .container -->
+
 
 <?php get_footer(); ?>
