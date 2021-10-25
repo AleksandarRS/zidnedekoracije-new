@@ -1,1 +1,59 @@
 @import "../../../node_modules/slick-carousel/slick/slick.scss";
+.slick-arrow {
+    align-items: center;
+    background-color: $gray-200;
+    border-radius: 50%;
+    border: 1px solid $tertiary-color;
+    bottom: 0;
+    color: $tertiary-color;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    padding: 0;
+    position: absolute;
+    transition: all .5s;
+    width: 40px;
+    z-index: 9;
+    &:hover {
+        background-color: $tertiary-color;
+        color: $white;
+    }
+    i {
+        position: relative;
+        top: 1px;
+    }
+    &.slick-prev {
+        left: calc(50% - 65px);
+        @include max-mq ($mac) {
+            left: calc(50% - 65px);
+        }
+        .testimonials-slider & {
+            left: calc(50% - 135px);
+            @include max-mq ($mac) {
+                right: calc(50% - 65px);
+            }
+        }
+        .instructions-slider & {
+            left: auto;
+            right: 100px;
+        }
+        
+    }
+    &.slick-next {
+        right: calc(50% - 65px);
+        @include max-mq ($mac) {
+            right: calc(50% - 65px);
+        }
+        .testimonials-slider & {
+            right: calc(50% + 45px);
+            @include max-mq ($mac) {
+                right: calc(50% - 65px);
+            }
+        }
+        .instructions-slider & {
+            left: auto;
+            right: 0;
+        }
+        
+    }
+}

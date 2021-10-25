@@ -4423,6 +4423,102 @@ fieldset {
   display: none;
 }
 
+.slick-arrow {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #F7F7F7;
+  border-radius: 50%;
+  border: 1px solid #CE1E2C;
+  bottom: 0;
+  color: #CE1E2C;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 40px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
+  position: absolute;
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+  width: 40px;
+  z-index: 9;
+}
+
+.slick-arrow:hover {
+  background-color: #CE1E2C;
+  color: #ffffff;
+}
+
+.slick-arrow i {
+  position: relative;
+  top: 1px;
+}
+
+.slick-arrow.slick-prev {
+  left: -webkit-calc(50% - 65px);
+  left: calc(50% - 65px);
+}
+
+@media (max-width: 1440px) {
+  .slick-arrow.slick-prev {
+    left: -webkit-calc(50% - 65px);
+    left: calc(50% - 65px);
+  }
+}
+
+.testimonials-slider .slick-arrow.slick-prev {
+  left: -webkit-calc(50% - 135px);
+  left: calc(50% - 135px);
+}
+
+@media (max-width: 1440px) {
+  .testimonials-slider .slick-arrow.slick-prev {
+    right: -webkit-calc(50% - 65px);
+    right: calc(50% - 65px);
+  }
+}
+
+.instructions-slider .slick-arrow.slick-prev {
+  left: auto;
+  right: 100px;
+}
+
+.slick-arrow.slick-next {
+  right: -webkit-calc(50% - 65px);
+  right: calc(50% - 65px);
+}
+
+@media (max-width: 1440px) {
+  .slick-arrow.slick-next {
+    right: -webkit-calc(50% - 65px);
+    right: calc(50% - 65px);
+  }
+}
+
+.testimonials-slider .slick-arrow.slick-next {
+  right: -webkit-calc(50% + 45px);
+  right: calc(50% + 45px);
+}
+
+@media (max-width: 1440px) {
+  .testimonials-slider .slick-arrow.slick-next {
+    right: -webkit-calc(50% - 65px);
+    right: calc(50% - 65px);
+  }
+}
+
+.instructions-slider .slick-arrow.slick-next {
+  left: auto;
+  right: 0;
+}
+
 .select2-container--default {
   color: #000000;
   font-family: "Sofia Pro Bold";
@@ -5025,67 +5121,6 @@ fieldset {
   position: relative;
 }
 
-.testimonials-slider .slick-arrow {
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: #F7F7F7;
-  border-radius: 50%;
-  border: 1px solid #CE1E2C;
-  bottom: 0;
-  color: #CE1E2C;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 40px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 0;
-  position: absolute;
-  -webkit-transition: all .5s;
-  -o-transition: all .5s;
-  transition: all .5s;
-  width: 40px;
-}
-
-.testimonials-slider .slick-arrow:hover {
-  background-color: #CE1E2C;
-  color: #ffffff;
-}
-
-.testimonials-slider .slick-arrow i {
-  position: relative;
-  top: 1px;
-}
-
-.testimonials-slider .slick-prev {
-  left: -webkit-calc(50% - 135px);
-  left: calc(50% - 135px);
-}
-
-@media (max-width: 1440px) {
-  .testimonials-slider .slick-prev {
-    left: -webkit-calc(50% - 65px);
-    left: calc(50% - 65px);
-  }
-}
-
-.testimonials-slider .slick-next {
-  right: -webkit-calc(50% + 45px);
-  right: calc(50% + 45px);
-}
-
-@media (max-width: 1440px) {
-  .testimonials-slider .slick-next {
-    right: -webkit-calc(50% - 65px);
-    right: calc(50% - 65px);
-  }
-}
-
 .testimonials-slider .slick-slide {
   width: 450px;
 }
@@ -5351,7 +5386,7 @@ fieldset {
 
 .single-page-main-slider-wrapper,
 .single-page-main-content {
-  padding-bottom: 72px;
+  padding-bottom: 50px;
 }
 
 .single-page-img {
@@ -5363,7 +5398,7 @@ fieldset {
 }
 
 .single-page-thumbnail {
-  border: 1px solid transparent;
+  border: 1px solid #ffffff;
   height: 100px;
   width: 100px;
   -webkit-transition: all 0.5s;
@@ -5382,8 +5417,8 @@ fieldset {
 .single-page-order-form-inner {
   padding: 12px 0 65px;
   margin: 10px 0;
-  border-bottom: 1px solid #E1E1E1;
-  border-top: 1px solid #E1E1E1;
+  border-bottom: 1px solid #2F2F40;
+  border-top: 1px solid #2F2F40;
 }
 
 .order-product-close {
@@ -5394,6 +5429,7 @@ fieldset {
 
 .order-product-close i {
   font-size: 28px;
+  color: #202024;
   cursor: pointer;
   -webkit-transition: color .5s;
   -o-transition: color .5s;
@@ -5402,6 +5438,48 @@ fieldset {
 
 .order-product-close i:hover {
   color: #CE1E2C;
+}
+
+.instructions-section {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.instructions-section .instruction-slider-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 321px;
+  background-position: center;
+}
+
+.instructions-section .instruction-slider-image-wrap.second-image-here {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.instructions-section .instruction-slider-image-wrap.second-image-here .instruction-slider-image {
+  max-width: 50%;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 50%;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+}
+
+.instructions-section .instruction-slider-image-wrap.just-one-image .instruction-slider-image {
+  width: 100%;
+}
+
+.instructions-section .instructions-slider {
+  padding-bottom: 25px;
+}
+
+.tab-nav {
+  list-style: none;
+  padding-left: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

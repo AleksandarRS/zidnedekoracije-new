@@ -5,6 +5,7 @@ $ = require('jquery');
 const Navigation = require('./core/navigation');
 const equalheight = require('./site/equalheight');
 const toggle = require('./site/toggle');
+const tabs = require('./site/tabs');
 const slick = require('./site/slick');
 const example = require('./site/example');
 
@@ -19,6 +20,11 @@ jQuery( function(){
    * Initialize site navigation
    */
   Navigation.init();
+
+   /**
+   * Initialize tabs module
+   */
+    tabs.init();
 
   /**
    * Initialize slick module

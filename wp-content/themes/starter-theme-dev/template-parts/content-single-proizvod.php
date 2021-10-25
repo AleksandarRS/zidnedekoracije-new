@@ -108,58 +108,62 @@ $instructions_section_description = get_field('instructions_section_description'
 		<?php endif; ?>
 	</div> <!-- /.row row-single-page single-post-content-wrapper -->
 
-
-	<div class="instructions-section">
-		<div class="col-md-6">
-			<header class="main-title-section-heading entry-header">
-				<h2 class="entry-title"><?php echo $instructions_section_title; ?></h2>
-			</header><!-- .entry-header -->
-
-			<?php echo $instructions_section_description; ?>
+	<div class="tabs">
+		<div class="instructions-section">
+			<div class="instructions-section-description-wrapper col-md-6">
+				<header class="main-title-section-heading entry-header">
+					<h2 class="entry-title"><?php echo $instructions_section_title; ?></h2>
+				</header><!-- .entry-header -->
+				<?php echo $instructions_section_description; ?>
+				<?php if( have_rows('instructions_stages') ): ?>
+					<div class="title-label-tabs title-label-wrap">
+						<?php $i = 0; ?>
+						<ul class="tab-nav">
+							<?php while ( have_rows('instructions_stages') ) : the_row(); ?>
+								<li><a href='#content-<?php echo $i; ?>'><h5><?php the_sub_field('instruction_label_title'); ?></h5></a></li>
+								<?php $i++; ?>
+							<?php endwhile; ?>
+						</ul>
+					</div>	
+				<?php endif;?>
+			</div> <!-- /.instructions-section-description-wrapper col-md-6 -->
 			<?php if( have_rows('instructions_stages') ): ?>
-				<?php while ( have_rows('instructions_stages') ) : the_row(); ?>
-					<div class="title-label-wrap">
-						<h5><?php the_sub_field('instruction_label_title'); ?></h5>
-					</div>
-				<?php endwhile; ?>			
+				<div class="instructions-slider-wrapper tab-content col-md-6">
+					<?php $v = 0; ?>
+					<?php while ( have_rows('instructions_stages') ) : the_row(); ?>
+						<?php if( have_rows('instructions_details') ): ?>
+							<div id='content-<?php echo $v; ?>' class="instructions-slider">
+								<?php while ( have_rows('instructions_details') ) : the_row(); ?>
+									<?php 
+										$add_instruction_image_f = get_sub_field('add_instruction_image_f');
+										$add_instruction_image_s = get_sub_field('add_instruction_image_s');
+										$add_instruction_text = get_sub_field('add_instruction_text');
+
+									?>
+									<div class="instructions-slider-item">
+										<div class="instruction-slider-image-wrap<?php if( $add_instruction_image_s ): ?> second-image-here<?php else:?> just-one-image<?php endif;?>">
+											<?php if( $add_instruction_image_f ): ?>
+												<div class="instruction-slider-image" style="background-image: url('<?php echo esc_url($add_instruction_image_f['url']); ?>');" role="img" aria-label="<?php echo esc_attr($add_instruction_image_f['alt']); ?>">
+												</div>
+											<?php endif;?>
+											<?php if( $add_instruction_image_s ): ?>
+												<div class="instruction-slider-image" style="background-image: url('<?php echo esc_url($add_instruction_image_s['url']); ?>');" role="img" aria-label="<?php echo esc_attr($add_instruction_image_s['alt']); ?>">
+												</div>
+											<?php endif;?>
+										</div>
+										<div class="instruction-slider-description">
+											<?php echo $add_instruction_text; ?>
+										</div>
+									</div>
+									
+								<?php endwhile; ?>	
+							</div> <!-- /#content-##' /.instructions-slider -->
+						<?php endif;?>
+						<?php $v++; ?>
+					<?php endwhile; ?>
+				</div> <!-- /.instructions-slider-wrapper tab-content col-md-6 -->	
 			<?php endif;?>
 		</div>
-		
-		<?php if( have_rows('instructions_stages') ): ?>
-			<?php while ( have_rows('instructions_stages') ) : the_row(); ?>
-
-				<?php if( have_rows('instructions_details') ): ?>
-					<div class="instructions-slider">
-						<?php while ( have_rows('instructions_details') ) : the_row(); ?>
-							<?php 
-								$add_instruction_image_f = get_sub_field('add_instruction_image_f');
-								$add_instruction_image_s = get_sub_field('add_instruction_image_s');
-								$add_instruction_text = get_sub_field('add_instruction_text');
-
-							?>
-							<div class="instructions-slider-item">
-								<div class="instruction-slider-image-wrap<?php if( $add_instruction_image_s ): ?> second-image-here<?php else:?> just-one-image<?php endif;?>">
-									<?php if( $add_instruction_image_f ): ?>
-										<div class="instruction-slider-image">
-											<img src="<?php echo esc_url($add_instruction_image_f['url']); ?>" alt="<?php echo esc_attr($add_instruction_image_f['alt']); ?>" />
-										</div>
-									<?php endif;?>
-									<?php if( $add_instruction_image_s ): ?>
-										<div class="instruction-slider-image">
-											<img src="<?php echo esc_url($add_instruction_image_s['url']); ?>" alt="<?php echo esc_attr($add_instruction_image_s['alt']); ?>" />
-										</div>
-									<?php endif;?>
-								</div>
-								<div class="instruction-slider-description">
-									<?php echo $add_instruction_text; ?>
-								</div>
-							</div>
-						<?php endwhile; ?>	
-					</div>
-				<?php endif;?>
-
-			<?php endwhile; ?>			
-		<?php endif;?>
 	</div>
 </article><!-- #post-## -->
 

@@ -25,6 +25,10 @@ module.exports = {
 		slickSliderSingleThumb: $(".single-page-thumbnail-slider"),
 
 		slickSliderSingleinstructions: $(".instructions-slider"),
+
+		// slickSliderSingleinstructionsWrapper: $(".instructions-slider-wrapper"),
+
+		// slickSliderSingleinstructionsNav: $(".title-label-slider"),
 	},
 	
 
@@ -75,22 +79,10 @@ module.exports = {
 				customPaging : function(slider, i) {
 					var thumb = $(slider.$slides[i]).find('.slick-slider-dots');
 					return thumb;
-			   }
-			// dotsClass: 'custom_paging',
-			// 	customPaging: function (slider, i) {
-			// 		//FYI just have a look at the object to find aviable information
-			// 		//press f12 to access the console
-			// 		//you could also debug or look in the source
-			// 		return (i + 1) + '/' + slider.slideCount;
-			// 	}
+				}
 			});
 		}
 
-		// this.$dom.slickSliderPagination.slick({
-		// 	dots: true,
-		// 	focusOnSelect: true,
-		// 	asNavFor: '.products-slider-wrapper',
-		// });
 
 		this.$dom.slickSliderTestimonials.slick({
 			slidesToScroll: 1,
@@ -106,12 +98,36 @@ module.exports = {
 		this.$dom.slickSliderSingleinstructions.slick({
 			slidesToScroll: 1,
 			slidesToShow: 1,
-			infinite: true,
+			infinite: false,
 			dots: false,
 			arrows: true,
 			prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
 			nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>",
+			// asNavFor: ".title-label-slider"
 		});
+
+		// this.$dom.slickSliderSingleinstructionsWrapper.slick({
+		// 	arrows: false,
+		// 	asNavFor: ".title-label-slider"
+		// });
+
+		// this.$dom.slickSliderSingleinstructionsNav.slick({
+		// 	slidesToShow: 2,
+		// 	asNavFor: ".instructions-slider-wrapper"
+		// });
+
+		// $(".instructions-slider-wrapper").slick({
+		// 	slidesToScroll: 1,
+		// 	slidesToShow: 1,
+		// 	dots: true,
+		// 	arrows: false,
+		// 	customPaging : function(slider, i) {
+		// 		var thumbInstruction = $(slider.$slides[i]).find('.title-label-slider');
+		// 		return thumbInstruction;
+		// 	}
+		// });
+
+		
 
 
 		this.$dom.slickSliderSingleMain.slick({
@@ -122,7 +138,7 @@ module.exports = {
 		});
 		this.$dom.slickSliderSingleThumb.slick({
 			slidesToShow: 4,
-			speed: 1000,    
+			speed: 1000,
 			asNavFor: ".single-page-main-slider"
 		});
 

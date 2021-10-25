@@ -6,7 +6,7 @@
 }
 .single-page-main-slider-wrapper,
 .single-page-main-content {
-    padding-bottom: 72px;
+    padding-bottom: 50px;
 }
 .single-page-img {
     height: 500px;
@@ -16,7 +16,7 @@
 }
 
 .single-page-thumbnail {
-    border: 1px solid transparent;
+    border: 1px solid $white;
     height: 100px;
     width: 100px;
     transition: all 0.5s;
@@ -32,8 +32,8 @@
 .single-page-order-form-inner {
     padding: 12px 0 65px;
     margin: 10px 0;
-    border-bottom: 1px solid $gray-300;
-    border-top: 1px solid $gray-300;
+    border-bottom: 1px solid $secondary-color;
+    border-top: 1px solid $secondary-color;
 }
 
 .order-product-close {
@@ -42,6 +42,7 @@
     padding-top: 0;
     i {
         font-size: $font-size-xlarge + 8;
+        color: $secondary-color-500;
         cursor: pointer;
         transition: color .5s;
         &:hover {
@@ -50,3 +51,43 @@
 
     }
 }
+
+.instructions-section {
+    display: flex;
+
+    
+
+
+    .instruction-slider-image {
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 321px;
+        background-position: center;
+    }
+    
+    .instruction-slider-image-wrap {
+        &.second-image-here {
+            display: flex;
+            .instruction-slider-image {
+                max-width: 50%;
+                flex: 0 0 50%
+            }
+        }
+        &.just-one-image {
+            .instruction-slider-image {
+                width: 100%;
+            }
+        }
+    }
+    .instructions-slider {
+        padding-bottom: 25px;
+    }
+}
+
+.tab-nav {
+    list-style: none;
+    padding-left: 0;       
+}
+
+
+

@@ -169,6 +169,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		var Navigation = require('./core/navigation');
 		var equalheight = require('./site/equalheight');
 		var toggle = require('./site/toggle');
+		var tabs = require('./site/tabs');
 		var slick = require('./site/slick');
 		var example = require('./site/example');
 
@@ -185,6 +186,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			Navigation.init();
 
 			/**
+   * Initialize tabs module
+   */
+			tabs.init();
+
+			/**
     * Initialize slick module
     */
 			slick.init();
@@ -199,7 +205,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     */
 			example.init();
 		});
-	}, { "./core/navigation": 1, "./site/equalheight": 3, "./site/example": 4, "./site/slick": 6, "./site/toggle": 7, "jquery": 8 }], 3: [function (require, module, exports) {
+	}, { "./core/navigation": 1, "./site/equalheight": 3, "./site/example": 4, "./site/slick": 6, "./site/tabs": 7, "./site/toggle": 8, "jquery": 9 }], 3: [function (require, module, exports) {
 		"use strict";
 
 		/**  
@@ -520,6 +526,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				slickSliderSingleThumb: $(".single-page-thumbnail-slider"),
 
 				slickSliderSingleinstructions: $(".instructions-slider")
+
+				// slickSliderSingleinstructionsWrapper: $(".instructions-slider-wrapper"),
+
+				// slickSliderSingleinstructionsNav: $(".title-label-slider"),
 			},
 
 			/*-------------------------------------------------------------------------------
@@ -569,21 +579,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 							var thumb = $(slider.$slides[i]).find('.slick-slider-dots');
 							return thumb;
 						}
-						// dotsClass: 'custom_paging',
-						// 	customPaging: function (slider, i) {
-						// 		//FYI just have a look at the object to find aviable information
-						// 		//press f12 to access the console
-						// 		//you could also debug or look in the source
-						// 		return (i + 1) + '/' + slider.slideCount;
-						// 	}
 					});
 				}
-
-				// this.$dom.slickSliderPagination.slick({
-				// 	dots: true,
-				// 	focusOnSelect: true,
-				// 	asNavFor: '.products-slider-wrapper',
-				// });
 
 				this.$dom.slickSliderTestimonials.slick({
 					slidesToScroll: 1,
@@ -599,12 +596,35 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				this.$dom.slickSliderSingleinstructions.slick({
 					slidesToScroll: 1,
 					slidesToShow: 1,
-					infinite: true,
+					infinite: false,
 					dots: false,
 					arrows: true,
 					prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
 					nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>"
+					// asNavFor: ".title-label-slider"
 				});
+
+				// this.$dom.slickSliderSingleinstructionsWrapper.slick({
+				// 	arrows: false,
+				// 	asNavFor: ".title-label-slider"
+				// });
+
+				// this.$dom.slickSliderSingleinstructionsNav.slick({
+				// 	slidesToShow: 2,
+				// 	asNavFor: ".instructions-slider-wrapper"
+				// });
+
+				// $(".instructions-slider-wrapper").slick({
+				// 	slidesToScroll: 1,
+				// 	slidesToShow: 1,
+				// 	dots: true,
+				// 	arrows: false,
+				// 	customPaging : function(slider, i) {
+				// 		var thumbInstruction = $(slider.$slides[i]).find('.title-label-slider');
+				// 		return thumbInstruction;
+				// 	}
+				// });
+
 
 				this.$dom.slickSliderSingleMain.slick({
 					autoplay: true,
@@ -619,7 +639,84 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				});
 			}
 		};
-	}, { "slick-carousel": 9 }], 7: [function (require, module, exports) {
+	}, { "slick-carousel": 10 }], 7: [function (require, module, exports) {
+		"use strict";
+
+		{/* <div class="tabs">
+   <ul class='tab-nav'>
+   	<li><a href='#content-one'>1</a></li>
+   	<li><a href='#content-two'>2</a></li>
+   </ul>
+   <div class='tab-content'>
+   	<div id='content-one'>One</div>
+   	<div  id='content-two'>Two</div>
+   </div>
+   </div> */}
+
+		var _this = module.exports = {
+
+			/*-------------------------------------------------------------------------------
+   	# Cache dom and strings
+   -------------------------------------------------------------------------------*/
+			$dom: {
+				tabsNav: $('.tabs .tab-nav a'),
+				tabsContent: $('.tabs .tab-content > div')
+			},
+
+			vars: {},
+
+			/*-------------------------------------------------------------------------------
+   	# Initialize
+   -------------------------------------------------------------------------------*/
+			init: function init() {
+				_this.prepare();
+				_this.bind();
+			},
+
+			bind: function bind() {
+				_this.$dom.tabsNav.on('click', _this.toggle);
+			},
+
+			prepare: function prepare() {
+				_this.$dom.tabsContent.not(':first').hide();
+			},
+
+			toggle: function toggle(e) {
+				e.preventDefault();
+
+				var elementSelector = $(this).attr('href');
+
+				_this.$dom.tabsNav.css('pointer-events', 'none'); // prevent click on tab nav until fmwns is finished
+
+				// Add active class on tab nav
+				_this.$dom.tabsNav.parent().removeClass('active');
+				$(this).parent().addClass('active');
+
+				var $element = _this.$dom.tabsContent.siblings(elementSelector);
+
+				if ($element.length > 0) {
+
+					// Hide Tabs
+					_this.$dom.tabsContent.fadeOut(200);
+					_this.$dom.tabsContent.removeClass('active');
+
+					setTimeout(function () {
+						// Show Active Tab
+						$element.fadeIn(300);
+						$element.addClass('active');
+
+						// Enable if slick slider is in tabs
+						$('.instructions-slider').slick('setPosition', 0);
+					}, 200);
+
+					setTimeout(function () {
+						_this.$dom.tabsNav.css('pointer-events', 'all'); // enable click on tab nav
+					}, 500);
+				}
+			}
+
+		};
+	}, {}], 8: [function (require, module, exports) {
 		"use strict";
 
 		// const Global = require('./global');
@@ -665,7 +762,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			});
 			jQuery("body").css("overflow-y", "visible");
 		});
-	}, {}], 8: [function (require, module, exports) {
+	}, {}], 9: [function (require, module, exports) {
 		/*!
    * jQuery JavaScript Library v3.4.1
    * https://jquery.com/
@@ -10800,7 +10897,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 			return jQuery;
 		});
-	}, {}], 9: [function (require, module, exports) {
+	}, {}], 10: [function (require, module, exports) {
 		/*
        _ _      _       _
    ___| (_) ___| | __  (_)___
@@ -13554,5 +13651,5 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				return _;
 			};
 		});
-	}, { "jquery": 8 }] }, {}, [2]);
+	}, { "jquery": 9 }] }, {}, [2]);
 //# sourceMappingURL=scripts.js.map
