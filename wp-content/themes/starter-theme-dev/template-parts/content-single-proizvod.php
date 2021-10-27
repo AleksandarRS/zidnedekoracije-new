@@ -33,6 +33,19 @@ $full_width_section = get_field('full_width_section');
 
 ?>
 
+<div class="breadcrumbs-wrapper">
+<?php if (function_exists('yoast_breadcrumb')) {
+    yoast_breadcrumb('
+        <div class="site-content">
+            <div class="container">
+                <div class="full-width">
+                <div id="breadcrumbs">', '</div>
+                </div>
+            </div>
+        </div>
+    ');
+    } ?>
+</div>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
 	<div class="container">
@@ -77,7 +90,7 @@ $full_width_section = get_field('full_width_section');
 						if( $add_video_link ): 
 							$link_url = $add_video_link['url'];
 							$link_title = $add_video_link['title'];
-							$link_target = $add_video_link['target'] ? $link['target'] : '_self';
+							$link_target = $add_video_link['target'] ? $add_video_link['target'] : '_self';
 						?>
 						<div class="single-page-video-button single-page-button-wrap">
 							<a class="button button-secondary-outline" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
@@ -86,7 +99,7 @@ $full_width_section = get_field('full_width_section');
 
 					<?php if( $order_product_option == true ): ?>
 						<div class="single-page-button-wrap order-product-button">
-							<span id="order-product-button" class="button button-tertiary" href="#"><?php _e('Naručite proizvod', 'mwns'); ?></span>
+							<a href="#order-form" id="order-product-button" class="button button-tertiary"><?php _e('Naručite proizvod', 'mwns'); ?></a>
 						</div>
 					<?php endif; ?>
 					

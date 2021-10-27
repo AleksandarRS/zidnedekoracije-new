@@ -27,10 +27,10 @@ let _this = module.exports = {
 		if( _this ){
 			this.$dom.toggleOrderForm.click(function() {
 				// $( this ).parent('.hero-decription-icon-animate-wrap').toggleClass( "toggled-content" );
-				$( this ).parents('.single-post-content-wrapper').find('#order-form').slideToggle( "slow" );
+				$( this ).parents('.single-post-product-content-wrapper').find('#order-form').slideToggle( "slow" );
 			});
 			this.$dom.toggleOrderFormClose.click(function() {
-				$( this ).parents('.single-post-content-wrapper').find('#order-form').slideToggle( "slow" );
+				$( this ).parents('.single-post-product-content-wrapper').find('#order-form').slideToggle( "slow" );
 			});
 			this.$dom.toggleSearchIcon.click(function() {
 				$( this ).parents('.site-header').toggleClass( "search-opened" );

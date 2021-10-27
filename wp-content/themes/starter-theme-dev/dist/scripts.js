@@ -171,6 +171,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 		var toggle = require('./site/toggle');
 		var tabs = require('./site/tabs');
 		var slick = require('./site/slick');
+		var smoothscroll = require('./site/smoothscroll');
 		var example = require('./site/example');
 
 		jQuery(function () {
@@ -201,11 +202,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			toggle.init();
 
 			/**
+    * Initialize smoothscroll module
+    */
+			smoothscroll.init();
+
+			/**
     * Initialize sample module
     */
 			example.init();
 		});
-	}, { "./core/navigation": 1, "./site/equalheight": 3, "./site/example": 4, "./site/slick": 6, "./site/tabs": 7, "./site/toggle": 8, "jquery": 9 }], 3: [function (require, module, exports) {
+	}, { "./core/navigation": 1, "./site/equalheight": 3, "./site/example": 4, "./site/slick": 6, "./site/smoothscroll": 7, "./site/tabs": 8, "./site/toggle": 9, "jquery": 10 }], 3: [function (require, module, exports) {
 		"use strict";
 
 		/**  
@@ -639,7 +645,72 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				});
 			}
 		};
-	}, { "slick-carousel": 10 }], 7: [function (require, module, exports) {
+	}, { "slick-carousel": 11 }], 7: [function (require, module, exports) {
+		"use strict";
+
+		// const Global = require('./global');
+
+		// let	_this;
+
+		var _this = module.exports = {
+
+			/*-------------------------------------------------------------------------------
+   	# Cache dom and strings
+   -------------------------------------------------------------------------------*/
+			$dom: {
+				// window: $(window),
+
+
+			},
+
+			vars: {},
+
+			/*-------------------------------------------------------------------------------
+   	# Initialize
+   -------------------------------------------------------------------------------*/
+			init: function init() {
+				// if( _this ){
+				// Select all links with hashes
+				$('a[href*="#"]')
+				// Remove links that don't actually link to anything
+				.not('[href="#"]').not('[href="#0"]').click(function (event) {
+					// On-page links
+					if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+						// Figure out element to scroll to
+						var target = $(this.hash);
+						target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+						// Does a scroll target exist?
+						if (target.length) {
+							// Only prevent default if animation is actually gonna happen
+							event.preventDefault();
+							$('html, body').animate({
+								scrollTop: target.offset().top - 60
+							}, 1000, function () {
+								// Callback after animation
+								// Must change focus!
+								var $target = $(target);
+								$target.focus();
+								if ($target.is(":focus")) {
+									// Checking if the target was focused
+									return false;
+								} else {
+									$target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+									$target.focus(); // Set focus again
+								};
+							});
+						}
+					}
+				});
+				// }
+				// _this.$dom.scrollToTop.click(function(event) {
+				// 	event.preventDefault();
+				// 	$("html, body").animate({ scrollTop: 0 }, "slow");
+				// 	return false;
+				// });
+			}
+
+		};
+	}, {}], 8: [function (require, module, exports) {
 		"use strict";
 
 		{/* <div class="tabs">
@@ -716,7 +787,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			}
 
 		};
-	}, {}], 8: [function (require, module, exports) {
+	}, {}], 9: [function (require, module, exports) {
 		"use strict";
 
 		// const Global = require('./global');
@@ -744,10 +815,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				if (_this) {
 					this.$dom.toggleOrderForm.click(function () {
 						// $( this ).parent('.hero-decription-icon-animate-wrap').toggleClass( "toggled-content" );
-						$(this).parents('.single-post-content-wrapper').find('#order-form').slideToggle("slow");
+						$(this).parents('.single-post-product-content-wrapper').find('#order-form').slideToggle("slow");
 					});
 					this.$dom.toggleOrderFormClose.click(function () {
-						$(this).parents('.single-post-content-wrapper').find('#order-form').slideToggle("slow");
+						$(this).parents('.single-post-product-content-wrapper').find('#order-form').slideToggle("slow");
 					});
 					this.$dom.toggleSearchIcon.click(function () {
 						$(this).parents('.site-header').toggleClass("search-opened");
@@ -762,7 +833,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 			});
 			jQuery("body").css("overflow-y", "visible");
 		});
-	}, {}], 9: [function (require, module, exports) {
+	}, {}], 10: [function (require, module, exports) {
 		/*!
    * jQuery JavaScript Library v3.4.1
    * https://jquery.com/
@@ -10897,7 +10968,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 			return jQuery;
 		});
-	}, {}], 10: [function (require, module, exports) {
+	}, {}], 11: [function (require, module, exports) {
 		/*
        _ _      _       _
    ___| (_) ___| | __  (_)___
@@ -13651,5 +13722,5 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				return _;
 			};
 		});
-	}, { "jquery": 9 }] }, {}, [2]);
+	}, { "jquery": 10 }] }, {}, [2]);
 //# sourceMappingURL=scripts.js.map

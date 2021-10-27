@@ -7,6 +7,7 @@ const equalheight = require('./site/equalheight');
 const toggle = require('./site/toggle');
 const tabs = require('./site/tabs');
 const slick = require('./site/slick');
+const smoothscroll = require('./site/smoothscroll');
 const example = require('./site/example');
 
 jQuery( function(){
@@ -35,6 +36,11 @@ jQuery( function(){
    * Initialize toggle module
    */
    toggle.init();
+
+  /**
+   * Initialize smoothscroll module
+   */
+   smoothscroll.init();
 
   
 
