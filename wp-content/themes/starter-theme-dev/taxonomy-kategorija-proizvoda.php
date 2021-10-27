@@ -59,15 +59,17 @@ get_header(); ?>
                             <div class="product-cards-wrapper category-cards-wrapper">
                                 <div class="row category-row">
                                     <?php foreach ( $term_children as $term ) { ?>
-                                        <div class="col-md-3 product-card-item category-card-item">
+                                        <div class="col-md-6 product-card-item category-card-item product-category-style">
                                             <a class="category-card-link" href="<?php echo get_term_link($term->term_id); ?>">
                                                 <div class="term-featured-image-wrap">
                                                     <div class="term-featured-image" style="background-image: url('<?php the_field('category_image', $term); ?>')">
                                                     </div>
                                                 </div>
-                                                <h2 class="product-card-title"><?php echo $term->name; ?></h2>
-                                                <div class="product-card-description"><?php the_field('short_category_description', $term); ?></div>
-                                                <span class="link link-tertiary link-arrow"><span><?php _e('Više o proizvodu', 'mwns') ?></span> <i class="icon icon-arrow-right"></i></span>
+                                                <div class="category-title-excerpt-button-wrapper">
+                                                    <h2 class="product-card-title"><?php echo $term->name; ?></h2>
+                                                    <div class="product-card-description"><?php the_field('short_category_description', $term); ?></div>
+                                                    <!-- <span class="link link-tertiary link-arrow"><span><?php // _e('Više o proizvodu', 'mwns') ?></span> <i class="icon icon-arrow-right"></i></span> -->
+                                                </div>
                                             </a>
                                         </div>
                                     <?php  } ?>
@@ -82,17 +84,19 @@ get_header(); ?>
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12 archive-product-cards-wrapper">
-sasasa
-                                    <div class="main-title-section-heading">
-                                        <header class="page-header align-center">
+
+                                    <!-- <div class="main-title-section-heading"> -->
+                                        <!-- <header class="page-header align-center">
                                             <?php
-                                            echo mwns_archive_title('<h1 class="page-title">', '</h1>');
-                                            the_archive_description('<div class="taxonomy-description">', '</div>');
+                                            //echo mwns_archive_title('<h1 class="page-title">', '</h1>');
+                                            // the_archive_description('<div class="taxonomy-description">', '</div>');
                                             ?>
-                                        </header><!-- .page-header align-center -->
-                                    </div> <!-- /.main-title-section-heading -->
+                                        </header>  --> <!-- .page-header align-center -->
+                                    <!-- </div>  --> <!-- /.main-title-section-heading -->
                                 
                                     <?php /* Start the Loop */ ?>
+                                    <div class="product-cards-wrapper category-cards-wrapper">
+                                <div class="row category-row">
                                     <?php while (have_posts()) : the_post(); ?>
                                         <?php
                                         /*
@@ -100,10 +104,23 @@ sasasa
                                         * If you want to override this in a child theme, then include a file
                                         * called content-___.php (where ___ is the Post Format name) and that will be used instead.
                                         */
-                                        get_template_part('template-parts/content', get_post_format());
+                                        //get_template_part('template-parts/content', get_post_format());
                                         ?>
+                                        <div class="col-md-3 product-card-item category-card-item">
+                                            <a class="category-card-link" href="<?php the_permalink(); ?>">
+                                                <div class="term-featured-image-wrap">
+                                                    <div class="term-featured-image" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
+                                                    </div>
+                                                </div>
+                                                <h2 class="product-card-title"><?php the_title(); ?></h2>
+                                                <div class="product-card-description"><?php the_excerpt(); ?></div>
+                                                <span class="link link-tertiary link-arrow"><span><?php _e('Više o proizvodu', 'mwns') ?></span> <i class="icon icon-arrow-right"></i></span>
+                                            </a>
+                                        </div>
                                     <?php endwhile; ?>
                                     <?php mwns_post_navigation(); ?>
+                                    </div> <!-- /.product-cards-wrapper category-cards-wrapper -->
+                        </div> <!-- /.archive-product-cards-wrapper -->
                                     <?php else : ?>
                                     <?php get_template_part('template-parts/content', 'none'); ?>
 

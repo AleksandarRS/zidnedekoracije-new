@@ -36,7 +36,7 @@ $full_width_section = get_field('full_width_section');
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
 	<div class="container">
-		<div class="row row-single-page single-post-content-wrapper">
+		<div class="row row-single-page single-post-product-content-wrapper">
 			<?php if( have_rows('page_slider_images') ): ?>
 				<div class="single-page-main-slider-wrapper col-md-6">
 					<div class="single-page-main-slider">
@@ -200,7 +200,7 @@ $full_width_section = get_field('full_width_section');
 			<?php endif;?>
 
 			<?php if( $background_image && $main_content ): ?>
-				</div> <!-- /.row row-single-page single-post-content-wrapper -->
+				</div> <!-- /.row row-single-page row row-single-page single-post-product-content-wrapper -->
 			</div><!-- .container -->
 			<div class="single-bg-img-section-wrapper">
 				<div class="single-bg-img-section-inner" style="background-image: url('<?php echo esc_url($background_image['url']); ?>');" role="img" aria-label="<?php echo esc_attr($background_image['alt']); ?>">
@@ -218,7 +218,7 @@ $full_width_section = get_field('full_width_section');
 				</div>
 			</div> <!-- /.single-bg-img-section-wrapper -->
 			<div class="container">
-				<div class="row row-single-page single-post-content-wrapper">
+				<div class="row row-single-page row row-single-page single-post-product-content-wrapper">
 			<?php endif;?>
 
 			<?php if( $full_width_section): ?>
@@ -283,7 +283,7 @@ $full_width_section = get_field('full_width_section');
 				</div> <!-- /.all-products-section-wrapper -->
 			</div> <!-- /.all-products-section col-md-12 -->
 
-		</div> <!-- /.row row-single-page single-post-content-wrapper -->
+		</div> <!-- /.row row-single-page single-post-product-content-wrapper -->
 	</div><!-- .container -->
 </article><!-- #post-## -->
 

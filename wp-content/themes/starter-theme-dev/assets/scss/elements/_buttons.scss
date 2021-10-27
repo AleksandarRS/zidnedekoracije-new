@@ -68,7 +68,14 @@
 			top: -1px;
 			vertical-align: middle;
 		}
+		&.left {
+			i {
+				margin-right: 12px;
+				margin-left: 0;
+			}
+		}
 	}
+
 	&.dd_frm_button_submit {
 		padding: 13px 70px;
 		margin-top: 10px;

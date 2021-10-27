@@ -9,7 +9,7 @@ $link = get_sub_field('select_your_url');
 ?>
 
 <section class="product-description-section container-wide-full">
-    <div class="product-description-section-wrapper" arealabel="<?php echo esc_attr($main_bg_image['alt']); ?>" role="img" style="background-image: url('<?php echo esc_url($main_bg_image['url']); ?>')">
+    <div class="product-description-section-wrapper" area-label="<?php echo esc_attr($main_bg_image['alt']); ?>" role="img" style="background-image: url('<?php echo esc_url($main_bg_image['url']); ?>')">
         <div class="container">
             <div class="row product-description-row">
                 <?php if ( $main_text_content || $link ) : ?>

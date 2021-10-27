@@ -1,0 +1,43 @@
+.site-content {
+    
+    .search-form {
+        i {
+            cursor: pointer;
+        }
+        .search-field {
+            border-bottom: 2px solid $tertiary-color;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            font-size: $font-size-large + 50;
+        }
+        .submit-button-search {
+            background-color: transparent;
+            border: none;
+            color: $tertiary-color;
+            font-size: $font-size-large + 50;
+            transition: color 0.5s;
+            &:hover {
+                color: $primary-color;
+            }
+        }
+        
+    }
+}
+
+.search-page-content-wrapper {
+    padding-bottom: 20px;
+    padding-top: 70px;
+    @include max-mq ($mac + 60) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+.search-resoults-section {
+    padding-bottom: 35px;
+    margin-bottom: 35px;
+    border-bottom: 1px solid $secondary-color-500;
+    &:last-of-type {
+        border-bottom: none;
+    }
+}

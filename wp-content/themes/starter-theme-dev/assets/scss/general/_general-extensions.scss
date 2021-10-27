@@ -7,6 +7,21 @@
     background-image: linear-gradient(to bottom, #35393B 0%, #282828 100%);
 }
 
+%after-bg {
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: red;
+        z-index: 0;
+    }
+}
+
 %box-shadow {
     box-shadow: 0px 0px 14px 0px rgba($color: $black, $alpha: 0.82);
 }

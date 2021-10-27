@@ -1,0 +1,23 @@
+.single-post-content-wrapper {
+    max-width: $container-narrow-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 45px;
+}
+.single-post-main-image-wrapper {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    height: 350px;
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+.entry-header {
+    .post-date-published {
+        span {
+            color: $secondary-color;
+        }
+    }
+}

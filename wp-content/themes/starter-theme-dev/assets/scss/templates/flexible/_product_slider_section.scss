@@ -1,8 +1,11 @@
 .products-featured-img-wrap {
     height: 833px;
-    min-height: 70vh;
+    // min-height: 70vh;
     background-repeat: no-repeat;
     background-size: cover;
+    @include min-mq ($fhd + 20) {
+        height: 77vh;
+    }
     &:after {
         content: '';
         background: $black;

@@ -1,8 +1,46 @@
+.post-navigation {
+  padding: 28px 0 72px;
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    a {
+      &:hover {
+        .icon-left {
+          left: -7px;
+        }
+        .icon-right {
+          left: 7px;
+        }
+      }
+    }
+    span,
+    i {
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    span {
+      font-size: $font-size-xlarge;
+    }
+    .icon-left {
+      margin-right: 15px;
+    }
+    .icon-right {
+      margin-left: 15px;
+    }
+    i {
+      left: 0;
+      right: 0;
+      top: 2px;
+      transition: all .5s;
+    }
+  }
+}
 .nav-links {
   padding-bottom: 45px;
   text-align: center;
   width: 100%;
-
   .page-numbers {
     align-items: center;
     background-color: $gray-200;
