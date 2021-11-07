@@ -11,6 +11,10 @@ $slider_short_description = get_field('slider_short_description');
 
 $order_product_option = get_field('order_product_option');
 $add_video_link = get_field('add_video_link');
+$add_video_link_s = get_field('add_video_link_s');
+$add_video_link_t = get_field('add_video_link_t');
+$add_video_link_f = get_field('add_video_link_f');
+$add_video_link_ff = get_field('add_video_link_ff');
 
 $page_main_content_description = get_field('page_main_content_description');
 
@@ -22,6 +26,8 @@ $order_product_form_content = get_field('order_product_form_content', 'option');
 
 $instructions_section_title = get_field('instructions_section_title');
 $instructions_section_description = get_field('instructions_section_description');
+
+$slider_or_text = get_field('slider_or_text');
 
 $half_section_f = get_field('half_section_f');
 $half_section_s = get_field('half_section_s');
@@ -92,8 +98,52 @@ $full_width_section = get_field('full_width_section');
 							$link_title = $add_video_link['title'];
 							$link_target = $add_video_link['target'] ? $add_video_link['target'] : '_self';
 						?>
+					<?php endif; ?>
+					<?php 
+						if( $add_video_link_s ): 
+							$link_url_s = $add_video_link_s['url'];
+							$link_title_s = $add_video_link_s['title'];
+							$link_target_s = $add_video_link_s['target'] ? $add_video_link_s['target'] : '_self';
+						?>
+					<?php endif; ?>
+					<?php 
+						if( $add_video_link_t ): 
+							$link_url_t = $add_video_link_t['url'];
+							$link_title_t = $add_video_link_t['title'];
+							$link_target_t = $add_video_link_t['target'] ? $add_video_link_t['target'] : '_self';
+						?>
+					<?php endif; ?>
+					<?php 
+						if( $add_video_link_f ): 
+							$link_url_f = $add_video_link_f['url'];
+							$link_title_f = $add_video_link_f['title'];
+							$link_target_f = $add_video_link_f['target'] ? $add_video_link_f['target'] : '_self';
+						?>
+					<?php endif; ?>
+					<?php 
+						if( $add_video_link_ff ): 
+							$link_url_ff = $add_video_link_ff['url'];
+							$link_title_ff = $add_video_link_ff['title'];
+							$link_target_ff = $add_video_link_ff['target'] ? $add_video_link_ff['target'] : '_self';
+						?>
+					<?php endif; ?>
+					<?php if( $add_video_link || $add_video_link_s || $add_video_link_t || $add_video_link_f ): ?>
 						<div class="single-page-video-button single-page-button-wrap">
-							<a class="button button-secondary-outline" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+							<?php if( $add_video_link ): ?>
+								<a class="button button-secondary-outline" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+							<?php endif; ?>
+							<?php if( $add_video_link_s ): ?>
+								<a class="button button-secondary-outline" href="<?php echo esc_url( $link_url_s ); ?>" target="<?php echo esc_attr( $link_target_s ); ?>"><?php echo esc_html( $link_title_s ); ?></a>
+							<?php endif; ?>
+							<?php if( $add_video_link_t ): ?>
+								<a class="button button-secondary-outline" href="<?php echo esc_url( $link_url_t ); ?>" target="<?php echo esc_attr( $link_target_t ); ?>"><?php echo esc_html( $link_title_t ); ?></a>
+							<?php endif; ?>
+							<?php if( $add_video_link_f ): ?>
+								<a class="button button-secondary-outline" href="<?php echo esc_url( $link_url_f ); ?>" target="<?php echo esc_attr( $link_target_f ); ?>"><?php echo esc_html( $link_title_f ); ?></a>
+							<?php endif; ?>
+							<?php if( $add_video_link_ff ): ?>
+								<a class="button button-secondary-outline" href="<?php echo esc_url( $link_url_ff ); ?>" target="<?php echo esc_attr( $link_target_ff ); ?>"><?php echo esc_html( $link_title_ff ); ?></a>
+							<?php endif; ?>
 						</div>
 					<?php endif; ?>
 
@@ -146,7 +196,7 @@ $full_width_section = get_field('full_width_section');
 									<?php $i = 0; ?>
 									<ul class="tab-nav">
 										<?php while ( have_rows('instructions_stages') ) : the_row(); ?>
-											<li><a href='#content-<?php echo $i; ?>'><h5><?php the_sub_field('instruction_label_title'); ?></h5></a></li>
+											<li><a href='#content-<?php echo $i; ?>'><h5><?php the_sub_field('instruction_label_title'); ?> <i class="icon icon-arrow-right"></i></h5></a></li>
 											<?php $i++; ?>
 										<?php endwhile; ?>
 									</ul>
@@ -202,9 +252,29 @@ $full_width_section = get_field('full_width_section');
 									<?php echo $half_section_f; ?>
 								</div>
 							<?php endif;?>
-							<?php if( $half_section_s ): ?>
+							
+							<?php if( $half_section_s || get_field('slider_images_half') ): ?>
 								<div class="single-half-item col-md-6">
-									<?php echo $half_section_s; ?>
+									<?php if( $slider_or_text == true ): ?>
+										<?php echo $half_section_s; ?>
+									<?php else: ?>
+										<?php if( have_rows('slider_images_half') ): ?>
+											<div class="half-section-slider">
+												<?php while ( have_rows('slider_images_half') ) : the_row(); ?>
+													<?php
+														$images_for_slider_half = get_sub_field('images_for_slider_half');
+													?>
+													<div class="half-section-slider-item">
+													<!-- <div class="slider-half-image" style="background-image: url('<?php // echo esc_url($images_for_slider_half['url']); ?>')"></div> -->
+														<img src="<?php echo esc_url($images_for_slider_half['url']); ?>" alt="<?php echo esc_attr($images_for_slider_half['alt']); ?>" />
+													</div>
+												<?php endwhile; ?>
+											</div>
+										<?php  else : ?>
+											
+										<?php endif;?>
+									<?php endif;?>
+									
 								</div>
 							<?php endif;?>
 						</div>

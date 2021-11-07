@@ -2852,8 +2852,15 @@ img {
 }
 
 table {
+  border-collapse: collapse;
   margin: 0 0 1em;
   width: 100%;
+}
+
+table td, table th {
+  border-collapse: collapse;
+  border: 1px solid #2F2F40;
+  padding: 15px 12px;
 }
 
 strong {
@@ -4538,10 +4545,6 @@ fieldset {
   display: none;
 }
 
-.single-page-thumbnail-slider > .slick-list > .slick-track {
-  width: 103% !important;
-}
-
 .slick-arrow {
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -4609,6 +4612,12 @@ fieldset {
   right: 70px;
 }
 
+.half-section-slider .slick-arrow.slick-prev {
+  left: -webkit-calc(50% - 65px);
+  left: calc(50% - 65px);
+  right: auto;
+}
+
 .slick-arrow.slick-next {
   right: -webkit-calc(50% - 65px);
   right: calc(50% - 65px);
@@ -4636,6 +4645,19 @@ fieldset {
 .instructions-slider .slick-arrow.slick-next {
   left: auto;
   right: 0;
+}
+
+.half-section-slider .slick-arrow.slick-next {
+  left: auto;
+  right: -webkit-calc(50% - 65px);
+  right: calc(50% - 65px);
+}
+
+.slick-arrow.slick-disabled {
+  background-color: #F7F7F7;
+  border: 1px solid #CE1E2C;
+  color: #CE1E2C;
+  opacity: 0.2;
 }
 
 .select2-container--default {
@@ -5556,7 +5578,7 @@ fieldset {
 
 .single-page-main-slider-wrapper,
 .single-page-main-content {
-  padding-bottom: 50px;
+  padding-bottom: 60px;
 }
 
 .single-page-img {
@@ -5570,7 +5592,7 @@ fieldset {
 .single-page-thumbnail {
   border: 1px solid #ffffff;
   height: 150px;
-  width: 100%;
+  width: 150px;
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
@@ -5581,18 +5603,49 @@ fieldset {
 }
 
 .single-page-thumbnail-slider {
-  margin-left: -1.5%;
-  margin-right: -1.5%;
+  margin-left: -15px;
+  margin-right: -15px;
   padding-top: 15px;
 }
 
-.single-page-thumbnail-slider .slick-slide {
-  max-width: 23.5%;
-  margin: 0 1.5%;
+.single-page-thumbnail-slider .single-page-thumbnail-wrap {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.single-page-thumbnail-slider .slick-arrow {
+  bottom: -45px;
+}
+
+.half-section-slider-item {
+  text-align: center;
+}
+
+.half-section-slider-item img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.half-section-slider .slick-arrow {
+  bottom: -45px;
 }
 
 .single-page-button-wrap {
   padding-top: 25px;
+}
+
+.single-page-button-wrap .button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.single-page-button-wrap .button:last-of-type {
+  margin-right: 0;
+}
+
+.single-page-button-wrap.order-product-button {
+  padding-top: 15px;
 }
 
 .single-page-order-form-inner {
@@ -5659,7 +5712,10 @@ fieldset {
 }
 
 .instructions-section .instructions-slider-wrapper {
-  padding-bottom: 35px;
+  padding-bottom: 15px;
+  -webkit-align-self: flex-end;
+      -ms-flex-item-align: end;
+          align-self: flex-end;
 }
 
 .instructions-section .instructions-slider {
@@ -5677,6 +5733,7 @@ fieldset {
 .content-area .tab-nav {
   list-style: none;
   padding-left: 0;
+  padding-top: 1px;
 }
 
 .content-area .tab-nav > li {
@@ -5696,6 +5753,10 @@ fieldset {
   background-color: #CE1E2C;
 }
 
+.content-area .tab-nav > li:hover i {
+  left: 4px;
+}
+
 .content-area .tab-nav > li.active {
   padding-left: 45px;
 }
@@ -5709,7 +5770,21 @@ fieldset {
   width: 30px;
 }
 
+.content-area .tab-nav > li i {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+  top: -1px;
+  left: 0;
+  -webkit-transition: left .5s;
+  -o-transition: left .5s;
+  transition: left .5s;
+}
+
 .content-area .tab-nav > li h5 {
+  margin-bottom: 0.6em;
+  margin-top: 0.6em;
   -webkit-transition: color 0.5s;
   -o-transition: color 0.5s;
   transition: color 0.5s;
@@ -5730,8 +5805,19 @@ fieldset {
   width: 20px;
 }
 
+.single-half-section-wrapper {
+  padding-bottom: 35px;
+  padding-top: 35px;
+}
+
 .single-half-section-inner {
-  padding: 135px 0;
+  padding: 65px 0;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+}
+
+.single-half-item > h1:first-child, .single-half-item h2:first-child, .single-half-item h3:first-child, .single-half-item h4:first-child, .single-half-item h5:first-child {
+  margin-top: 0;
 }
 
 .row-half-sectction {

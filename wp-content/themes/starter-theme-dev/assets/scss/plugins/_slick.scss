@@ -1,7 +1,7 @@
 @import "../../../node_modules/slick-carousel/slick/slick.scss";
-.single-page-thumbnail-slider > .slick-list > .slick-track {
-    width: 103% !important;
-}
+// .single-page-thumbnail-slider > .slick-list > .slick-track {
+//     width: 103% !important;
+// }
 .slick-arrow {
     align-items: center;
     background-color: $gray-200;
@@ -40,7 +40,10 @@
             left: auto;
             right: 70px;
         }
-        
+        .half-section-slider & {
+            left: calc(50% - 65px);
+            right: auto;
+        }
     }
     &.slick-next {
         right: calc(50% - 65px);
@@ -57,6 +60,16 @@
             left: auto;
             right: 0;
         }
+        .half-section-slider & {
+            left: auto;
+            right: calc(50% - 65px);
+        }
         
+    }
+    &.slick-disabled {
+        background-color: $gray-200;
+        border: 1px solid $tertiary-color;
+        color: $tertiary-color;
+        opacity: 0.2;
     }
 }

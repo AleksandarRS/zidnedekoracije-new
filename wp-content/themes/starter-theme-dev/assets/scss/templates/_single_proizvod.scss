@@ -6,7 +6,7 @@
 }
 .single-page-main-slider-wrapper,
 .single-page-main-content {
-    padding-bottom: 50px;
+    padding-bottom: 60px;
 }
 .single-page-img {
     height: 500px;
@@ -18,7 +18,8 @@
 .single-page-thumbnail {
     border: 1px solid $white;
     height: 150px;
-    width: 100%;
+    width: 150px;
+    // width: 100%;
     
     transition: all 0.5s;
     .slick-current & {
@@ -27,17 +28,44 @@
 }
 
 .single-page-thumbnail-slider {
-    margin-left: -1.5%;
-    margin-right: -1.5%;
+    margin-left: -15px;
+    margin-right: -15px;
     padding-top: 15px;
-    .slick-slide {
-        max-width: 23.5%;
-        margin: 0 1.5%;
+    .single-page-thumbnail-wrap {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .slick-arrow {
+        bottom: -45px;
+    }
+}
+
+.half-section-slider-item {
+    text-align: center;
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.half-section-slider {
+    .slick-arrow {
+        bottom: -45px;
     }
 }
 
 .single-page-button-wrap {
     padding-top: 25px;
+    .button {
+        margin-right: 10px;
+        margin-bottom: 10px;
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+    &.order-product-button {
+        padding-top: 15px;
+    }
 }
 
 .single-page-order-form-inner {
@@ -88,7 +116,8 @@
         }
     }
     .instructions-slider-wrapper {
-        padding-bottom: 35px;
+        padding-bottom: 15px;
+        align-self: flex-end;
     }
     .instructions-slider {
         padding-bottom: 45px;
@@ -103,7 +132,8 @@
 .content-area {
     .tab-nav {
         list-style: none;
-        padding-left: 0;    
+        padding-left: 0; 
+        padding-top: 1px; 
         > li {
             position: relative;
             padding-bottom: 0;
@@ -116,6 +146,9 @@
                 &:before {
                     background-color: $tertiary-color;
                 }
+                i {
+                    left: 4px;
+                }
             }
             &.active {
                 padding-left: 45px;
@@ -127,7 +160,18 @@
                     width: 30px;
                 }
             }
+            i {
+                position: relative;
+                display: inline-block;
+                vertical-align: middle;
+                margin-left: 8px;
+                top: -1px;
+                left: 0;
+                transition: left .5s;
+            }
             h5 {
+                margin-bottom: 0.6em;
+                margin-top: 0.6em;
                 transition: color 0.5s;
             }
             &:before {
@@ -145,8 +189,21 @@
         }   
     }
 }
+.single-half-section-wrapper {
+    padding-bottom: 35px;
+    padding-top: 35px;
+}
 .single-half-section-inner {
-    padding: 135px 0;
+    padding: 65px 0;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+}
+.single-half-item {
+    > h1, h2, h3, h4, h5 {
+        &:first-child {
+            margin-top: 0;
+        }
+    }
 }
 .row-half-sectction {
     align-items: center;

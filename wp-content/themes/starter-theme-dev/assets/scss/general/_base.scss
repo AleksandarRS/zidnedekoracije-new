@@ -47,8 +47,14 @@ img {
 }
 
 table {
+  border-collapse: collapse;
   margin: 0 0 1em;
   width: 100%;
+  td, th {
+    border-collapse: collapse;
+    border: 1px solid $secondary-color;
+    padding: 15px 12px;
+  }
 }
 
 strong {

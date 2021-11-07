@@ -531,7 +531,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 				slickSliderSingleMain: $(".single-page-main-slider"),
 				slickSliderSingleThumb: $(".single-page-thumbnail-slider"),
 
-				slickSliderSingleinstructions: $(".instructions-slider")
+				slickSliderSingleinstructions: $(".instructions-slider"),
+
+				slickSliderHalfSection: $(".half-section-slider")
 
 				// slickSliderSingleinstructionsWrapper: $(".instructions-slider-wrapper"),
 
@@ -605,9 +607,21 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 					infinite: false,
 					dots: false,
 					arrows: true,
+					adaptiveHeight: true,
 					prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
 					nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>"
 					// asNavFor: ".title-label-slider"
+				});
+
+				this.$dom.slickSliderHalfSection.slick({
+					slidesToScroll: 1,
+					slidesToShow: 1,
+					infinite: false,
+					dots: false,
+					arrows: true,
+					adaptiveHeight: true,
+					prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
+					nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>"
 				});
 
 				// this.$dom.slickSliderSingleinstructionsWrapper.slick({
@@ -633,15 +647,18 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 
 				this.$dom.slickSliderSingleMain.slick({
-					autoplay: true,
+					autoplay: false,
 					speed: 1000,
 					arrows: false,
 					asNavFor: ".single-page-thumbnail-slider"
 				});
 				this.$dom.slickSliderSingleThumb.slick({
 					slidesToShow: 4,
-					speed: 1000,
-					asNavFor: ".single-page-main-slider"
+					// speed: 1000,
+					autoplay: false,
+					asNavFor: ".single-page-main-slider",
+					prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
+					nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>"
 				});
 			}
 		};
