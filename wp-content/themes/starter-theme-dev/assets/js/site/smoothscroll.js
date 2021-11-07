@@ -25,10 +25,11 @@ let _this = module.exports = {
 	init: function () {
 		// if( _this ){
 			// Select all links with hashes
-			$('a[href*="#"]')
+			// $('a[href*="#"]')
+			$('#order-product-button')
 			// Remove links that don't actually link to anything
-			.not('[href="#"]')
-			.not('[href="#0"]')
+			// .not('[href="#"]')
+			// .not('[href="#0"]')
 			.click(function(event) {
 			// On-page links
 			if (
