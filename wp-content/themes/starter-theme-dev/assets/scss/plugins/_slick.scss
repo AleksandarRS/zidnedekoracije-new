@@ -1,4 +1,7 @@
 @import "../../../node_modules/slick-carousel/slick/slick.scss";
+.single-page-thumbnail-slider > .slick-list > .slick-track {
+    width: 103% !important;
+}
 .slick-arrow {
     align-items: center;
     background-color: $gray-200;

@@ -1,5 +1,8 @@
 .breadcrumbs-wrapper {
     padding-top: 15px;
+    .single & {
+        padding-bottom: 15px;
+    }
 }
 // .breadcrumbs {
 
