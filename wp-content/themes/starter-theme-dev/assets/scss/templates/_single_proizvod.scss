@@ -1,22 +1,33 @@
 .single-page-img,
 .single-page-thumbnail {
-    background-size: cover;
-    background-repeat: no-repeat;
     background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .single-page-main-slider-wrapper,
 .single-page-main-content {
     padding-bottom: 60px;
 }
+.featherlight-gallery-init {
+    display: block;
+    overflow: hidden;
+    &:hover {
+        .single-page-img {
+            transform: scale(1.03);
+        }
+    }
+}
 .single-page-img {
     height: 500px;
+    transition: all .5s;
+    transform: scale(1);
 }
 #order-form {
     display: none;
 }
 
 .single-page-thumbnail {
-    border: 1px solid $white;
+    border: 3px solid $white;
     height: 150px;
     width: 150px;
     // width: 100%;

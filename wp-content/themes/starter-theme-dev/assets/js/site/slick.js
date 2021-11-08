@@ -146,14 +146,15 @@ module.exports = {
 
 		this.$dom.slickSliderSingleMain.slick({
 			autoplay: false,
-			speed: 1000,
+			speed: 800,
 			arrows: false,
+			autoplay: true,
 			asNavFor: ".single-page-thumbnail-slider"
 		});
 		this.$dom.slickSliderSingleThumb.slick({
 			slidesToShow: 4,
-			// speed: 1000,
-			autoplay: false,
+			speed: 800,
+			autoplay: true,
 			asNavFor: ".single-page-main-slider",
 			prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
 			nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>"

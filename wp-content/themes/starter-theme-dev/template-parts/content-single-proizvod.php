@@ -63,8 +63,10 @@ $full_width_section = get_field('full_width_section');
 							<?php $single_slider_image = get_sub_field('single_slider_image'); ?>
 							<?php if( $single_slider_image ): ?>
 								<div class="single-page-img-wrap">
-									<div class="single-page-img" style="background-image: url(<?php echo esc_url($single_slider_image['url']); ?>);" role="img" aria-label="<?php echo esc_attr($single_slider_image['alt']); ?>">
-									</div>
+									<a class="featherlight-gallery-init" href="<?php echo esc_url($single_slider_image['url']); ?>">
+										<div class="single-page-img" style="background-image: url(<?php echo esc_url($single_slider_image['url']); ?>);" role="img" aria-label="<?php echo esc_attr($single_slider_image['alt']); ?>">
+										</div>
+									</a>
 								</div>
 							<?php endif; ?>
 						<?php endwhile; ?>

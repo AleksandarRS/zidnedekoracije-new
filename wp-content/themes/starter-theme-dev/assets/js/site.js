@@ -8,6 +8,7 @@ const toggle = require('./site/toggle');
 const tabs = require('./site/tabs');
 const slick = require('./site/slick');
 const smoothscroll = require('./site/smoothscroll');
+const featherlight = require('./site/featherlight');
 const example = require('./site/example');
 
 jQuery( function(){
@@ -41,6 +42,11 @@ jQuery( function(){
    * Initialize smoothscroll module
    */
    smoothscroll.init();
+   
+  /**
+   * Initialize featherlight module
+   */
+   featherlight.init();
 
   
 
