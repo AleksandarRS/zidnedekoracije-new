@@ -699,7 +699,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 					autoplay: true,
 					asNavFor: ".single-page-main-slider",
 					prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
-					nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>"
+					nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>",
+					focusOnSelect: true
 				});
 			}
 		};

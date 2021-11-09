@@ -5806,9 +5806,14 @@ html.with-featherlight {
   border: 3px solid #ffffff;
   height: 150px;
   width: 150px;
+  cursor: pointer;
   -webkit-transition: all 0.5s;
   -o-transition: all 0.5s;
   transition: all 0.5s;
+}
+
+.single-page-thumbnail:hover {
+  border-color: #CE1E2C;
 }
 
 .slick-current .single-page-thumbnail {
@@ -5842,6 +5847,10 @@ html.with-featherlight {
 
 .half-section-slider .slick-arrow {
   bottom: -45px;
+}
+
+.single-page-order-form-wrapper + .tabs {
+  padding-top: 50px;
 }
 
 .single-page-button-wrap {

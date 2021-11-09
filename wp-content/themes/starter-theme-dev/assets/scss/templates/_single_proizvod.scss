@@ -30,8 +30,10 @@
     border: 3px solid $white;
     height: 150px;
     width: 150px;
-    // width: 100%;
-    
+    cursor: pointer;
+    &:hover {
+        border-color: $tertiary-color;
+    }
     transition: all 0.5s;
     .slick-current & {
         border-color: $tertiary-color;
@@ -62,6 +64,12 @@
 .half-section-slider {
     .slick-arrow {
         bottom: -45px;
+    }
+}
+
+.single-page-order-form-wrapper {
+    + .tabs {
+        padding-top: 50px;
     }
 }
 

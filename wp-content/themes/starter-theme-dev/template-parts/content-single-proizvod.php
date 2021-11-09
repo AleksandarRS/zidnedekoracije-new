@@ -146,8 +146,29 @@ $full_width_section = get_field('full_width_section');
 							<?php if( $add_video_link_ff ): ?>
 								<a class="button button-secondary-outline" href="<?php echo esc_url( $link_url_ff ); ?>" target="<?php echo esc_attr( $link_target_ff ); ?>"><?php echo esc_html( $link_title_ff ); ?></a>
 							<?php endif; ?>
+
+							<?php if( have_rows('your_video_links') ): ?>
+								<?php while ( have_rows('your_video_links') ) : the_row(); ?>
+									<?php 
+										$video_link_sub_link  = get_sub_field('video_link_sub_link');
+										if( $video_link_sub_link ): 
+											$link_url_sub = $video_link_sub_link['url'];
+											$link_title_sub = $video_link_sub_link['title'];
+											$link_target_sub = $video_link_sub_link['target'] ? $video_link_sub_link['target'] : '_self';
+										?>
+									<?php endif; ?>
+
+									<?php if( $video_link_sub_link ): ?>
+										<a class="button button-secondary-outline" href="<?php echo esc_url( $link_url_sub ); ?>" target="<?php echo esc_attr( $link_target_sub ); ?>"><?php echo esc_html( $link_title_sub ); ?></a>
+									<?php endif; ?>
+								<?php endwhile; ?>
+							<?php  else : ?>
+								
+							<?php endif;?>
 						</div>
 					<?php endif; ?>
+
+					
 
 					<?php if( $order_product_option == true ): ?>
 						<div class="single-page-button-wrap order-product-button">
