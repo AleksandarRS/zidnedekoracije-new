@@ -42,9 +42,18 @@ $link = get_sub_field('see_all_products_link');
                             <?php foreach ( $terms as $term ) { ?>
                                 <div class="col-md-3 product-card-item category-card-item">
                                     <a class="category-card-link" href="<?php echo get_term_link($term->term_id); ?>">
-                                        <div class="term-featured-image-wrap">
-                                            <div class="term-featured-image" style="background-image: url('<?php the_field('category_image', $term); ?>')">
+                                        <!-- <div class="term-featured-image-wrap">
+                                            <div class="term-featured-image" style="background-image: url('<?php // the_field('category_image', $term); ?>')">
                                             </div>
+                                        </div> -->
+                                        <div class="term-featured-image-wrap">
+                                            <?php if ( ! empty( get_field('category_image', $term) ) ) { ?>
+                                                <div class="term-featured-image" style="background-image: url('<?php the_field('category_image', $term); ?>')">
+                                                </div>
+                                            <?php } else { ?>
+                                                <div class="term-featured-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/default-image.jpg')">
+                                                </div>
+                                            <?php } ?>
                                         </div>
                                         <h2 class="product-card-title"><?php echo $term->name; ?></h2>
                                         <div class="product-card-description"><?php the_field('short_category_description', $term); ?></div>

@@ -62,8 +62,13 @@ get_header(); ?>
                                         <div class="col-md-6 product-card-item category-card-item product-category-style">
                                             <a class="category-card-link" href="<?php echo get_term_link($term->term_id); ?>">
                                                 <div class="term-featured-image-wrap">
-                                                    <div class="term-featured-image" style="background-image: url('<?php the_field('category_image', $term); ?>')">
-                                                    </div>
+                                                    <?php if ( ! empty( get_field('category_image', $term) ) ) { ?>
+                                                        <div class="term-featured-image" style="background-image: url('<?php the_field('category_image', $term); ?>')">
+                                                        </div>
+                                                    <?php } else { ?>
+                                                        <div class="term-featured-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/default-image.jpg')">
+                                                        </div>
+                                                    <?php } ?>
                                                 </div>
                                                 <div class="category-title-excerpt-button-wrapper">
                                                     <h2 class="product-card-title"><?php echo $term->name; ?></h2>
@@ -96,31 +101,36 @@ get_header(); ?>
                                 
                                     <?php /* Start the Loop */ ?>
                                     <div class="product-cards-wrapper category-cards-wrapper">
-                                <div class="row category-row">
-                                    <?php while (have_posts()) : the_post(); ?>
-                                        <?php
-                                        /*
-                                        * Include the Post-Format-specific template for the content.
-                                        * If you want to override this in a child theme, then include a file
-                                        * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                                        */
-                                        //get_template_part('template-parts/content', get_post_format());
-                                        ?>
-                                        <div class="col-md-3 product-card-item category-card-item">
-                                            <a class="category-card-link" href="<?php the_permalink(); ?>">
-                                                <div class="term-featured-image-wrap">
-                                                    <div class="term-featured-image" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
-                                                    </div>
+                                        <div class="row category-row">
+                                            <?php while (have_posts()) : the_post(); ?>
+                                                <?php
+                                                /*
+                                                * Include the Post-Format-specific template for the content.
+                                                * If you want to override this in a child theme, then include a file
+                                                * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+                                                */
+                                                //get_template_part('template-parts/content', get_post_format());
+                                                ?>
+                                                <div class="col-md-3 product-card-item category-card-item">
+                                                    <a class="category-card-link" href="<?php the_permalink(); ?>">
+                                                        <div class="term-featured-image-wrap">
+                                                            <?php if ( ! empty( get_the_post_thumbnail_url() ) ) { ?>
+                                                                <div class="term-featured-image" style="background-image: url('<?php the_post_thumbnail_url(); ?>')">
+                                                                </div>
+                                                            <?php } else { ?>
+                                                                <div class="term-featured-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/default-image.jpg')">
+                                                                </div>
+                                                            <?php } ?>
+                                                        </div>
+                                                        <h2 class="product-card-title"><?php the_title(); ?></h2>
+                                                        <div class="product-card-description"><?php the_excerpt(); ?></div>
+                                                        <span class="link link-tertiary link-arrow"><span><?php _e('Više o proizvodu', 'mwns') ?></span> <i class="icon icon-arrow-right"></i></span>
+                                                    </a>
                                                 </div>
-                                                <h2 class="product-card-title"><?php the_title(); ?></h2>
-                                                <div class="product-card-description"><?php the_excerpt(); ?></div>
-                                                <span class="link link-tertiary link-arrow"><span><?php _e('Više o proizvodu', 'mwns') ?></span> <i class="icon icon-arrow-right"></i></span>
-                                            </a>
-                                        </div>
-                                    <?php endwhile; ?>
-                                    <?php mwns_post_navigation(); ?>
+                                            <?php endwhile; ?>
+                                            <?php mwns_post_navigation(); ?>
+                                        </div> <!-- /.row category-rowr -->
                                     </div> <!-- /.product-cards-wrapper category-cards-wrapper -->
-                        </div> <!-- /.archive-product-cards-wrapper -->
                                     <?php else : ?>
                                     <?php get_template_part('template-parts/content', 'none'); ?>
 
