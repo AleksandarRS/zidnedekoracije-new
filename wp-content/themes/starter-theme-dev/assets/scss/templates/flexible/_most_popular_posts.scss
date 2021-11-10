@@ -1,5 +1,8 @@
 .most-popular-posts-section-wrapper {
     padding: 72px 0;
+    @include max-mq ($tab) {
+        padding: 55px 0;
+    }
     .post-featured-img-wrap {
         overflow: hidden;
         .post-featured-img {

@@ -4,19 +4,23 @@ $ = require('jquery');
 
 const Navigation = require('./core/navigation');
 const equalheight = require('./site/equalheight');
+const accordion = require('./site/accordion');
 const toggle = require('./site/toggle');
 const tabs = require('./site/tabs');
 const slick = require('./site/slick');
 const smoothscroll = require('./site/smoothscroll');
 const featherlight = require('./site/featherlight');
+const backtotop = require('./site/backtotop');
 const example = require('./site/example');
 
 jQuery( function(){
 
-   /**
-   * Initialize equalheight module
-   */
-    equalheight.init();
+  /**
+  * Initialize equalheight module
+  */
+  equalheight.init();
+
+  
 
   /**
    * Initialize site navigation
@@ -32,6 +36,11 @@ jQuery( function(){
    * Initialize slick module
    */
    slick.init();
+
+   /**
+   * Initialize accordion module
+   */
+    accordion.init();
   
   /**
    * Initialize toggle module
@@ -48,7 +57,10 @@ jQuery( function(){
    */
    featherlight.init();
 
-  
+  /**
+  * Initialize backtotop module
+  */
+   backtotop.init();
 
   /**
    * Initialize sample module

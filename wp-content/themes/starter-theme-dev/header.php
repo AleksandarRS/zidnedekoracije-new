@@ -31,6 +31,7 @@
 <div class="page-loader-wrapper">
     <div class="page-loader"></div>
 </div>
+<div id='toTop'><i class="icon icon-angle-up"></i></div>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-remwnsr-text" href="#content"><?php esc_html_e( 'Skip to content', 'mwns' ); ?></a>
 	<header id="masthead" class="site-header" role="banner">

@@ -18,6 +18,15 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
+    @include max-mq ($mb_p - 50) {
+        display: block;
+        padding-bottom: 15px;
+    }
+    .entry-header {
+        @include max-mq ($mb_p - 50) {
+            padding-bottom: 5px;
+        }   
+    }
 }
 .content-area {
     width: 100%;

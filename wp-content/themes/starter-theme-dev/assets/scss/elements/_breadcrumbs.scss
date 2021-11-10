@@ -3,6 +3,16 @@
     .single & {
         padding-bottom: 15px;
     }
+    .site-content {
+        > div {
+            .single-proizvod & {
+                @include max-mq ($sm) {
+                    padding-left: 0;
+                    padding-right: 0;
+                }
+            }
+        }
+    }
 }
 // .breadcrumbs {
 

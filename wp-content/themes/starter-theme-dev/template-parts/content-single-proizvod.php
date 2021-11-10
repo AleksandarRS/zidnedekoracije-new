@@ -264,11 +264,58 @@ $full_width_section = get_field('full_width_section');
 						<?php endif;?>
 					</div> <!-- /.instructions-section -->
 				</div> <!-- /.tabs col-md-12 -->
+				
+
+				<?php if( have_rows('instructions_stages') ): ?>
+
+					<div class="accordion-container-mobile-wrapper">
+						<div class="accordion-container">
+
+							<div class="title-label-tabs title-label-wrap ">
+
+								<?php while ( have_rows('instructions_stages') ) : the_row(); ?>
+									<div class="set">
+										<a class="accordion-cta-link" href='#'><h5><?php the_sub_field('instruction_label_title'); ?> <i class="icon icon-angle-down"></i></h5></a>
+										<?php if( have_rows('instructions_details') ): ?>
+											<!-- <div class="instructions-slider"> -->
+												<?php while ( have_rows('instructions_details') ) : the_row(); ?>
+													<?php 
+														$add_instruction_image_f = get_sub_field('add_instruction_image_f');
+														$add_instruction_image_s = get_sub_field('add_instruction_image_s');
+														$add_instruction_text = get_sub_field('add_instruction_text');
+													?>
+													<div class="instructions-slider-item accordion-content">
+														<div class="instruction-slider-image-wrap<?php if( $add_instruction_image_s ): ?> second-image-here<?php else:?> just-one-image<?php endif;?>">
+															<?php if( $add_instruction_image_f ): ?>
+																<div class="instruction-slider-image" style="background-image: url('<?php echo esc_url($add_instruction_image_f['url']); ?>');" role="img" aria-label="<?php echo esc_attr($add_instruction_image_f['alt']); ?>">
+																</div>
+															<?php endif;?>
+															<?php if( $add_instruction_image_s ): ?>
+																<div class="instruction-slider-image" style="background-image: url('<?php echo esc_url($add_instruction_image_s['url']); ?>');" role="img" aria-label="<?php echo esc_attr($add_instruction_image_s['alt']); ?>">
+																</div>
+															<?php endif;?>
+														</div>
+														<div class="instruction-slider-description">
+															<?php echo $add_instruction_text; ?>
+														</div>
+													</div>
+												<?php endwhile; ?>	
+											<!-- </div>  --> <!-- /.instructions-slider -->
+										<?php endif;?>
+									</div>
+								<?php endwhile; ?>
+
+							</div> <!-- /.title-label-tabs title-label-wrap set -->	
+						</div> <!-- /.accordion-container -->
+					</div> <!-- /.accordion-container-mobile-wrapper -->
+				<?php endif;?>
+
 			<?php endif;?>
+
 
 			<?php if( $half_section_f || $half_section_s ): ?>
 				<div class="single-half-section-wrapper col-md-12">
-					<div class="single-half-section-inner">
+					<div class="single-half-section-inner<?php if( have_rows('slider_images_half') ): ?> half-slider-activated<?php endif;?>">
 						<div class="row row-half-sectction">
 							<?php if( $half_section_f ): ?>
 								<div class="single-half-item col-md-6">
@@ -340,61 +387,46 @@ $full_width_section = get_field('full_width_section');
 			<?php endif;?>
 
 
-			<div class="all-products-section col-md-12">
-    			<div class="all-products-section-wrapper">
-                    <div class="main-title-section-heading button-heading-wrap">
+			<!-- <div class="all-products-section col-md-12">
+    			<div class="all-products-section-wrapper"> -->
+                    <!-- <div class="main-title-section-heading button-heading-wrap">
                         <header class="entry-header">
-                            <span class="title-label"><?php _e('Proizvodi', 'mwns'); ?></span>
-                            <h1 class="entry-title"><?php _e('Proizvodi iz iste kategorije', 'mwns'); ?></h1>
+                            <span class="title-label"><?php // _e('Proizvodi', 'mwns'); ?></span>
+                            <h1 class="entry-title"><?php // _e('Proizvodi iz iste kategorije', 'mwns'); ?></h1>
                         </header>
                         <div class="see-all-items most-popular-posts-button see-all-posts">
                             <div class="posts-read-more read-more-button-wrap">
                                 <?php 
-                                    if( $link ): 
-                                        $link_url = $link['url'];
-                                        $link_title = $link['title'];
-                                        $link_target = $link['target'] ? $link['target'] : '_self';
+                                    // if( $link ): 
+                                    //     $link_url = $link['url'];
+                                    //     $link_title = $link['title'];
+                                    //     $link_target = $link['target'] ? $link['target'] : '_self';
                                     ?>
-                                    <a class="button button-tertiary button-arrow" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?><i class="icon icon-arrow-right"></i></a>
-                                <?php endif; ?>
+                                    <a class="button button-tertiary button-arrow" href="<?php // echo esc_url( $link_url ); ?>" target="<?php // echo esc_attr( $link_target ); ?>"><?php // echo esc_html( $link_title ); ?><i class="icon icon-arrow-right"></i></a>
+                                <?php // endif; ?>
                             </div>
                         </div> 
-                    </div>
+                    </div> -->
 
-					<?php $terms = get_terms( array( 
-							'taxonomy' => 'kategorija-proizvoda',
-							// 'parent'   => 1
-						) );
-					if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){ ?>
-						<div class="product-cards-wrapper category-cards-wrapper col-md-12">
-							<div class="row category-row">
-								<?php foreach ( $terms as $term ) { ?>
-									<div class="col-md-3 product-card-item category-card-item">
-										<a class="category-card-link" href="<?php echo get_term_link($term->term_id); ?>">
-											<div class="term-featured-image-wrap">
-												<?php if ( ! empty( get_field('category_image', $term) ) ) { ?>
-													<div class="term-featured-image" style="background-image: url('<?php the_field('category_image', $term); ?>')">
-													</div>
-												<?php } else { ?>
-													<div class="term-featured-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/default-image.jpg')">
-													</div>
-												<?php } ?>
-											</div>
-											<h2 class="product-card-title"><?php echo $term->name; ?></h2>
-											<div class="product-card-description"><?php the_field('short_category_description', $term); ?></div>
-											<span class="link link-tertiary link-arrow"><span><?php _e('Više o proizvodu', 'mwns') ?></span> <i class="icon icon-arrow-right"></i></span>
-										</a>
-									</div>
-								<?php  } ?>
-							</div>
-						</div>
-					<?php } ?>
 					
 
-				</div> <!-- /.all-products-section-wrapper -->
-			</div> <!-- /.all-products-section col-md-12 -->
+
+								<?php
+								
+								
+								?>	
+							
+					
+
+					<?php //dynamic_sidebar( 'single-product-widget' ); ?>
+					
+
+				<!-- </div>  --> <!-- /.all-products-section-wrapper -->
+			<!-- </div>  --> <!-- /.all-products-section col-md-12 -->
 
 		</div> <!-- /.row row-single-page single-post-product-content-wrapper -->
 	</div><!-- .container -->
 </article><!-- #post-## -->
+
+
 

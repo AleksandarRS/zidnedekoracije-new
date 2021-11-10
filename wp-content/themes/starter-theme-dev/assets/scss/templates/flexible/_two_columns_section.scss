@@ -1,9 +1,26 @@
 .two-column-section {
     background-color: $gray-200;
     padding: 75px 0;
+    @include max-mq ($ls) {
+        padding-bottom: 60px;
+        padding-top: 45px;
+    }
+    @include max-mq ($tab) {
+        padding-bottom: 45px;
+        padding-top: 35px;
+    }
+    .main-content-section {
+        @include max-mq ($sm) {
+            padding-top: 5px;
+        }
+    }
 }
 .main-content-section {
     padding-top: 35px;
+    @include max-mq ($tab) {
+        padding-top: 20px;
+    }
+    
     h3, h4 {
         margin-bottom: 0.15em;
     }

@@ -58,11 +58,10 @@ class FrmProAppController {
 	}
 
 	public static function combine_js_files( $files ) {
-		$pro_js = self::get_pro_js_files('.min');
+		$pro_js = self::get_pro_js_files( '.min', false );
 		foreach ( $pro_js as $js ) {
 			$files[] = FrmProAppHelper::plugin_path() . $js['file'];
 		}
-
 		return $files;
 	}
 
@@ -75,36 +74,53 @@ class FrmProAppController {
 
 	public static function register_scripts() {
 		$suffix = FrmAppHelper::js_suffix();
-		$pro_js = self::get_pro_js_files();
 
-		if ( empty( $suffix ) || ! self::has_combo_js_file() ) {
+		if ( ! $suffix || ! self::has_combo_js_file() ) {
+			$pro_js = self::get_pro_js_files( '', true );
 			foreach ( $pro_js as $js_key => $js ) {
-				wp_register_script( $js_key, FrmProAppHelper::plugin_url() . $js['file'], $js['requires'], $js['version'], true );
+				self::register_js( $js_key, $js );
 			}
 		} else {
 			global $pagenow;
 			wp_deregister_script( 'formidable' );
-			wp_register_script( 'formidable', FrmProAppHelper::plugin_url() . '/js/frm.min.js', array( 'jquery' ), $pro_js['formidablepro']['version'], true );
+			wp_register_script( 'formidable', FrmProAppHelper::plugin_url() . '/js/frm.min.js', array( 'jquery' ), FrmProDb::$plug_version, true );
+
+			if ( ! self::should_include_dropzone_in_minified_js() ) {
+				self::register_js( 'dropzone', self::get_dropzone_file_details() );
+			}
 		}
 		FrmAppHelper::localize_script( 'front' );
 	}
 
-	public static function get_pro_js_files( $suffix = '' ) {
+	/**
+	 * @since 5.0.11
+	 *
+	 * @param string $key
+	 * @param array  $details
+	 * @return void
+	 */
+	private static function register_js( $key, $details ) {
+		wp_register_script( $key, FrmProAppHelper::plugin_url() . $details['file'], $details['requires'], $details['version'], true );
+	}
+
+	/**
+	 * @since 5.0.11 added $include_dropzone parameter.
+	 *
+	 * @param string $suffix
+	 * @param bool   $include_dropzone if true it will include dropzone in the list even if dropzone is not included in the minified js.
+	 * @return array
+	 */
+	public static function get_pro_js_files( $suffix = '', $include_dropzone = false ) {
 		$version = FrmProDb::$plug_version;
 		if ( $suffix == '' ) {
 			$suffix = FrmAppHelper::js_suffix();
 		}
 
-		return array(
+		$files = array(
 			'formidablepro' => array(
 				'file'     => '/js/formidablepro' . $suffix . '.js',
 				'requires' => array( 'jquery', 'formidable' ),
 				'version'  => $version,
-			),
-			'dropzone' => array(
-				'file'     => '/js/dropzone.min.js',
-				'requires' => array( 'jquery' ),
-				'version'  => '5.5.0',
 			),
 			'jquery-chosen' => array(
 				'file'     => '/js/chosen.jquery.min.js',
@@ -117,6 +133,34 @@ class FrmProAppController {
 				'version'  => '1.4',
 			),
 		);
+
+		if ( $include_dropzone || self::should_include_dropzone_in_minified_js() ) {
+			$files['dropzone'] = self::get_dropzone_file_details();
+		}
+
+		return $files;
+	}
+
+	/**
+	 * @since 5.0.11
+	 *
+	 * @return array
+	 */
+	private static function get_dropzone_file_details() {
+		return array(
+			'file'     => '/js/dropzone.min.js',
+			'requires' => array( 'jquery' ),
+			'version'  => '5.5.0',
+		);
+	}
+
+	/**
+	 * @since 5.0.11
+	 *
+	 * @return bool
+	 */
+	private static function should_include_dropzone_in_minified_js() {
+		return apply_filters( 'frm_include_dropzone_in_minified_js', true );
 	}
 
 	/**

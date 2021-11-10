@@ -41,39 +41,41 @@ $section_icon_text_description_third = get_sub_field('section_icon_text_descript
                     </div>
                 <?php endif; ?>
             </div> <!-- /.row -->
-            <div class="row icon-desc-row">
-                <?php if ( $section_icon || $section_icon_text_description ) : ?>
-                    <div class="col-md-4 icon-description-item">
-                        <div class="icon-wrap">
-                            <img src="<?php echo esc_url($section_icon['url']); ?>" alt="<?php echo esc_attr($section_icon['alt']); ?>" />
+            <?php if ( $section_icon || $section_icon_text_description || $section_icon_second || $section_icon_text_description_second || $section_icon_third || $section_icon_text_description_third ) : ?>
+                <div class="row icon-desc-row">
+                    <?php if ( $section_icon || $section_icon_text_description ) : ?>
+                        <div class="col-md-4 icon-description-item">
+                            <div class="icon-wrap">
+                                <img src="<?php echo esc_url($section_icon['url']); ?>" alt="<?php echo esc_attr($section_icon['alt']); ?>" />
+                            </div>
+                            <div class="short-desc-wrap">
+                                <?php echo $section_icon_text_description; ?>
+                            </div>
                         </div>
-                        <div class="short-desc-wrap">
-                            <?php echo $section_icon_text_description; ?>
+                    <?php endif; ?>
+                    <?php if ( $section_icon_second || $section_icon_text_description_second ) : ?>
+                        <div class="col-md-4 icon-description-item">
+                            <div class="icon-wrap">
+                                <img src="<?php echo esc_url($section_icon_second['url']); ?>" alt="<?php echo esc_attr($section_icon_second['alt']); ?>" />
+                            </div>
+                            <div class="short-desc-wrap">
+                                <?php echo $section_icon_text_description_second; ?>
+                            </div>
                         </div>
-                    </div>
-                <?php endif; ?>
-                <?php if ( $section_icon_second || $section_icon_text_description_second ) : ?>
-                    <div class="col-md-4 icon-description-item">
-                        <div class="icon-wrap">
-                            <img src="<?php echo esc_url($section_icon_second['url']); ?>" alt="<?php echo esc_attr($section_icon_second['alt']); ?>" />
+                    <?php endif; ?>
+                    <?php if ( $section_icon_third || $section_icon_text_description_third ) : ?>
+                        <div class="col-md-4 icon-description-item">
+                            <div class="icon-wrap">
+                                <img src="<?php echo esc_url($section_icon_third['url']); ?>" alt="<?php echo esc_attr($section_icon_third['alt']); ?>" />
+                            </div>
+                            <div class="short-desc-wrap">
+                                <?php echo $section_icon_text_description_third; ?>
+                            </div>
                         </div>
-                        <div class="short-desc-wrap">
-                            <?php echo $section_icon_text_description_second; ?>
-                        </div>
-                    </div>
-                <?php endif; ?>
-                <?php if ( $section_icon_third || $section_icon_text_description_third ) : ?>
-                    <div class="col-md-4 icon-description-item">
-                        <div class="icon-wrap">
-                            <img src="<?php echo esc_url($section_icon_third['url']); ?>" alt="<?php echo esc_attr($section_icon_third['alt']); ?>" />
-                        </div>
-                        <div class="short-desc-wrap">
-                            <?php echo $section_icon_text_description_third; ?>
-                        </div>
-                    </div>
-                <?php endif; ?>
+                    <?php endif; ?>
 
-            </div>
+                </div>
+            <?php endif; ?>
         </div> <!-- /.container container -->
     </div> <!-- /.image-text-section-wrapper -->
 </section>

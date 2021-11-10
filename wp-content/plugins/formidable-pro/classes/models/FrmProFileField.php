@@ -933,7 +933,7 @@ class FrmProFileField {
 				array(
 					'file_id'   => $media_id,
 					'form_id'   => $form_id,
-					'protected' => self::$uploading_temporary_files || self::folder_is_protected( $form_id ),
+					'protected' => self::file_is_protected( $file_id, $form_id ),
 				)
 			);
 			self::add_meta_to_media( $media_id, 'file' );
@@ -1360,10 +1360,18 @@ class FrmProFileField {
 	 * @return bool
 	 */
 	public static function file_is_protected( $file_id, $form_id ) {
-		if ( self::folder_is_protected( $form_id ) ) {
-			return true;
+		if ( ! self::file_is_temporary( $file_id ) ) {
+			return self::folder_is_protected( $form_id );
 		}
-		return self::file_is_temporary( $file_id );
+
+		/**
+		 * By default files are uploaded as chmod 200 to prevent public access.
+		 * This also can cause conflicts with other plugins that try to make updates to files immediately on upload.
+		 * It is not recommended to turn this off as it will make files public. Only do this for forms where you can trust the uploaded files.
+		 *
+		 * @since 5.0.12
+		 */
+		return apply_filters( 'frm_protect_temporary_file', true, compact( 'file_id', 'form_id' ) );
 	}
 
 	/**

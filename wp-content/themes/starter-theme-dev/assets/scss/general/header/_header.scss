@@ -1,6 +1,6 @@
 .site-header {
     position: relative;
-    z-index: 9;
+    z-index: 999;
     @include max-mq ($mac) {
         padding-left: 15px;
         padding-right: 15px;
@@ -14,6 +14,18 @@
         top: 0;
         width: 65%;
         z-index: 0;
+        @include max-mq ($lt) {
+            width: 70%;
+        }
+        @include max-mq ($ls) {
+            width: 75%;
+        }
+        @include max-mq ($lg) {
+            width: 85%;
+        }
+        @include max-mq ($tab) {
+            width: 100%;
+        }
     }
     > div {
         position: relative;
@@ -37,6 +49,25 @@
         padding: 10px;
         .header-contact-phone {
             margin-right: 26px;
+            @include max-mq ($lg) {
+                margin-right: 10px;
+            }
+            @include max-mq ($ip) {
+                margin-right: 0;
+            }
+            span {
+                @include max-mq ($mb - 20) {
+                    display: none;
+                }
+                @include max-mq ($mb_s) {
+                    display: inline-block;
+                }
+            }
+        }
+        .header-contact-address {
+            @include max-mq ($tab + 120) {
+                display: none;
+            }
         }
         a {
             color: $secondary-color-500;
@@ -48,10 +79,16 @@
             margin-top: -5px;
             margin-right: 23px;
             padding-right: 23px;
-            
             display: flex;
             align-items: center;
             position: relative;
+            @include max-mq ($lg) {
+                margin-right: 13px;
+                padding-right: 13px;
+            }
+            @include max-mq ($mb_s) {
+                display: none;
+            }
             &:after {
                 content: '';
                 height: 20px;
@@ -66,6 +103,15 @@
                 position: relative;
                 margin-right: 10px;
                 top: -2px;
+                @include max-mq ($lg) {
+                    display: none;
+                }
+                @include max-mq ($tab + 120) {
+                    display: block;
+                }
+                @include max-mq ($mb_p) {
+                    display: none;
+                }
             }
         }
     }
@@ -109,6 +155,9 @@
         display: flex;
         padding-top: 14px;
         padding-right: 10px;
+        @include max-mq($responsive-toggle-breakpoint + 1) {
+            float: right;
+        }
     }
     .header-search {
         .header-search-position {
@@ -130,6 +179,12 @@
             border-right: none;
             border-top: none;
             font-size: $font-size-large + 50;
+            @include max-mq ($tab + 60) {
+                width: 70%;
+            }
+            @include max-mq ($mb_p) {
+                font-size: $font-size-large + 20;
+            }
         }
         .submit-button-search {
             background-color: transparent;
@@ -137,6 +192,9 @@
             color: $tertiary-color;
             font-size: $font-size-large + 50;
             transition: color 0.5s;
+            @include max-mq ($mb_p) {
+                font-size: $font-size-large + 20;
+            }
             &:hover {
                 color: $primary-color;
             }

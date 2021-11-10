@@ -76,7 +76,7 @@ get_header(); ?>
                                 <div class="product-cards-wrapper category-cards-wrapper col-md-12">
                                     <div class="row category-row">
                                         <?php foreach ( $terms as $term ) { ?>
-                                            <div class="col-md-3 product-card-item category-card-item">
+                                            <div class="col-md-3 col-sm-6 product-card-item category-card-item">
                                                 <a class="category-card-link" href="<?php echo get_term_link($term->term_id); ?>">
                                                     <div class="term-featured-image-wrap">
                                                         <!-- <div class="term-featured-image" style="background-image: url('<?php // the_field('category_image', $term); ?>')">
@@ -98,7 +98,7 @@ get_header(); ?>
                                 </div>
                             <?php } ?>
 
-                        <?php mwns_post_navigation(); ?>
+                        <?php // mwns_post_navigation(); ?>
                     </div> <!-- /.archive-products-wrapper -->
                 <?php else : ?>
 

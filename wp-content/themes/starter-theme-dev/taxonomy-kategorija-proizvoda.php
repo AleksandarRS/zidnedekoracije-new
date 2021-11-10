@@ -56,7 +56,7 @@ get_header(); ?>
                             <div class="archive-text-description-wrapper">
                                 <?php the_archive_description('<div class="taxonomy-description">', '</div>'); ?>
                             </div>
-                            <div class="product-cards-wrapper category-cards-wrapper">
+                            <div class="product-cards-wrapper archive-category-cards-wrapper">
                                 <div class="row category-row">
                                     <?php foreach ( $term_children as $term ) { ?>
                                         <div class="col-md-6 product-card-item category-card-item product-category-style">
@@ -111,7 +111,7 @@ get_header(); ?>
                                                 */
                                                 //get_template_part('template-parts/content', get_post_format());
                                                 ?>
-                                                <div class="col-md-3 product-card-item category-card-item">
+                                                <div class="col-md-3 col-sm-6 product-card-item category-card-item">
                                                     <a class="category-card-link" href="<?php the_permalink(); ?>">
                                                         <div class="term-featured-image-wrap">
                                                             <?php if ( ! empty( get_the_post_thumbnail_url() ) ) { ?>

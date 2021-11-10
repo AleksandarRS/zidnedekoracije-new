@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Formidable Forms Pro plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Formidable Forms Pro 5.0.09\n"
+"Project-Id-Version: Formidable Forms Pro 5.0.12\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/formidable-pro\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-10-19T17:02:22+00:00\n"
+"POT-Creation-Date: 2021-11-05T15:09:54+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: formidable-pro\n"
@@ -71,7 +71,7 @@ msgstr ""
 msgid "Formidable Tag"
 msgstr ""
 
-#: classes/controllers/FrmProAppController.php:217
+#: classes/controllers/FrmProAppController.php:261
 #: classes/views/frmpro-statistics/select.php:7
 #: classes/views/frmpro-statistics/show.php:10
 msgid "Reports"
@@ -447,7 +447,7 @@ msgid "User Role"
 msgstr ""
 
 #: classes/controllers/FrmProFormsController.php:365
-#: classes/helpers/FrmProFieldsHelper.php:2971
+#: classes/helpers/FrmProFieldsHelper.php:2974
 #: classes/views/displays/where_row.php:24
 #: classes/views/xml/map_csv_fields.php:115
 msgid "Post ID"
@@ -497,13 +497,13 @@ msgid "Replace 'whatever' with the parameter name. To get the url of the current
 msgstr ""
 
 #: classes/controllers/FrmProFormsController.php:592
-#: classes/helpers/FrmProFormsHelper.php:470
+#: classes/helpers/FrmProFormsHelper.php:485
 #: classes/models/fields/FrmProFieldBreak.php:71
 msgid "Previous"
 msgstr ""
 
 #: classes/controllers/FrmProFormsController.php:611
-#: classes/helpers/FrmProFormsHelper.php:471
+#: classes/helpers/FrmProFormsHelper.php:486
 #: classes/views/frmpro-forms/add_form_button_options.php:31
 msgid "Save Draft"
 msgstr ""
@@ -901,7 +901,7 @@ msgstr ""
 
 #: classes/controllers/FrmProFormsController.php:1014
 #: classes/helpers/FrmProEntriesListHelper.php:121
-#: classes/helpers/FrmProFieldsHelper.php:2969
+#: classes/helpers/FrmProFieldsHelper.php:2972
 #: classes/views/displays/order_row.php:11
 #: classes/views/displays/where_row.php:18
 #: classes/views/xml/map_csv_fields.php:134
@@ -1293,7 +1293,7 @@ msgid "All Fields"
 msgstr ""
 
 #: classes/helpers/FrmProEntriesListHelper.php:120
-#: classes/helpers/FrmProFieldsHelper.php:2973
+#: classes/helpers/FrmProFieldsHelper.php:2976
 #: classes/views/displays/order_row.php:17
 #: classes/views/displays/where_row.php:12
 #: classes/views/displays/_calendar_options.php:11
@@ -1305,114 +1305,114 @@ msgstr ""
 msgid "View all posts filed under %s"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:870
+#: classes/helpers/FrmProFieldsHelper.php:873
 msgid "The entered values do not match"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:1436
+#: classes/helpers/FrmProFieldsHelper.php:1439
 msgid "No Categories"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:2412
+#: classes/helpers/FrmProFieldsHelper.php:2415
 msgid "Confirm"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:2657
+#: classes/helpers/FrmProFieldsHelper.php:2660
 msgid "Edit Uploaded File"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:2967
+#: classes/helpers/FrmProFieldsHelper.php:2970
 msgid "Select a value to insert into the box below"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:2970
+#: classes/helpers/FrmProFieldsHelper.php:2973
 #: classes/views/displays/order_row.php:14
 #: classes/views/xml/map_csv_fields.php:137
 #: classes/views/xml/map_csv_fields.php:138
 msgid "Entry Key"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:2972
+#: classes/helpers/FrmProFieldsHelper.php:2975
 msgid "User IP"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:2974
+#: classes/helpers/FrmProFieldsHelper.php:2977
 #: classes/views/displays/order_row.php:20
 #: classes/views/displays/_calendar_options.php:14
 #: classes/views/displays/_calendar_options.php:31
 msgid "Entry update date"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:2976
+#: classes/helpers/FrmProFieldsHelper.php:2979
 msgid "Form Fields"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:2992
-#: classes/helpers/FrmProFieldsHelper.php:3018
+#: classes/helpers/FrmProFieldsHelper.php:2995
+#: classes/helpers/FrmProFieldsHelper.php:3021
 #: classes/views/displays/mb_advanced.php:115
 #: classes/views/frmpro-entries/table.php:10
 #: classes/views/frmpro-entries/table.php:89
 msgid "ID"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:2993
-#: classes/helpers/FrmProFieldsHelper.php:3019
+#: classes/helpers/FrmProFieldsHelper.php:2996
+#: classes/helpers/FrmProFieldsHelper.php:3022
 #: classes/views/displays/mb_advanced.php:118
 msgid "Key"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:2996
+#: classes/helpers/FrmProFieldsHelper.php:2999
 msgid "Thumbnail"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:2999
+#: classes/helpers/FrmProFieldsHelper.php:3002
 #: classes/models/FrmProImages.php:65
 msgid "Medium"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:3002
+#: classes/helpers/FrmProFieldsHelper.php:3005
 #: classes/models/FrmProImages.php:66
 msgid "Large"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:3005
+#: classes/helpers/FrmProFieldsHelper.php:3008
 msgid "Full Size"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:3031
+#: classes/helpers/FrmProFieldsHelper.php:3034
 msgid "Helpers"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:3032
+#: classes/helpers/FrmProFieldsHelper.php:3035
 msgid "Admin link to edit the entry"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:3035
+#: classes/helpers/FrmProFieldsHelper.php:3038
 msgid "Link to view single page if showing dynamic entries"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:3043
+#: classes/helpers/FrmProFieldsHelper.php:3046
 msgid "Add a rotating 'even' or 'odd' class"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:3047
+#: classes/helpers/FrmProFieldsHelper.php:3050
 msgid "Default Email Message"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:3050
+#: classes/helpers/FrmProFieldsHelper.php:3053
 msgid "Site URL"
 msgstr ""
 
-#: classes/helpers/FrmProFieldsHelper.php:3051
+#: classes/helpers/FrmProFieldsHelper.php:3054
 msgid "Site Name"
 msgstr ""
 
-#: classes/helpers/FrmProFormsHelper.php:460
-#: classes/helpers/FrmProFormsHelper.php:823
+#: classes/helpers/FrmProFormsHelper.php:475
+#: classes/helpers/FrmProFormsHelper.php:838
 msgid "Your draft has been saved."
 msgstr ""
 
-#: classes/helpers/FrmProFormsHelper.php:482
+#: classes/helpers/FrmProFormsHelper.php:497
 msgid "This form is currently closed for submissions."
 msgstr ""
 
@@ -1641,60 +1641,60 @@ msgstr ""
 msgid "File upload failed"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:1683
+#: classes/models/FrmProFileField.php:1691
 msgid "Oops! That file no longer exists"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:1685
+#: classes/models/FrmProFileField.php:1693
 msgid "Oops! That file is protected"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:1945
+#: classes/models/FrmProFileField.php:1953
 msgid "payload is not the right size"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:1949
-#: classes/models/FrmProFileField.php:2000
+#: classes/models/FrmProFileField.php:1957
+#: classes/models/FrmProFileField.php:2008
 msgid "payload does not match the expected format"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:1958
+#: classes/models/FrmProFileField.php:1966
 msgid "if sanitized data is empty, do not try to download"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:1966
+#: classes/models/FrmProFileField.php:1974
 msgid "temporary files can only be accessed by privileged users"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:1981
+#: classes/models/FrmProFileField.php:1989
 msgid "referer value either does not exist or it is unusable"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:1991
+#: classes/models/FrmProFileField.php:1999
 msgid "referer check failed"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:2017
+#: classes/models/FrmProFileField.php:2025
 msgid "url is not an exact match"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:2025
+#: classes/models/FrmProFileField.php:2033
 msgid "no file found"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:2034
+#: classes/models/FrmProFileField.php:2042
 msgid "if the filename requested does not match our filename, do not return the file"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:2041
+#: classes/models/FrmProFileField.php:2049
 msgid "prevent downloads for other uploads. We only want to allow valid connected formidable data"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:2048
+#: classes/models/FrmProFileField.php:2056
 msgid "user does not fit any of the set roles, do not serve a file"
 msgstr ""
 
-#: classes/models/FrmProFileField.php:2084
+#: classes/models/FrmProFileField.php:2092
 msgid "file does not exist"
 msgstr ""
 

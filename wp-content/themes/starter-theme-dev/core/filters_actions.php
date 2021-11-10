@@ -270,6 +270,15 @@ if (!function_exists('mwns_widgets_init')):
             'before_title' => '<h4 class="widget-title">',
             'after_title' => '</h4>',
         ));
+        register_sidebar(array(
+            'name' => esc_html__('Single product widget', 'mwns'),
+            'id' => 'single-product-widget',
+            'description' => '',
+            'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+            'after_widget' => '</aside>',
+            'before_title' => '<h4 class="widget-title">',
+            'after_title' => '</h4>',
+        ));
     }
 
 endif;

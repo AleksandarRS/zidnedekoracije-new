@@ -1,4 +1,5 @@
 .term-featured-image-wrap {
+    border: 1px solid $gray-100;
     overflow: hidden;
 }
 .term-featured-image {
@@ -7,10 +8,23 @@
     background-size: cover;
     height: 480px;
     transition: all .5s;
+    @include min-max-mq($sm, $md) {
+        height: 240px;
+    }
+    @include min-max-mq($mb, $sm) {
+        height: 295px;
+    }
+    @include max-mq ($mb) {
+        height: 325px;
+    }
 }
 .all-products-section-wrapper {
     padding-bottom: 30px;
     padding-top: 72px;
+    @include max-mq ($tab) {
+        padding-bottom: 15px;
+        padding-top: 35px;
+    }
 }
 .all-products-section {
     .term-name {
@@ -30,6 +44,31 @@
 }
 .product-cards-wrapper {
     color: $primary-color;
+    @include max-mq ($lg) {
+        padding-left: 23px;
+        padding-right: 23px;
+    }
+    .single-proizvod & {
+        padding-left: 0;
+        padding-right: 0;
+        @include max-mq ($lg) {
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+    }
+
+    .tax-kategorija-proizvoda & {
+        @include max-mq ($lg) {
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+    }
+    &.archive-category-cards-wrapper {
+        @include max-mq ($lg) {
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+    }
     a {
         color: $primary-color;
         &:hover {
@@ -44,6 +83,13 @@
     .product-card-item {
         padding-bottom: 42px;
         padding-top: 3px;
+        @include max-mq ($lg) {
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+        @include max-mq ($sm) {
+            padding-bottom: 25px;
+        }
     }
     .product-card-title {
         font-size: $font-size-large;
@@ -65,18 +111,32 @@
 .archive-product-cards-wrapper {
     padding-bottom: 70px;
     padding-top: 70px;
+    @include max-mq ($lg) {
+        padding-bottom: 50px;
+        padding-top: 50px;
+    }
+    @include max-mq ($tab) {
+        padding-bottom: 35px;
+        padding-top: 35px;
+    }
     .product-card-item {
         margin-bottom: 25px;
         margin-top: 25px;
+        @include max-mq ($sm) {
+            margin-bottom: 15px;
+            margin-top: 15px;
+        }
         &.product-category-style {
-            // padding-left: 0;
-            // padding-right: 0;
             position: relative;
             padding-bottom: 30px;
             margin-bottom: 0;
             margin-top: 0;
             flex: 0 0 55%;
             max-width: 55%;
+            @include max-mq ($mb_p) {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
             &:nth-child(2),
             &:nth-child(3),
             &:nth-child(6),
@@ -88,7 +148,20 @@
             &:nth-child(18),
             &:nth-child(19) {
                 flex: 0 0 45%;
-                max-width: 45%; 
+                max-width: 45%;
+                @include max-mq ($mb_p) {
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                }
+            }
+            .term-featured-image {
+                height: 480px;
+                @include max-mq ($tab) {
+                    height: 380px;
+                }
+                @include max-mq ($mb_p) {
+                    height: 330px;
+                }
             }
             .category-card-link {
                 position: relative;
@@ -108,6 +181,12 @@
                 .product-card-title {
                     color: $white;
                     font-size: $font-size-h2;
+                    @include max-mq($md) {
+                        font-size: $font-size-h2 - 3px;
+                    }
+                    @include max-mq($sm) {
+                        font-size: $font-size-h2 - 6px;
+                    }
                 }
             }
         }

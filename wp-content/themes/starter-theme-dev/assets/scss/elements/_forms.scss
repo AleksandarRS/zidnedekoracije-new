@@ -22,6 +22,9 @@
     input[type='text'],
     input[type='email'] {
       font-size: $font-size-xlarge;
+      @include max-mq ($xs + 30) {
+        font-size: $font-size-base;
+    }
     }
   }
   input[type='text'],
@@ -88,43 +91,43 @@ input[type='submit'] {
 
 /*---- Placeholder ----*/
 ::-webkit-input-placeholder {
-  opacity: 1;
-  color: $gray-100 !important;
+  opacity: 1 !important;
+  color: $primary-color !important;
   font-family: $primary-font;
   font-weight: 400 !important;
 }
 \:-moz-placeholder {
-  opacity: 1;
-  color: $gray-100 !important;
+  opacity: 1 !important;
+  color: $primary-color !important;
   font-family: $primary-font;
   font-weight: 400 !important;
 }
 ::-moz-placeholder {
-  opacity: 1;
-  color: $gray-100 !important;
+  opacity: 1 !important;
+  color: $primary-color !important;
   font-family: $primary-font;
   font-weight: 400 !important;
 }
 \:-ms-input-placeholder {
-  opacity: 1;
-  color: $gray-100 !important;
+  opacity: 1 !important;
+  color: $primary-color !important;
   font-family: $primary-font;
   font-weight: 400 !important;
 }
 *::-webkit-input-placeholder {
-  opacity: 1;
-  color: $gray-100 !important;
+  opacity: 1 !important;
+  color: $primary-color !important;
   font-family: $primary-font;
   font-weight: 400 !important;
 }
 *:-moz-placeholder {
-  opacity: 1;
-  color: $gray-100 !important;
+  opacity: 1 !important;
+  color: $primary-color !important;
   font-family: $primary-font;
   font-weight: 400 !important;
 }
 *:-ms-input-placeholder {
-  opacity: 1;
+  opacity: 1 !important;
   color: $primary-color !important;
 }
 .newsletter-form-cta {

@@ -28,7 +28,8 @@ if ( isset($frm_vars['google_graphs']) && ! empty($frm_vars['google_graphs']) ) 
 
 FrmProFormsHelper::load_chosen_js( $frm_vars );
 FrmProFormsHelper::load_hide_conditional_fields_js( $frm_vars );
-FrmProFormsHelper::load_calc_js($frm_vars);
+FrmProFormsHelper::load_calc_js( $frm_vars );
+FrmProFormsHelper::load_rte_js( $frm_vars );
 FrmProFormsHelper::load_datepicker_js( $frm_vars );
 FrmProFormsHelper::load_currency_js( $frm_vars );
 FrmProFormsHelper::load_input_mask_js();

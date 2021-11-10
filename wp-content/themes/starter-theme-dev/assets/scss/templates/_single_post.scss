@@ -3,6 +3,36 @@
     margin-left: auto;
     margin-right: auto;
     padding-top: 45px;
+    @include max-mq ($mb) {
+        padding-top: 25px;
+    }
+    @include max-mq ($ip - 20) {
+        padding-top: 15px;
+    }
+    > article {
+        > div {
+            @include max-mq ($sm) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+    .entry-header {
+        > div {
+            @include max-mq ($sm) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+    .single-post-content-half,
+    .single-post-content-full-width {
+        @include max-mq ($sm) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+    
 }
 .single-post-main-image-wrapper {
     background-size: cover;

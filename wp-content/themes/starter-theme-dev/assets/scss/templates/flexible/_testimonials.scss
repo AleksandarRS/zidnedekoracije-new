@@ -1,5 +1,13 @@
 .testimonials-section-wrapper {
     padding: 66px 0;
+    @include max-mq ($tab) {
+        padding: 40px 0;
+    }
+    > div {
+        @include max-mq ($ls) {
+            padding-left: 0;
+        }
+    }
 }
 
 .testimonials-slider {
@@ -8,9 +16,22 @@
     
     .slick-slide {
         width: 450px;
+        @include max-mq ($tab) {
+            width: 375px;
+        }
+        @include max-mq ($sm) {
+            width: 300px;
+        }
+        @include max-mq ($xs) {
+            width: 280px;
+        }
     }
+
     .testimonials-slider-item {
         padding: 15px;
+        @include max-mq ($mb_s) {
+            padding: 15px 7px;
+        }
     }
     .testimonials-star-review {
         padding-bottom: 12px;

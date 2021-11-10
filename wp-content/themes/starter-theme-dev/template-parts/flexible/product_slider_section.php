@@ -44,7 +44,7 @@
                                         </div> <!-- /.container -->
                                     </div> <!-- /.products-heading-excerpt-button-wraper -->
                                     <div class="slick-slider-dots">
-                                        <p class="pagination-title"><?php the_title(); ?></p>
+                                        <p class="pagination-title"><span><?php the_title(); ?></span></p>
                                     </div>
                             </div> <!-- /.products-slider-item -->
                             

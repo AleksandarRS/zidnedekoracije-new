@@ -1,7 +1,7 @@
 
 .logo-menu-wrapper{
 	@include max-mq($sm) {
-		padding: 10px 15px;
+		padding: 0 10px;
 	}
 	.site-branding{
 		margin-right: auto;
@@ -30,10 +30,12 @@
 	}
 	  
 	.main-navigation {
-	
 		min-width: 270px;
 		top: 0;
 		margin: 0 0 0 auto;
+		@include max-mq ($xs + 30) {
+			min-width: 235px;
+		}
 		@include max-mq($responsive-toggle-breakpoint) {
 			background-color: $white;
 			position: fixed;
@@ -65,7 +67,9 @@
 			align-items: center;
 
 			@include max-mq($responsive-toggle-breakpoint) {
-				right: 10px;
+				right: 0;
+				padding-right: 15px;
+				padding-left: 15px;
 			}
 		}
 	
@@ -74,6 +78,7 @@
 			@include max-mq($responsive-toggle-breakpoint) {
 				width: 100%;
 				margin-bottom: 40px;
+				padding-right: 0;
 			}
 			ul {
 				margin: 0;
@@ -118,8 +123,11 @@
 						width: 100%;
 
 						@include max-mq($mac) {
-							padding: 15px;
+							padding: 10px 15px;
 							// font-size: $font-size-small;
+						}
+						@include max-mq($ip) {
+							font-size: $font-size-base;
 						}
 					}
 
@@ -141,6 +149,9 @@
 					margin: 0;
 					padding: 0 0 0 25px;
 				}
+				@include max-mq($ip) {
+					padding: 0 0 0 16px;
+				}
 	
 				@include min-mq($lg) {
 					background-color: #fff;
@@ -159,7 +170,7 @@
 				}
 
 				.arrow-toggle {
-					padding-right: 10px;
+					padding-right: 15px;
 				}
 	
 				li {
@@ -170,7 +181,7 @@
 						font-size: $font-size-base;
 	
 						@include max-mq($lg - 1) {
-							padding: 10px 0;
+							padding: 10px 5px;
 						}
 					}
 	

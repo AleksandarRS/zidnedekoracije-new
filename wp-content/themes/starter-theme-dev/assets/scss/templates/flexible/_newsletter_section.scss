@@ -31,11 +31,17 @@
             height: 55px;
             max-width: 70%;
             width: 100%;
+            @include max-mq ($xs + 30) {
+                max-width: 65%;
+            }
         }
         &[type="submit"] {
             max-width: 30%;
             padding: 18px 10px;
             width: 100%;
+            @include max-mq ($xs + 30) {
+                max-width: 35%;
+            }
         }
     }
     .checkbox-label {

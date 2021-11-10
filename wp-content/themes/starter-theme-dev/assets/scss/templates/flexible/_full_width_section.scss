@@ -1,6 +1,14 @@
 .full-width-section {
-    padding-top: 60px;
     padding-bottom: 80px;
+    padding-top: 60px;
+    @include max-mq ($ls) {
+        padding-bottom: 60px;
+        padding-top: 45px;
+    }
+    @include max-mq ($tab) {
+        padding-bottom: 45px;
+        padding-top: 35px;
+    }
     h1, h2, h3 {
         &:first-child {
             margin-top: 0.5em;

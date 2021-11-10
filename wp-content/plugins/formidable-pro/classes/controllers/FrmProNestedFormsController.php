@@ -831,7 +831,7 @@ class FrmProNestedFormsController {
 		if ( is_array( $add_class ) ) {
 			$position = 'button' === $type ? 1 : 0;
 			$classes .= ' frm' . $add_class[ $position ];
-		} else {
+		} elseif ( $add_class ) {
 			$classes .= ' frm' . $add_class;
 		}
 	}

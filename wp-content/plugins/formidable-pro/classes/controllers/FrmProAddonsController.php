@@ -241,12 +241,18 @@ class FrmProAddonsController extends FrmAddonsController {
 		global $hook_suffix;
 		set_current_screen();
 
-		$download_urls = FrmAppHelper::get_param( 'plugin', '', 'post' );
-		$download_urls = explode( ',', $download_urls );
+		$free_plugin_supports_current_plugin_var = is_callable( 'self::get_current_plugin' );
+
+		$download_urls = explode( ',', FrmAppHelper::get_param( 'plugin', '', 'post' ) );
 		FrmAppHelper::sanitize_value( 'esc_url_raw', $download_urls );
 
 		foreach ( $download_urls as $download_url ) {
-			$_POST['plugin'] = $download_url;
+			if ( $free_plugin_supports_current_plugin_var ) {
+				self::$plugin = $download_url;
+			} else {
+				$_POST['plugin'] = $download_url;
+			}
+
 			if ( strpos( $download_url, 'http' ) !== false ) {
 				// Installing.
 				self::maybe_show_cred_form();

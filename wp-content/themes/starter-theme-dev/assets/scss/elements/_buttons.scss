@@ -6,6 +6,16 @@
 	padding: 10px 28px;
 	transition: all 0.5s;
 	vertical-align: middle;
+
+	@include max-mq ($ls) {
+        padding: 10px 22px;
+    }
+	@include min-max-mq($sm, $md) {
+        padding: 10px 15px;
+    }
+	@include max-mq ($xs) {
+		padding: 9px 10px;
+	}
 	
 	&.button-primary {
 		background-color: $primary-color;

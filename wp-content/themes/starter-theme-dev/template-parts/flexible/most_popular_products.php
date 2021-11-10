@@ -42,7 +42,7 @@ $link = get_sub_field('see_all_products_link');
                                 
                                 
 
-                                <div class="col-md-3 product-card-item category-card-item">
+                                <div class="col-md-3 col-sm-6 product-card-item category-card-item">
                                     <a class="category-card-link" href="<?php the_permalink(); ?>">
                                         <?php if( get_the_post_thumbnail() ): ?>
                                             <div class="term-featured-image-wrap">

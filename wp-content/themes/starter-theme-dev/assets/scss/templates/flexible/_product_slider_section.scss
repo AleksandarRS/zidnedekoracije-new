@@ -1,11 +1,32 @@
 .products-featured-img-wrap {
     height: 833px;
-    // min-height: 70vh;
     background-repeat: no-repeat;
     background-size: cover;
     @include min-mq ($fhd + 20) {
         height: 77vh;
     }
+    @include max-mq ($mac_l) {
+        height: 700px;
+    }
+    @include max-mq ($ls) {
+        height: 650px;
+    }
+    @include max-mq ($lg) {
+        height: 630px;
+    }
+    @include max-mq ($md) {
+        height: 560px;
+    }
+    @include max-mq ($sm) {
+        height: 480px;
+    }
+    @include max-mq ($mb + 4) {
+        height: 350px;
+    }
+    @include max-mq ($ip) {
+        height: 300px;
+    }
+
     &:after {
         content: '';
         background: $black;
@@ -38,8 +59,21 @@
     @include max-mq ($mac + 20) {
         padding-left: 15px;
     }
+    @include max-mq ($mb_s) {
+        background-color: $tertiary-color;
+        position: relative;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        
+    }
     .products-title {
         max-width: 40%;
+        @include max-mq ($lg) {
+            max-width: 55%;
+        }
+        @include max-mq ($mb + 4) {
+            display: none;
+        }
     }
     > div {
         position: relative;
@@ -56,6 +90,26 @@
         position: absolute;
         width: 43%;
         z-index: 0;
+        @include max-mq ($lg) {
+            width: 58%;
+        }
+        @include max-mq ($md) {
+            height: 300px;
+        }
+        @include max-mq ($sm) {
+            height: 280px;
+        }
+        @include max-mq ($mb + 4) {
+            height: 130px;
+            min-height: 1px;
+            width: 207px;
+        }
+        @include max-mq ($mb_s) {
+            display: none;
+            height: 0;
+            min-height: 0;
+            width: 0;
+        }
     }
 }
 .title-label {
@@ -67,9 +121,17 @@
     padding-top: 25px;
     padding-bottom: 46px;
     padding-left: 5px;
+    @include max-mq ($mb_s) {
+        padding-bottom: 0;
+        padding-top: 0;
+        padding-left: 0;
+    }
     .products-description {
         padding-bottom: 68px;
         letter-spacing: 1.2px;
+        @include max-mq ($md) {
+            padding-bottom: 25px;
+        }
     }
 }
 .products-heading-excerpt-wrap {
@@ -87,6 +149,15 @@
         letter-spacing: -2.2px;
         margin: 0;
         line-height: 1.1;
+        @include max-mq($ls) {
+            font-size: $font-size-h1-large - 10px;
+        }
+        @include max-mq($md) {
+            font-size: $font-size-h1-large - 15px;
+        }
+        @include max-mq($sm) {
+            font-size: $font-size-h1-large - 20px;
+        }
     }
     .entry-content {
         margin-top: 0.7em;
@@ -101,8 +172,17 @@
         position: absolute;
         text-align: right;
         @extend %right-calc;
+        @include max-mq($ls) {
+            bottom: 40px;
+        }
+        @include max-mq($mb_s) {
+            bottom: 70px;
+        }
         > li {
             margin-top: 18px;
+            @include max-mq($mb_s) {
+                margin-top: 10px;
+            }
             &:before {
                 display: none;
             }
@@ -130,6 +210,12 @@
             right: 0;
             margin: auto;
         }
+        span {
+            @include max-mq ($tab) {
+                max-width: 200px;
+                display: block;
+            }
+        }
     }
     .slick-active {
         .pagination-title {
@@ -147,6 +233,12 @@
         @extend %right-calc;
         top: 73px;
         transform: rotate(-90deg);
+        @include max-mq ($md) {
+            top: 35px;
+        }
+        @include max-mq ($mb + 4) {
+            font-size: $font-size-h1-large + 1;
+        }
         span {
             display: inline-block;
             &:first-of-type {

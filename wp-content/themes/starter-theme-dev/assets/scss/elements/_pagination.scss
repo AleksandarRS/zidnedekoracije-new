@@ -1,5 +1,14 @@
 .post-navigation {
   padding: 28px 0 72px;
+  @include max-mq ($mb) { 
+    padding: 10px 0 55px;
+  }
+  > div {
+    @include max-mq ($sm) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+  }
   .navigation {
     display: flex;
     justify-content: space-between;
@@ -22,12 +31,24 @@
     }
     span {
       font-size: $font-size-xlarge;
+      @include max-mq ($mb) {
+        font-size: $font-size-xlarge - 3;
+      }
+      @include max-mq ($xs + 20) {
+        font-size: $font-size-xlarge - 4;
+      }
     }
     .icon-left {
       margin-right: 15px;
+      @include max-mq ($xs + 20) {
+        margin-right: 7px;
+      }
     }
     .icon-right {
       margin-left: 15px;
+      @include max-mq ($xs + 20) {
+        margin-left: 7px;
+      }
     }
     i {
       left: 0;

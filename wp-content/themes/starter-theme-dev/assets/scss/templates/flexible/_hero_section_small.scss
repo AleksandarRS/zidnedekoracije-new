@@ -3,6 +3,9 @@
     padding: 75px 15px;
     color: $white;
     position: relative;
+    @include max-mq ($lt) {
+        padding: 55px 15px;
+    }
     &:after {
         background-color: $black;
         bottom: 0;
@@ -26,9 +29,27 @@
         margin-bottom: 0.3em;
         margin-top: 0.3em;
         font-size: $font-size-h1-large;
+        @include max-mq ($lt) {
+            font-size: $font-size-h1-large - 5;
+        }
+        @include max-mq($md) {
+            font-size: $font-size-h1-large - 7;
+        }
+        @include max-mq($sm) {
+            font-size: $font-size-h1-large - 9;
+        }
     }
     .main-hero-description {
         font-size: $font-size-xlarge + 10;
+        @include max-mq ($lt) {
+            font-size: $font-size-xlarge + 5;
+        }
+        @include max-mq($md) {
+            font-size: $font-size-xlarge + 3;
+        }
+        @include max-mq($sm) {
+            font-size: $font-size-xlarge + 1;
+        }
         p {
             margin-bottom: 0.5em;
         }

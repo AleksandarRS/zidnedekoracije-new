@@ -530,6 +530,9 @@ class FrmProFieldsHelper {
 	private static function get_user_id_if_value_is_current_user( $value ) {
 		if ( 'current_user' === $value ) {
 			$value = get_current_user_id();
+			if ( 0 === $value ) {
+				$value = -1; // avoid 0 so logged out users do not match a "current user" check when there is no user id associated with the entry.
+			}
 		}
 		return $value;
 	}

@@ -326,11 +326,14 @@ function frmProFormJS() {
 							url: uploadFields[ i ].mockFiles[ f ].file_url,
 							mediaID: uploadFields[ i ].mockFiles[ f ].id,
 							accessible: uploadFields[ i ].mockFiles[ f ].accessible,
-							ext: uploadFields[ i ].mockFiles[ f ].ext
+							ext: uploadFields[ i ].mockFiles[ f ].ext,
+							type: uploadFields[ i ].mockFiles[ f ].type
 						};
 
 						this.emit( 'addedfile', mockFile );
-						this.emit( 'thumbnail', mockFile, uploadFields[ i ].mockFiles[ f ].url );
+						if ( mockFile.accessible && 0 === mockFile.type.indexOf( 'image/' ) ) {
+							this.emit( 'thumbnail', mockFile, mockFile.url );
+						}
 						this.emit( 'complete', mockFile );
 						this.files.push( mockFile );
 					}
@@ -5148,6 +5151,25 @@ function frmProFormJS() {
 	}
 
 	/**
+	 * @since 5.0.10
+	 */
+	function addRteRequiredMessages() {
+		var keys, length, index, key, field;
+		if ( 'undefined' === typeof __FRMRTEREQMESSAGES ) {
+			return;
+		}
+		keys = Object.keys( __FRMRTEREQMESSAGES );
+		length = keys.length;
+		for ( index = 0; index < length; ++index ) {
+			key = keys[ index ];
+			field = document.getElementById( key );
+			if ( field ) {
+				field.setAttribute( 'data-reqmsg', __FRMRTEREQMESSAGES[ key ] );
+			}
+		}
+	}
+
+	/**
 	 * @since 4.04.01
 	 *
 	 * This function is most suited for (product) fields that are
@@ -5410,6 +5432,7 @@ function frmProFormJS() {
 			setInlineFormWidth();
 			checkConditionalLogic( 'pageLoad' );
 			checkFieldsOnPage();
+			addRteRequiredMessages();
 
 			// make sure this comes last, particularly after checkConditionalLogic & checkFieldsOnPage
 			calcProductsTotal();

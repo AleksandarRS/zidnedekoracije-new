@@ -1,11 +1,14 @@
 .menu-toggle-wrapper {
     align-items: center;
     display: flex;
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 20px;
     z-index: 1;
-
-    @include min-mq($responsive-toggle-breakpoint + 1) {
+    @include min-mq($responsive-toggle-breakpoint) {
         display: none;
+    }
+    @include max-mq ($xs + 30) {
+        margin-right: 15px;
     }
 
     .menu-toggle {

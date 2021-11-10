@@ -849,6 +849,10 @@ $text_color = '#ffffff' . $important;
 	border-bottom-right-radius:0;
 }
 
+.with_frm_style .vertical_radio.frm_image_options .frm_image_option > label {
+    text-indent: 0;
+}
+
 .frm_show_images.frm_image_option_container {
 	display: inline-flex;
 	flex-wrap: nowrap;

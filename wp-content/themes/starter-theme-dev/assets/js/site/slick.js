@@ -145,7 +145,6 @@ module.exports = {
 
 
 		this.$dom.slickSliderSingleMain.slick({
-			autoplay: false,
 			speed: 800,
 			arrows: false,
 			autoplay: true,
@@ -158,7 +157,33 @@ module.exports = {
 			asNavFor: ".single-page-main-slider",
 			prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
 			nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>",
-			focusOnSelect: true
+			focusOnSelect: true,
+			responsive: [
+				{
+					breakpoint: 1260,
+					settings: {
+						slidesToShow: 3
+					}
+				},
+				{
+					breakpoint: 767,
+					settings: {
+						slidesToShow: 4
+					}
+				},
+				{
+					breakpoint: 580,
+					settings: {
+						slidesToShow: 3
+					}
+				},
+				{
+					breakpoint: 420,
+					settings: {
+						slidesToShow: 2
+					}
+				}
+			  ]
 		});
 
 	}

@@ -7,6 +7,18 @@
 .single-page-main-slider-wrapper,
 .single-page-main-content {
     padding-bottom: 60px;
+    @include max-mq ($md) {
+        padding-bottom: 45px;
+    }
+    @include max-mq ($sm) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+.single-page-main-content {
+    @include max-mq ($sm) {
+        padding-bottom: 30px;
+    }
 }
 .featherlight-gallery-init {
     display: block;
@@ -21,6 +33,12 @@
     height: 500px;
     transition: all .5s;
     transform: scale(1);
+    @include max-mq ($mb) {
+        height: 320px;
+    }
+    @include max-mq ($ip) {
+        height: 280px;
+    }
 }
 #order-form {
     display: none;
@@ -29,8 +47,20 @@
 .single-page-thumbnail {
     border: 3px solid $white;
     height: 150px;
-    width: 150px;
+    width: 100%;
     cursor: pointer;
+    @include max-mq ($lt) {
+        height: 140px;
+    }
+    @include max-mq ($md) {
+        height: 100px;
+    }
+    @include max-mq ($sm) {
+        height: 150px;
+    }
+    @include max-mq ($xs) {
+        height: 130px;
+    }
     &:hover {
         border-color: $tertiary-color;
     }
@@ -44,9 +74,20 @@
     margin-left: -15px;
     margin-right: -15px;
     padding-top: 15px;
+    @include max-mq ($lt) {
+        margin-left: -7px;
+        margin-right: -7px;
+        padding-top: 7px;
+    }
+
     .single-page-thumbnail-wrap {
         padding-left: 15px;
         padding-right: 15px;
+        @include max-mq ($lt) {
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+        
     }
     .slick-arrow {
         bottom: -45px;
@@ -67,17 +108,45 @@
     }
 }
 
-.single-page-order-form-wrapper {
+.order-form-activated {
     + .tabs {
-        padding-top: 50px;
+        padding-top: 30px;
+    }
+}
+
+.tabs {
+    @include max-mq ($sm) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.instructions-section-description-wrapper {
+    padding-bottom: 20px;
+    @include max-mq ($sm) {
+        padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    > p {
+        > img {
+            margin-top: 15px;
+        }
     }
 }
 
 .single-page-button-wrap {
     padding-top: 25px;
+    @include max-mq ($lg) {
+        padding-top: 15px;
+    }
     .button {
         margin-right: 10px;
         margin-bottom: 10px;
+        @include max-mq ($mb) {
+            margin-right: 4px;
+            margin-left: 1px;
+        }
         &:last-of-type {
             margin-right: 0;
         }
@@ -92,12 +161,44 @@
     margin: 10px 0;
     border-bottom: 1px solid $secondary-color;
     border-top: 1px solid $secondary-color;
+    @include max-mq ($ls) {
+        padding-bottom: 35px;
+    }
+    @include max-mq ($mb_p) {
+        padding-bottom: 25px;
+    }
+}
+
+.single-page-order-form-wrapper {
+    @include max-mq ($sm) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.order-form-wrapper {
+    @include max-mq ($sm) {
+        padding-top: 15px;
+    }
+}
+.order-text-wrapper {
+    > h1, > h2, > h3 {
+        @include max-mq ($sm) {
+            margin-top: 0.1em;
+        }
+    }
 }
 
 .order-product-close {
     text-align: right;
     padding-bottom: 65px;
     padding-top: 0;
+    @include max-mq ($ls) {
+        padding-bottom: 35px;
+    }
+    @include max-mq ($sm) {
+        padding-bottom: 1px;
+    }
     i {
         font-size: $font-size-xlarge + 8;
         color: $secondary-color-500;
@@ -106,19 +207,26 @@
         &:hover {
             color: $tertiary-color;
         }
-
     }
 }
 
-.instructions-section {
-    display: flex;
+.instructions-section,
+.accordion-container {
     .instruction-slider-image {
         background-repeat: no-repeat;
         background-size: cover;
         height: 321px;
         background-position: center;
+        @include max-mq ($mb) {
+            height: 250px;
+        }
+        @include max-mq ($ip) {
+            height: 190px;
+        }
+        @include max-mq ($xs) {
+            height: 150px;
+        }
     }
-    
     .instruction-slider-image-wrap {
         &.second-image-here {
             display: flex;
@@ -134,10 +242,6 @@
             }
         }
     }
-    .instructions-slider-wrapper {
-        padding-bottom: 15px;
-        align-self: flex-end;
-    }
     .instructions-slider {
         padding-bottom: 45px;
     }
@@ -148,11 +252,28 @@
         }
     }
 }
+
+.instructions-section {
+    display: flex;
+    @include max-mq ($sm) {
+        display: block;
+    }
+    .instructions-slider-wrapper {
+        padding-bottom: 15px;
+        align-self: flex-end;
+        @include max-mq ($sm) {
+            display: none;
+        }
+    }
+}
 .content-area {
     .tab-nav {
         list-style: none;
         padding-left: 0; 
         padding-top: 1px; 
+        @include max-mq ($sm) {
+            display: none;
+        }
         > li {
             position: relative;
             padding-bottom: 0;
@@ -211,11 +332,38 @@
 .single-half-section-wrapper {
     padding-bottom: 35px;
     padding-top: 35px;
+    @include max-mq ($md) {
+        padding-bottom: 25px;
+        padding-top: 25px;
+    }
+    @include max-mq ($sm) {
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
+.row-single-page {
+    .all-products-section {
+        @include max-mq ($sm) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
 .single-half-section-inner {
     padding: 65px 0;
     border-bottom: 1px solid;
     border-top: 1px solid;
+    @include max-mq ($md) {
+        padding-bottom: 35px;
+        padding-top: 35px;
+    }
+    &.half-slider-activated {
+        @include max-mq ($md) {
+            padding-bottom: 65px;
+            padding-top: 35px;
+        }
+    }
 }
 .single-half-item {
     > h1, h2, h3, h4, h5 {
@@ -238,26 +386,83 @@
     }
     .single-bg-img-item-inner {
         background-color: $white;
-        padding: 30px 45px 40px;
+        padding: 30px 40px 40px;
+        @include max-mq ($md) {
+            padding: 18px 20px 23px;
+        }
         h1, h2, h3, h4, h5, h6 {
             &:first-of-type {
                 margin-bottom: 0.5em;
                 margin-top: 0.2em;
             }
         }
-        // p {
-        //     &:first-of-type {
-        //         margin-bottom: 1.5em;
-        //     }
-        // }
         p {
             margin-top: 0;
             margin-bottom: 0.5em;
         }
+        a,
+        p,
+        div {
+            @include max-mq ($ip) {
+                word-break: break-word;
+            }
+        }
     }
 }
 
+.single-full-width-section-wrapper {
+    @include max-mq ($sm) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
 .single-full-width-section-inner {
     padding-bottom: 70px;
-    padding-top: 70px;
+    padding-top: 55px;
+    @include max-mq ($md) {
+        padding-bottom: 35px;
+        padding-top: 35px;
+    }
+    @include max-mq ($sm) {
+        padding-bottom: 28px;
+        padding-top: 28px;
+    }
+    .single-full-width-item {
+        position: relative;
+        @include max-mq ($sm) {
+            overflow-x: scroll;
+        }
+        > h1, > h2, > h3, > h4 {
+            &:first-child {
+                margin-top: 0.1em;
+            }
+        }
+        > table {
+            @include max-mq ($sm) {
+                margin-bottom: 50px;
+            }
+            @include max-mq ($mb) {
+                margin-bottom: 70px;
+            }
+            img {
+                min-width: 25px;
+            }
+            &:after {
+                content: '';
+                display: none;
+                @include max-mq ($sm) {
+                    background-color: $tertiary-color;
+                    bottom: 0;
+                    color: $white;
+                    content: 'Skrolajte levo desno (<  >) preko tabele da biste videli sve informacije u tabeli';
+                    display: block;
+                    height: auto;
+                    padding: 10px;
+                    position: absolute;
+                    width: auto;
+                }
+            }
+        }
+    }
+    
 }

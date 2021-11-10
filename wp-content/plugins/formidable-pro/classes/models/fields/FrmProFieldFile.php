@@ -129,6 +129,7 @@ class FrmProFieldFile extends FrmFieldType {
 	 */
 	private function get_mime_options( $field ) {
 		$mimes = get_allowed_mime_types();
+		ksort( $mimes );
 		$selected_mimes = $field['ftypes'];
 
 		$ordered = array();

@@ -15,6 +15,9 @@ let _this = module.exports = {
 
 		toggleOrderForm: $('#order-product-button'),
 		toggleOrderFormClose: $('.order-product-close-button'),
+
+
+		accordionLink: $('.set > .accordion-cta-link'),
     },
 
     vars: {
@@ -27,10 +30,10 @@ let _this = module.exports = {
 		if( _this ){
 			this.$dom.toggleOrderForm.click(function() {
 				// $( this ).parent('.hero-decription-icon-animate-wrap').toggleClass( "toggled-content" );
-				$( this ).parents('.single-post-product-content-wrapper').find('#order-form').slideToggle( "slow" );
+				$( this ).parents('.single-post-product-content-wrapper').find('#order-form').addClass("order-form-activated").slideToggle( "slow" );
 			});
 			this.$dom.toggleOrderFormClose.click(function() {
-				$( this ).parents('.single-post-product-content-wrapper').find('#order-form').slideToggle( "slow" );
+				$( this ).parents('.single-post-product-content-wrapper').find('#order-form').removeClass("order-form-activated").slideToggle( "slow" );
 			});
 			this.$dom.toggleSearchIcon.click(function() {
 				$( this ).parents('.site-header').toggleClass( "search-opened" );
@@ -45,3 +48,6 @@ jQuery(window).on("load", function () {
     });
     jQuery("body").css("overflow-y", "visible");
 });
+
+
+  

@@ -381,6 +381,21 @@ echo $custom_options;
 	}
 
 	/**
+	 * @since 5.0.10
+	 *
+	 * @param array $frm_vars
+	 * @return void
+	 */
+	public static function load_rte_js( $frm_vars ) {
+		if ( empty( $frm_vars['rte_reqmessages'] ) ) {
+			return;
+		}
+		echo 'var rteReqmessages = ' . json_encode( $frm_vars['rte_reqmessages'] ) . ";\n";
+		echo 'if(typeof __FRMRTEREQMESSAGES == "undefined"){__FRMRTEREQMESSAGES=rteReqmessages;}';
+		echo 'else{__FRMRTEREQMESSAGES=jQuery.extend(true,{},__FRMRTEREQMESSAGES,rteReqmessages);}';
+	}
+
+	/**
 	 * Check if a field has a variable HTML ID
 	 *
 	 * @since 2.03.07

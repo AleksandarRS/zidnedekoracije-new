@@ -6,16 +6,52 @@ h1 {
 	color: $secondary-color;
 	font-size: $font-size-h1;
 	font-weight: normal;
+	@include max-mq($lt) {
+		font-size: $font-size-h1 - 2px;
+	}
+	@include max-mq($md) {
+		font-size: $font-size-h1 - 3px;
+	}
+	@include max-mq($sm) {
+		font-size: $font-size-h1 - 6px;
+	}
+	@include max-mq($ip) {
+		font-size: $font-size-h1 - 7px;
+	}
+	@include max-mq($xs) {
+		font-size: $font-size-h1 - 8px;
+	}
 }
 h2 {
 	color: $secondary-color;
 	font-size: $font-size-h2;
 	font-weight: normal;
+	@include max-mq($md) {
+		font-size: $font-size-h2 - 3px;
+	}
+	@include max-mq($sm) {
+		font-size: $font-size-h2 - 6px;
+	}
+	@include max-mq($sm) {
+		font-size: $font-size-h2 - 6px;
+	}
+	@include max-mq($ip) {
+		font-size: $font-size-h2 - 8px;
+	}
+	@include max-mq($xs) {
+		font-size: $font-size-h2 - 10px;
+	}
 }
 h3 {
 	color: $secondary-color;
 	font-size: $font-size-h3;
 	font-weight: normal;
+	@include max-mq($md) {
+		font-size: $font-size-h3 - 3px;
+	}
+	@include max-mq($sm) {
+		font-size: $font-size-h3 - 6px;
+	}
 }
 h4 {
 	color: $secondary-color;

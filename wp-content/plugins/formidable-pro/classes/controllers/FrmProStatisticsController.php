@@ -334,7 +334,7 @@ class FrmProStatisticsController {
 				$mean = ( $total / $count );
 				$stat = 0.0;
 				foreach ( $meta_values as $i ) {
-					$stat += pow( $i - $mean, 2 );
+					$stat += pow( floatval( $i ) - $mean, 2 );
 				}
 
 				if ( $count > 1 ) {

@@ -2,8 +2,6 @@
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 (function () {
 	function r(e, n, t) {
 		function o(i, f) {
@@ -163,18 +161,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			}
 
 		};
-	}, { "../site/global": 6 }], 2: [function (require, module, exports) {
+	}, { "../site/global": 8 }], 2: [function (require, module, exports) {
 		'use strict';
 
 		$ = require('jquery');
 
 		var Navigation = require('./core/navigation');
 		var equalheight = require('./site/equalheight');
+		var accordion = require('./site/accordion');
 		var toggle = require('./site/toggle');
 		var tabs = require('./site/tabs');
 		var slick = require('./site/slick');
 		var smoothscroll = require('./site/smoothscroll');
 		var featherlight = require('./site/featherlight');
+		var backtotop = require('./site/backtotop');
 		var example = require('./site/example');
 
 		jQuery(function () {
@@ -200,6 +200,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			slick.init();
 
 			/**
+   * Initialize accordion module
+   */
+			accordion.init();
+
+			/**
     * Initialize toggle module
     */
 			toggle.init();
@@ -215,11 +220,102 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			featherlight.init();
 
 			/**
+   * Initialize backtotop module
+   */
+			backtotop.init();
+
+			/**
     * Initialize sample module
     */
 			example.init();
 		});
-	}, { "./core/navigation": 1, "./site/equalheight": 3, "./site/example": 4, "./site/featherlight": 5, "./site/slick": 7, "./site/smoothscroll": 8, "./site/tabs": 9, "./site/toggle": 10, "jquery": 13 }], 3: [function (require, module, exports) {
+	}, { "./core/navigation": 1, "./site/accordion": 3, "./site/backtotop": 4, "./site/equalheight": 5, "./site/example": 6, "./site/featherlight": 7, "./site/slick": 9, "./site/smoothscroll": 10, "./site/tabs": 11, "./site/toggle": 12, "jquery": 15 }], 3: [function (require, module, exports) {
+		"use strict";
+
+		// const Global = require('./global');
+
+		// let	_this;
+
+		var _this = module.exports = {
+
+			/*-------------------------------------------------------------------------------
+   	# Cache dom and strings
+   -------------------------------------------------------------------------------*/
+			$dom: {
+				accordionLink: $('.set > .accordion-cta-link')
+			},
+
+			vars: {},
+
+			/*-------------------------------------------------------------------------------
+   	# Initialize
+   -------------------------------------------------------------------------------*/
+			init: function init() {
+				if (_this) {
+
+					this.$dom.accordionLink.on("click", function (e) {
+						e.preventDefault();
+						if ($(this).hasClass("active")) {
+							$(this).removeClass("active");
+							$(this).siblings(".accordion-content").slideUp(500);
+							$(".set > .accordion-cta-link i").removeClass("icon-angle-up").addClass("icon-angle-down");
+						} else {
+							$(".set > .accordion-cta-link i").removeClass("icon-angle-up").addClass("icon-angle-down");
+							$(this).find("i").removeClass("icon-angle-down").addClass("icon-angle-up");
+							$(".set > .accordion-cta-link").removeClass("active");
+							$(this).addClass("active");
+							$(".accordion-content").slideUp(500);
+							$(this).siblings(".accordion-content").slideDown(500);
+						}
+					});
+				}
+			}
+
+		};
+	}, {}], 4: [function (require, module, exports) {
+		"use strict";
+
+		// const Global = require('./global');
+
+		// let	_this;
+
+		var _this = module.exports = {
+
+			/*-------------------------------------------------------------------------------
+   	# Cache dom and strings
+   -------------------------------------------------------------------------------*/
+			$dom: {
+				backToTop: $('#toTop'),
+				toggleSearchIcon: $('.toggle-icon')
+			},
+
+			vars: {},
+
+			/*-------------------------------------------------------------------------------
+   	# Initialize
+   -------------------------------------------------------------------------------*/
+			init: function init() {
+				if (_this) {
+					$(window).scroll(function () {
+						if ($(this).scrollTop()) {
+							$('#toTop').fadeIn();
+						} else {
+							$('#toTop').fadeOut();
+						}
+					});
+					// this.$dom.backToTop.click(function () {
+					// 	console.log('clicked');
+					// 	$("html, body").animate({scrollTop: 0}, 1000);
+					// });
+					this.$dom.backToTop.click(function (e) {
+						e.preventDefault();
+						$("html, body").animate({ scrollTop: 0 }, 1000);
+					});
+				}
+			}
+
+		};
+	}, {}], 5: [function (require, module, exports) {
 		"use strict";
 
 		/**  
@@ -335,7 +431,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				_this.render();
 			}
 		};
-	}, { "./global": 6 }], 4: [function (require, module, exports) {
+	}, { "./global": 8 }], 6: [function (require, module, exports) {
 		"use strict";
 
 		// const Global = require('./global');
@@ -361,7 +457,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			}
 
 		};
-	}, {}], 5: [function (require, module, exports) {
+	}, {}], 7: [function (require, module, exports) {
 		"use strict";
 
 		/**  
@@ -394,7 +490,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				this.$dom.lightbox.featherlightGallery();
 			}
 		};
-	}, { "featherlight/src/featherlight": 12, "featherlight/src/featherlight.gallery": 11 }], 6: [function (require, module, exports) {
+	}, { "featherlight/src/featherlight": 14, "featherlight/src/featherlight.gallery": 13 }], 8: [function (require, module, exports) {
 		// "use strict";
 		var Global = module.exports = {
 
@@ -545,7 +641,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 		};
 
 		Global.privateFunctions.init();
-	}, {}], 7: [function (require, module, exports) {
+	}, {}], 9: [function (require, module, exports) {
 		"use strict";
 
 		/**  
@@ -585,7 +681,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
    	# Initialize
    -------------------------------------------------------------------------------*/
 			init: function init() {
-				var _$dom$slickSliderSing;
 
 				// this.$dom.slickSlider.slick({
 				// 	slidesToScroll: 1,
@@ -688,11 +783,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				// });
 
 
-				this.$dom.slickSliderSingleMain.slick((_$dom$slickSliderSing = {
-					autoplay: false,
+				this.$dom.slickSliderSingleMain.slick({
 					speed: 800,
-					arrows: false
-				}, _defineProperty(_$dom$slickSliderSing, "autoplay", true), _defineProperty(_$dom$slickSliderSing, "asNavFor", ".single-page-thumbnail-slider"), _$dom$slickSliderSing));
+					arrows: false,
+					autoplay: true,
+					asNavFor: ".single-page-thumbnail-slider"
+				});
 				this.$dom.slickSliderSingleThumb.slick({
 					slidesToShow: 4,
 					speed: 800,
@@ -700,11 +796,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 					asNavFor: ".single-page-main-slider",
 					prevArrow: "<button type='button' class='slick-prev pull-left'><i class='icon icon-arrow-left' aria-hidden='true'></i></button>",
 					nextArrow: "<button type='button' class='slick-next pull-right'><i class='icon icon-arrow-right' aria-hidden='true'></i></button>",
-					focusOnSelect: true
+					focusOnSelect: true,
+					responsive: [{
+						breakpoint: 1260,
+						settings: {
+							slidesToShow: 3
+						}
+					}, {
+						breakpoint: 767,
+						settings: {
+							slidesToShow: 4
+						}
+					}, {
+						breakpoint: 580,
+						settings: {
+							slidesToShow: 3
+						}
+					}, {
+						breakpoint: 420,
+						settings: {
+							slidesToShow: 2
+						}
+					}]
 				});
 			}
 		};
-	}, { "slick-carousel": 14 }], 8: [function (require, module, exports) {
+	}, { "slick-carousel": 16 }], 10: [function (require, module, exports) {
 		"use strict";
 
 		// const Global = require('./global');
@@ -772,7 +889,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			}
 
 		};
-	}, {}], 9: [function (require, module, exports) {
+	}, {}], 11: [function (require, module, exports) {
 		"use strict";
 
 		{/* <div class="tabs">
@@ -849,7 +966,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			}
 
 		};
-	}, {}], 10: [function (require, module, exports) {
+	}, {}], 12: [function (require, module, exports) {
 		"use strict";
 
 		// const Global = require('./global');
@@ -865,7 +982,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				toggleSearchIcon: $('.toggle-icon'),
 
 				toggleOrderForm: $('#order-product-button'),
-				toggleOrderFormClose: $('.order-product-close-button')
+				toggleOrderFormClose: $('.order-product-close-button'),
+
+				accordionLink: $('.set > .accordion-cta-link')
 			},
 
 			vars: {},
@@ -877,10 +996,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				if (_this) {
 					this.$dom.toggleOrderForm.click(function () {
 						// $( this ).parent('.hero-decription-icon-animate-wrap').toggleClass( "toggled-content" );
-						$(this).parents('.single-post-product-content-wrapper').find('#order-form').slideToggle("slow");
+						$(this).parents('.single-post-product-content-wrapper').find('#order-form').addClass("order-form-activated").slideToggle("slow");
 					});
 					this.$dom.toggleOrderFormClose.click(function () {
-						$(this).parents('.single-post-product-content-wrapper').find('#order-form').slideToggle("slow");
+						$(this).parents('.single-post-product-content-wrapper').find('#order-form').removeClass("order-form-activated").slideToggle("slow");
 					});
 					this.$dom.toggleSearchIcon.click(function () {
 						$(this).parents('.site-header').toggleClass("search-opened");
@@ -895,7 +1014,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 			});
 			jQuery("body").css("overflow-y", "visible");
 		});
-	}, {}], 11: [function (require, module, exports) {
+	}, {}], 13: [function (require, module, exports) {
 		/**
    * Featherlight Gallery – an extension for the ultra slim jQuery lightbox
    * Version 1.7.14-UMD - http://noelboss.github.io/featherlight/
@@ -1086,7 +1205,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				FeatherlightGallery._onReady();
 			});
 		});
-	}, { "jquery": 13 }], 12: [function (require, module, exports) {
+	}, { "jquery": 15 }], 14: [function (require, module, exports) {
 		/**
    * Featherlight - ultra slim jQuery lightbox
    * Version 1.7.14-UMD - http://noelboss.github.io/featherlight/
@@ -1764,7 +1883,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				Featherlight._onReady();
 			});
 		});
-	}, { "jquery": 13 }], 13: [function (require, module, exports) {
+	}, { "jquery": 15 }], 15: [function (require, module, exports) {
 		/*!
    * jQuery JavaScript Library v3.4.1
    * https://jquery.com/
@@ -11899,7 +12018,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 			return jQuery;
 		});
-	}, {}], 14: [function (require, module, exports) {
+	}, {}], 16: [function (require, module, exports) {
 		/*
        _ _      _       _
    ___| (_) ___| | __  (_)___
@@ -14653,4 +14772,4 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 				return _;
 			};
 		});
-	}, { "jquery": 13 }] }, {}, [2]);
+	}, { "jquery": 15 }] }, {}, [2]);

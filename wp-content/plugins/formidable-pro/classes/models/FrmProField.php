@@ -25,6 +25,16 @@ class FrmProField {
 					$field_data['field_options']['form_select'] = self::create_repeat_form( 0, array( 'parent_form_id' => $field_data['form_id'], 'field_name' => $field_data['name'] ) );
 				}
 				break;
+			case 'file':
+				$field_data['field_options']['restrict'] = 1;
+				if ( ! $field_data['field_options']['ftypes'] ) {
+					$field_data['field_options']['ftypes'] = array(
+						'jpg|jpeg|jpe' => 'image/jpeg',
+						'png'          => 'image/png',
+						'gif'          => 'image/gif',
+					);
+				}
+				break;
 		}
 		return $field_data;
 	}

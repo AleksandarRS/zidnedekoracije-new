@@ -2,8 +2,17 @@
     background-color: $gray-200;
     border-top: 1px solid $secondary-color;
     padding-top: 72px;
+    @include max-mq ($tab) {
+        padding-top: 60px;
+    }
+    @include max-mq ($sm) {
+        padding-top: 35px;
+    }
     .widget-wrapper {
         padding-bottom: 35px;
+        @include max-mq ($sm) {
+            padding-bottom: 10px;
+        }
         li {
             padding-bottom: 7px;
         }
@@ -30,12 +39,21 @@
     background-color: $gray-200;
     border-top: 1px solid $secondary-color;
     padding: 15px;
+    @include max-mq ($mb) {
+        padding: 20px 15px;
+    }
     .footer-copyright {
         display: flex;
         justify-content: space-between;
+        @include max-mq ($mb) {
+            display: block;
+            text-align: center;
+        }
         p {
             margin: 0;
-
+            @include max-mq ($mb) {
+                margin-bottom: 15px;
+            }
         }
     }
 }

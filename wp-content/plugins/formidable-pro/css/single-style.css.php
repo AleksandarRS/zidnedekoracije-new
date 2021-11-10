@@ -269,7 +269,7 @@ if ( isset( $settings['progress_border_color'] ) && $settings['progress_border_c
 }
 
 <?php if ( ! empty( $bg_image_url ) ) { ?>
-	:root, .frm_wrap {
+	.<?php echo esc_html( $settings['style_class'] ); ?> .frm_form_fields > fieldset:before {
 		--bg-image-url: url( '<?php echo esc_html( $bg_image_url ); ?>' );
 	}
 

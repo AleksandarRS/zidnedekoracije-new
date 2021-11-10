@@ -33,7 +33,7 @@
         .testimonials-slider & {
             left: calc(50% - 135px);
             @include max-mq ($mac) {
-                right: calc(50% - 65px);
+                left: calc(50% - 50px);
             }
         }
         .instructions-slider & {
@@ -53,7 +53,7 @@
         .testimonials-slider & {
             right: calc(50% + 45px);
             @include max-mq ($mac) {
-                right: calc(50% - 65px);
+                right: calc(50% - 50px);
             }
         }
         .instructions-slider & {
