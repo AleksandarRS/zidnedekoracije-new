@@ -63,7 +63,7 @@ function mwns_register_custom_taxonomy() {
     $args = array(
         'labels' => $labels,
         'hierarchical'  => true,
-        'public'        => false,
+        'public'        => true,
         'show_admin_column' => true,
 	);
 	

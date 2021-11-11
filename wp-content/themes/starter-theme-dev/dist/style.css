@@ -7516,6 +7516,13 @@ html.with-featherlight {
   padding-bottom: 100px;
 }
 
+@media (max-width: 1440px) {
+  .error-404,
+  .not-found {
+    padding: 75px 15px;
+  }
+}
+
 .site-content .search-form i {
   cursor: pointer;
 }
@@ -7528,6 +7535,18 @@ html.with-featherlight {
   font-size: 68px;
 }
 
+@media (max-width: 860px) {
+  .site-content .search-form .search-field {
+    width: 70%;
+  }
+}
+
+@media (max-width: 645px) {
+  .site-content .search-form .search-field {
+    font-size: 38px;
+  }
+}
+
 .site-content .search-form .submit-button-search {
   background-color: transparent;
   border: none;
@@ -7536,6 +7555,12 @@ html.with-featherlight {
   -webkit-transition: color 0.5s;
   -o-transition: color 0.5s;
   transition: color 0.5s;
+}
+
+@media (max-width: 645px) {
+  .site-content .search-form .submit-button-search {
+    font-size: 38px;
+  }
 }
 
 .site-content .search-form .submit-button-search:hover {

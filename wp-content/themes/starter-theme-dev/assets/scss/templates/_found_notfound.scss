@@ -10,6 +10,12 @@
             border-right: none;
             border-top: none;
             font-size: $font-size-large + 50;
+            @include max-mq ($tab + 60) {
+                width: 70%;
+            }
+            @include max-mq ($mb_p) {
+                font-size: $font-size-large + 20;
+            }
         }
         .submit-button-search {
             background-color: transparent;
@@ -17,6 +23,9 @@
             color: $tertiary-color;
             font-size: $font-size-large + 50;
             transition: color 0.5s;
+            @include max-mq ($mb_p) {
+                font-size: $font-size-large + 20;
+            }
             &:hover {
                 color: $primary-color;
             }

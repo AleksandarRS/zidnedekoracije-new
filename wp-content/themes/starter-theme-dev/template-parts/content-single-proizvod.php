@@ -89,7 +89,17 @@ $full_width_section = get_field('full_width_section');
 			
 			<div class="single-page-main-content single-page-entry-content<?php if( have_rows('page_slider_images') ): ?> col-md-6<?php  else : ?> col-md-12<?php endif;?>">
 				<header class="main-title-section-heading entry-header">
-					<span class="title-label"><?php echo $slider_short_description; ?></span>
+					<?php if( $slider_short_description ): ?>
+						<span class="title-label"><?php echo $slider_short_description; ?></span>
+					<?php  else : ?>
+						<?php $term_list = wp_get_post_terms($post->ID, 'kategorija-proizvoda', ['fields' => 'all']);
+							foreach($term_list as $term) {
+								if( get_post_meta($post->ID, '_yoast_wpseo_primary_kategorija-proizvoda',true) == $term->term_id ) { ?>
+									<span class="title-label"><?php print $term->name ; ?></span>
+								<?php }
+							}
+						?>
+					<?php endif;?>
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 				</header><!-- .entry-header -->
 				<div class="entry-content">
