@@ -1,6 +1,7 @@
 <?php
 $main_title = get_sub_field('main_title');
 $link = get_sub_field('see_all_products_link');
+
 // $choose_most_popular_products = get_sub_field('choose_most_popular_products');
 ?>
 <section class="most-popular-products-section all-products-section">
@@ -84,6 +85,14 @@ $link = get_sub_field('see_all_products_link');
 
                                         <h2 class="product-card-title"><?php the_title(); ?></h2>
                                         <div class="product-card-description"><?php the_excerpt(); ?></div>
+                                        <?php $insert_your_price = get_field('insert_your_price');
+                                         if( $insert_your_price ): ?>
+                                            <div class="price-info">
+                                                <div class="price-field-element">
+                                                    <p><span><?php _e('Cena: ','mwns'); ?></span><?php echo $insert_your_price; ?><span><?php _e(' RSD','mwns'); ?></span></p>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
                                         <span class="link link-tertiary link-arrow"><span><?php _e('Više o proizvodu', 'mwns') ?></span> <i class="icon icon-arrow-right"></i></span>
                                     </a>
                                 </div>

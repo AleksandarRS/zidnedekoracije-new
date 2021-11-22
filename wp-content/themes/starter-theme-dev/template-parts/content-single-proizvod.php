@@ -17,6 +17,8 @@ $add_video_link_f = get_field('add_video_link_f');
 $add_video_link_ff = get_field('add_video_link_ff');
 
 $page_main_content_description = get_field('page_main_content_description');
+$product_description = get_field('product_description');
+$insert_your_price = get_field('insert_your_price');
 
 $order_product_description = get_field('order_product_description');
 
@@ -101,9 +103,38 @@ $full_width_section = get_field('full_width_section');
 						?>
 					<?php endif;?>
 					<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+
+					<?php if( $order_product_option == true ): ?>
+						<div class="stocks-information">
+							<p><span><?php _e('Ima na stanju','mwns') ?></span></p>
+						</div>
+					<?php else: ?>
+						<div class="stocks-information">
+							<p><span><?php _e('Nema na stanju','mwns') ?></span></p>
+						</div>
+					<?php endif; ?>
+
+					
+
 				</header><!-- .entry-header -->
 				<div class="entry-content">
 					<?php echo $page_main_content_description; ?>
+					<?php if( $product_description || $insert_your_price ): ?>
+						<div class="product-description-price-wrapper">
+							<?php if( $product_description ): ?>
+								<div class="product-description-element">
+									<h5 class="product-description-title"><?php echo $product_description; ?><span> RSD</span></h5>
+								</div>
+							<?php endif; ?>
+
+							<?php if( $insert_your_price ): ?>
+								<div class="price-field-element">
+									<p><?php _e('Cena: ','mwns'); ?><?php echo $insert_your_price; ?><span><?php _e(' RSD','mwns'); ?></span></p>
+								</div>
+							<?php endif; ?>
+						</div>
+					<?php endif; ?>
+
 					<?php 
 						if( $add_video_link ): 
 							$link_url = $add_video_link['url'];
@@ -177,8 +208,6 @@ $full_width_section = get_field('full_width_section');
 							<?php endif;?>
 						</div>
 					<?php endif; ?>
-
-					
 
 					<?php if( $order_product_option == true ): ?>
 						<div class="single-page-button-wrap order-product-button">
@@ -397,42 +426,101 @@ $full_width_section = get_field('full_width_section');
 			<?php endif;?>
 
 
-			<!-- <div class="all-products-section col-md-12">
-    			<div class="all-products-section-wrapper"> -->
-                    <!-- <div class="main-title-section-heading button-heading-wrap">
+			<div class="all-products-section col-md-12">
+    			<div class="all-products-section-wrapper">
+                    <div class="main-title-section-heading button-heading-wrap">
                         <header class="entry-header">
-                            <span class="title-label"><?php // _e('Proizvodi', 'mwns'); ?></span>
-                            <h1 class="entry-title"><?php // _e('Proizvodi iz iste kategorije', 'mwns'); ?></h1>
+                            <span class="title-label"><?php _e('Proizvodi', 'mwns'); ?></span>
+                            <h1 class="entry-title"><?php _e('Proizvodi iz iste kategorije', 'mwns'); ?></h1>
                         </header>
                         <div class="see-all-items most-popular-posts-button see-all-posts">
                             <div class="posts-read-more read-more-button-wrap">
                                 <?php 
-                                    // if( $link ): 
-                                    //     $link_url = $link['url'];
-                                    //     $link_title = $link['title'];
-                                    //     $link_target = $link['target'] ? $link['target'] : '_self';
+                                    if( $link ): 
+                                        $link_url = $link['url'];
+                                        $link_title = $link['title'];
+                                        $link_target = $link['target'] ? $link['target'] : '_self';
                                     ?>
-                                    <a class="button button-tertiary button-arrow" href="<?php // echo esc_url( $link_url ); ?>" target="<?php // echo esc_attr( $link_target ); ?>"><?php // echo esc_html( $link_title ); ?><i class="icon icon-arrow-right"></i></a>
-                                <?php // endif; ?>
+                                    <a class="button button-tertiary button-arrow" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?><i class="icon icon-arrow-right"></i></a>
+                                <?php endif; ?>
                             </div>
                         </div> 
-                    </div> -->
+                    </div>
 
 					
+					
+					<?php
+							// get the custom post type's taxonomy terms
 
-
-								<?php
+							$cat_id = get_post_meta($post->ID, '_yoast_wpseo_primary_kategorija-proizvoda',true);
+					
+							$args = array(
+								'post_type' => 'proizvod',
+								'post_status' => 'publish',
+								'posts_per_page' => 4, // you may edit this number
+								'orderby' => 'rand',
+								'post__not_in' => array ( $post->ID ),
+								'update_post_meta_cache' => false,
+								'update_post_term_cache' => false,
+								'ignore_sticky_posts' => true,
+								'tax_query' => array(
+									array(
+										'taxonomy' => 'kategorija-proizvoda',
+										'field' => 'id',
+										'terms' => [$cat_id]
+									)
+								)
+							);
+							$related_items = new WP_Query( $args );
+							// loop over query
+							if ( $related_items->have_posts() ) : ?>
 								
-								
-								?>	
+								<div class="product-cards-wrapper category-cards-wrapper col-md-12">
+									<div class="row category-row">
 							
-					
+										<?php while ( $related_items->have_posts() ) : $related_items->the_post(); ?>
+										
+											<div class="col-md-3 col-sm-6 product-card-item category-card-item">
+												<a class="category-card-link" href="<?php the_permalink(); ?>">
+													<div class="term-featured-image-wrap">
+														<?php if ( has_post_thumbnail() ) { ?>
+															<div class="term-featured-image" style="background-image: url('<?php echo get_the_post_thumbnail_url(get_the_ID()); ?>')">
+															</div>
+														<?php } else { ?>
+															<div class="term-featured-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/default-image.jpg')">
+															</div>
+														<?php } ?>
+													</div>
+													<h2 class="product-card-title"><?php the_title(); ?></h2>
+													<div class="product-card-description"><?php the_excerpt(); ?></div>
+													<?php $insert_your_price = get_field('insert_your_price');
+													if( $insert_your_price ): ?>
+														<div class="price-info">
+															<div class="price-field-element">
+																<p><span><?php _e('Cena: ','mwns'); ?></span><?php echo $insert_your_price; ?><span><?php _e(' RSD','mwns'); ?></span></p>
+															</div>
+														</div>
+													<?php endif; ?>
+													<span class="link link-tertiary link-arrow"><span><?php _e('Više o proizvodu', 'mwns') ?></span> <i class="icon icon-arrow-right"></i></span>
+												</a>
+											</div>
+							
+										<?php endwhile; ?>
+							
+									</div>
+								</div>
+
+							<?php endif;
+							// Reset Post Data
+							wp_reset_postdata();
+						?>
+
 
 					<?php //dynamic_sidebar( 'single-product-widget' ); ?>
 					
 
-				<!-- </div>  --> <!-- /.all-products-section-wrapper -->
-			<!-- </div>  --> <!-- /.all-products-section col-md-12 -->
+				</div>  <!-- /.all-products-section-wrapper -->
+			</div>  <!-- /.all-products-section col-md-12 -->
 
 		</div> <!-- /.row row-single-page single-post-product-content-wrapper -->
 	</div><!-- .container -->

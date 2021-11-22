@@ -22,6 +22,7 @@
 <?php 
 	$header_contact_title = get_field('header_contact_title', 'option');
 	$header_contact_number = get_field('header_contact_number', 'option');
+	$header_contact_link = get_field('header_contact_link', 'option');
 
 	$header_contact_address_title = get_field('header_contact_address_title', 'option');
 	$header_contact_address = get_field('header_contact_address', 'option');
@@ -66,13 +67,13 @@
 						<?php if ( $header_contact_title || $header_contact_number ) : ?>
 							<div class="header-contact-phone">
 								<span><?php echo $header_contact_title; ?></span>
-								<a href="<?php echo $header_contact_number; ?>"><?php echo $header_contact_number; ?></a>
+								<a href="tel:<?php echo $header_contact_number; ?>"><?php echo $header_contact_number; ?></a>
 							</div>
 						<?php endif; ?>
-						<?php if ( $header_contact_address_title || $header_contact_address ) : ?>
+						<?php if ( $header_contact_address_title || $header_contact_address || $header_contact_link ) : ?>
 							<div class="header-contact-address">
 								<span><?php echo $header_contact_address_title; ?></span>
-								<span><?php echo $header_contact_address; ?></span>
+								<span><a href="<?php echo $header_contact_link; ?>" target="_blank"><?php echo $header_contact_address; ?></a></span>
 							</div>
 						<?php endif; ?>
 					</div>

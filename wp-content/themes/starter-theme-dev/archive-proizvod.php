@@ -85,7 +85,7 @@ get_header(); ?>
                                                             <div class="term-featured-image" style="background-image: url('<?php the_field('category_image', $term); ?>')">
                                                             </div>
                                                         <?php } else { ?>
-                                                            test slika ovde
+                                                            <div class="term-featured-image" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/default-image.jpg')">
                                                         <?php } ?>
                                                     </div>
                                                     <h2 class="product-card-title"><?php echo $term->name; ?></h2>

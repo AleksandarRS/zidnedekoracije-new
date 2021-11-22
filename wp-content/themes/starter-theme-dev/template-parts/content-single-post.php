@@ -16,7 +16,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php if ( $top_main_image ) : ?>
 		<div class="col-md-12">
-			<div class="single-post-main-image-wrapper" style="background-image: url('<?php echo esc_url($top_main_image['url']); ?>'')" role="img" aria-label="<?php echo esc_attr($top_main_image['alt']); ?>">
+			<div class="single-post-main-image-wrapper" style="background-image: url('<?php echo esc_url($top_main_image['url']); ?>')">
 			</div> <!-- /.single-post-main-image-wrapper -->
 		</div>
 	<?php else: ?>

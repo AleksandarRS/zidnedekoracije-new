@@ -1,0 +1,13 @@
+.price-info {
+    p {
+        color: $secondary-color-500;
+        font-size: $font-size-large - 1;
+        margin-bottom: 0;
+    }
+    span {
+        &:first-of-type {
+            color: $tertiary-color;
+        }
+    }
+
+}

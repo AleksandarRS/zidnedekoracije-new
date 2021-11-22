@@ -124,6 +124,14 @@ get_header(); ?>
                                                         </div>
                                                         <h2 class="product-card-title"><?php the_title(); ?></h2>
                                                         <div class="product-card-description"><?php the_excerpt(); ?></div>
+                                                        <?php $insert_your_price = get_field('insert_your_price');
+                                                        if( $insert_your_price ): ?>
+                                                            <div class="price-info">
+                                                                <div class="price-field-element">
+                                                                    <p><span><?php _e('Cena: ','mwns'); ?></span><?php echo $insert_your_price; ?><span><?php _e(' RSD','mwns'); ?></span></p>
+                                                                </div>
+                                                            </div>
+                                                        <?php endif; ?>
                                                         <span class="link link-tertiary link-arrow"><span><?php _e('Više o proizvodu', 'mwns') ?></span> <i class="icon icon-arrow-right"></i></span>
                                                     </a>
                                                 </div>

@@ -30,9 +30,21 @@
                                                             <header class="products-title entry-header">
                                                                 <span class="title-label"><?php _e('Proizvod', 'mwns') ?></span>
                                                                 <h2 class="entry-title"><?php the_title(); ?></h2>
-                                                                <div class="products-description entry-content">
-                                                                    <?php echo $slider_short_description; ?>
-                                                                </div>
+                                                                <?php if( $slider_short_description ): ?>
+                                                                    <div class="products-description entry-content">
+                                                                        <?php echo $slider_short_description; ?>
+                                                                    </div>
+                                                                <?php else: ?>
+                                                                    <div class="products-description entry-content">
+                                                                        <?php $term_list = wp_get_post_terms($post->ID, 'kategorija-proizvoda', ['fields' => 'all']);
+                                                                            foreach($term_list as $term) {
+                                                                                if( get_post_meta($post->ID, '_yoast_wpseo_primary_kategorija-proizvoda',true) == $term->term_id ) { ?>
+                                                                                    <?php print $term->name ; ?>
+                                                                                <?php }
+                                                                            }
+                                                                        ?>
+                                                                    </div>
+                                                                <?php endif; ?>
                                                             </header>
                                                         </a>
                                                     </div>

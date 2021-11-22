@@ -39,7 +39,4 @@ function change_page_menu_classes($menu)
 }
 add_filter('nav_menu_css_class', 'change_page_menu_classes', 10, 2);
 
-
-
-
 ?>
